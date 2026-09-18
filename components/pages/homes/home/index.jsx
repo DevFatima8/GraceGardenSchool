@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect, useState } from 'react';
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import About from "./about";
@@ -14,19 +15,38 @@ import BannerOne from "./banner";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
 const HomeOne = () => {
+    const [content, setContent] = useState(null);
+
+    useEffect(() => {
+        fetch('/api/home-content')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    const contentMap = {};
+                    data.data.forEach(item => {
+                        contentMap[item.section_id] = item;
+                    });
+                    setContent(contentMap);
+                }
+            })
+            .catch(console.error);
+    }, []);
+
+    if (!content) return <div>Loading...</div>;
+
     return (
         <div>
-            <SEO pageTitle='Main Business' />
+            <SEO pageTitle='Grace Garden School - Home' />
             <HeaderOne />
-            <BannerOne />
-            <About />
-            <Services />
-            <CtaArea />
-            <Experience />
-            <Portfolio />
-            <Testimonial />
-            <GetInTouch />
-            <Blog />
+            <BannerOne data={content.hero} />
+            <About data={content.about} />
+            <Services data={content.academics} />
+            <Experience data={content.faculty} />
+            <CtaArea data={content.admissions} />
+            <Portfolio data={content.facilities} />
+            <Testimonial data={content.achievements} />
+            <GetInTouch data={content.extracurricular} />
+            <Blog data={content.future} />
             <FooterOne />
             <ScrollToTop />
         </div>

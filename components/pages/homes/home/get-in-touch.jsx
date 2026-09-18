@@ -2,16 +2,16 @@
 import Link from "next/link";
 import bgImage from "../../../../public/assets/img/pages/getInTouch.jpg";
 
-const GetInTouch = () => {
+const GetInTouch = ({ data }) => {
     const touchContent = {
-        subtitle: 'Get In Touch',
-        title: 'Free Consultation',
-        title2: 'We serving 30% Of Global 600 Companies',
-        des: 'Aenean A Felis Consequat, Varius Orci Ut, Varius Metus. Donec Iaculis Leo Turpis, Vitae Sagittis Massa Luctus Feugiat. Donec Vel Sodales Dui,',
+        subtitle: data?.subtitle || 'Get In Touch',
+        title: data?.title || 'Free Consultation',
+        title2: 'We serve our students globally',
+        des: data?.description || 'Aenean A Felis Consequat, Varius Orci Ut, Varius Metus. Donec Iaculis Leo Turpis...',
     }
     return (
         <>
-            <div className="getIn__touch section-padding" style={{backgroundImage: `url(${bgImage.src})`}}>
+            <div className="getIn__touch section-padding" style={{backgroundImage: `url(${data?.image_url || bgImage.src})`}}>
                 <img className="getIn__touch-shape left-right-animate2" src="assets/img/shape/getInTouch.png" alt="shape" />
                 <div className="container">
                     <div className="row">

@@ -8,15 +8,15 @@ import avatar from "../../../../public/assets/img/avatar/avatar-1.jpg";
 import Count from "../../common/count";
 import Link from "next/link";
 
-const About = () => {
+const About = ({ data }) => {
     const aboutData = {
-        count: 32,
-        exp: 'Years Experience Our Company',
-        subtitle: 'About Company',
-        title: 'Our Skilled Team Grow Your Business.',
-        description: 'Aliquam volutpat diam a orci euismod ornare. Suspendisse quis massa justo. Suspendisse tortor lacus, tincidunt ut ex a, pretium lobortis sapien. Vestibulum rutrum pharetra ex,',
-        author_name: 'Nguyen, Shane',
-        author_sub: 'Founder CEO',
+        count: 1,
+        exp: 'Years Experience Our School',
+        subtitle: data?.subtitle || 'School Profile',
+        title: data?.title || 'Grace Garden School',
+        description: data?.description || 'Grace Garden School is a forward-thinking educational institution...',
+        author_name: 'Principal',
+        author_sub: 'Head of School',
         btn_title: 'Discover More',
         btn_link: '/about'
     }
@@ -27,8 +27,7 @@ const About = () => {
                     <div className="col-xl-6 col-lg-6 lg-mb-30">
                         <div className="about__one-left">
                             <div className="about__one-left-image">
-                                <img className="one" src={image1.src} alt="about-image" />
-                                <img className="two" src={image2.src} alt="about-image" />
+                                <img className="one" src={data?.image_url || image1.src} alt="about-image" />
                             </div>
                             <div className="about__one-left-experience">
                                 <h1><Count number={aboutData?.count}/>+</h1>
@@ -59,9 +58,9 @@ const About = () => {
                             </div>
                             <div className="about__one-right-bottom">
                                 <div className="about__one-right-bottom-list">
-                                    <span><i className="far fa-check"></i>Performing market research.</span>
-                                    <span><i className="far fa-check"></i>Providing information to a client.</span>
-                                    <span><i className="far fa-check"></i>Strategic planning.</span>
+                                    <span><i className="far fa-check"></i>Holistic approach to education.</span>
+                                    <span><i className="far fa-check"></i>Character development.</span>
+                                    <span><i className="far fa-check"></i>Extracurricular enrichment.</span>
                                 </div>
                                 <div className="about__one-right-bottom-experience">
                                     <h3><span className="counter">150</span>+</h3>

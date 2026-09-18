@@ -1,58 +1,35 @@
-import avatar1 from "../../public/assets/img/avatar/avatar-1.jpg";
-import avatar2 from "../../public/assets/img/avatar/avatar-2.jpg";
-import avatar3 from "../../public/assets/img/avatar/avatar-3.jpg";
-import avatar4 from "../../public/assets/img/avatar/avatar-4.jpg";
-import avatar5 from "../../public/assets/img/avatar/avatar-5.jpg";
-import avatar6 from "../../public/assets/img/avatar/avatar-6.jpg";
-
 const testimonialData = [
     {
         id: '01',
-        service: 'Services Quality',
-        name: 'Richerd William',
-        position: 'Developer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar1,
+        service: 'Education Quality',
+        name: 'Sarah Ahmed',
+        position: 'Parent',
+        des: 'Grace Garden School has transformed my child’s learning experience. The holistic approach and dedicated teachers are truly remarkable.',
+        avatar: { src: '/uploads/about.jpg' },
     },
     {
         id: '02',
-        service: 'Customer Support',
-        name: 'Sara Albert',
-        position: 'Web Designer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar2,
+        service: 'Extracurricular Support',
+        name: 'Ali Khan',
+        position: 'Alumni',
+        des: 'The sports and extracurricular programs helped me discover my true passions. I am forever grateful to the faculty for their support.',
+        avatar: { src: '/uploads/mission.jpg' },
     },
     {
         id: '03',
-        service: 'Code Quality',
-        name: 'James Millard',
-        position: 'Ui/Ux Designer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar3,
+        service: 'Modern Facilities',
+        name: 'Fatima Bilal',
+        position: 'Student',
+        des: 'The classrooms and library are equipped with the latest technology, making learning interactive and fun everyday.',
+        avatar: { src: '/uploads/facilities.jpg' },
     },
     {
         id: '04',
-        service: 'Design Quality',
-        name: 'Mariah Carey',
-        position: 'Customizer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar4,
-    },
-    {
-        id: '05',
-        service: 'Code Support',
-        name: 'Robert Jonson',
-        position: 'Web Designer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar5,
-    },
-    {
-        id: '06',
-        service: 'Services Quality',
-        name: 'Jessica Brown',
-        position: 'Developer',
-        des: 'Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.',
-        avatar: avatar6,
+        service: 'Community Values',
+        name: 'Usman Tariq',
+        position: 'Local Leader',
+        des: 'Grace Garden School is not just a place of education; it’s a community that fosters respect, ethics, and civic responsibility.',
+        avatar: { src: '/uploads/faculty.jpg' },
     },
 ];
 

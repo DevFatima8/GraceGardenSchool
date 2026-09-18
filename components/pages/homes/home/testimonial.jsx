@@ -28,7 +28,7 @@ const slideControl = {
     }
 };
 
-const Testimonial = () => {
+const Testimonial = ({ data }) => {
 
     return (
         <div className="testimonial__area section-padding">
@@ -38,8 +38,8 @@ const Testimonial = () => {
                 <div className="row mb-70 align-items-end">
                     <div className="col-xl-8 col-lg-8 lg-mb-30">
                         <div className="testimonial__area-title lg-t-center">
-                            <span className="subtitle-one">Real Client Stories</span>
-                            <h2>Customer Experiences</h2>						
+                            <span className="subtitle-one">{data?.subtitle || "Commitment to Excellence"}</span>
+                            <h2>{data?.title || "Achievements and Accolades"}</h2>						
                         </div>
                     </div>
                     <div className="col-xl-4 col-lg-4">
@@ -52,7 +52,7 @@ const Testimonial = () => {
                 <div className="row">
                     <div className="col-xl-12">
                         <Swiper modules={[EffectFade, Autoplay, Navigation]} {...slideControl} >
-                            {testimonialItem?.map((data, id) => (
+                            {testimonialItem?.map((dataItem, id) => (
                                 <SwiperSlide key={id}>
                                     <div className="testimonial__area-item swiper-slide">
                                         <div className="testimonial__area-item-client">
@@ -60,14 +60,14 @@ const Testimonial = () => {
                                                 <i className="fal fa-quote-right"></i>
                                             </div>
                                             <div className="testimonial__area-item-client-image">
-                                                <img src={data.avatar.src} alt="avatar" />
+                                                <img src={dataItem.avatar.src} alt="avatar" />
                                             </div>
                                             <div className="testimonial__area-item-client-title">
-                                                <h5>{data.name}</h5>
-                                                <span className="text-eight">{data.position}</span>
+                                                <h5>{dataItem.name}</h5>
+                                                <span className="text-eight">{dataItem.position}</span>
                                             </div>
                                         </div>
-                                        <p>{data.des}</p>
+                                        <p>{dataItem.des}</p>
                                         <div className="testimonial__area-item-reviews">
                                             <i className="fas fa-star"></i>
                                             <i className="fas fa-star"></i>

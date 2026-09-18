@@ -1,7 +1,7 @@
 import servicesData from "@/components/data/services-data";
 import Social from "@/components/data/social";
 import Link from "next/link";
-import logo from "../../../public/assets/img/logo-2.png";
+import logo from "../../../public/assets/img/logo-2.jpg";
 
 const FooterOne = () => {
     const servicesD = servicesData.slice(0, 4);
@@ -14,7 +14,7 @@ const FooterOne = () => {
                         <div className="col-xl-3 col-md-6 col-sm-7 xl-mb-30">
                             <div className="footer__one-widget">
                                 <div className="footer__one-widget-about">
-                                    <Link href="/"><img src={logo.src} alt="logo" /></Link>
+                                    <Link href="/"><img src={logo.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} /></Link>
                                     <p>Donec quis viverra enim. Integer mi felis, auctor eget magna</p>
                                     <div className="footer__one-widget-about-social">
                                         <Social />

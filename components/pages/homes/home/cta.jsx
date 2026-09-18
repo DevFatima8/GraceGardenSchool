@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CtaArea = () => {
+const CtaArea = ({ data }) => {
     return (
         <>
         <div className="cta__area">
@@ -8,8 +8,8 @@ const CtaArea = () => {
                 <div className="row cta__area-bg align-items-center">
                     <div className="col-xxl-5 col-xl-4">
                         <div className="cta__area-title">
-                            <h2>Get Free Quote</h2>
-                            <span className="text-two">Perfect solution for your company.</span>
+                            <h2>{data?.title || "Admissions"}</h2>
+                            <span className="text-two">{data?.subtitle || "Join the Grace Garden Community"}</span>
                         </div>
                     </div>
                     <div className="col-xxl-7 col-xl-8 pr-0">
@@ -22,7 +22,7 @@ const CtaArea = () => {
                                     <input type="email" name="email" placeholder="Email Address" required />
                                 </div>
                                 <div className="cta__area-form-item">
-                                    <button className="btn-four" type="submit">Get Quote<i className="far fa-chevron-double-right"></i></button>
+                                    <button className="btn-four" type="submit">Contact Us<i className="far fa-chevron-double-right"></i></button>
                                 </div>
                             </form>
                         </div>

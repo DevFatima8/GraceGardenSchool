@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo1 from "../../../../public/assets/img/logo-2.png";
+import logo1 from "../../../../public/assets/img/logo-2.jpg";
 import ResponsiveMenu from "../responsive-menu";
 
 const MobileMenuThree = ({ isOpen, setIsOpen }) => {

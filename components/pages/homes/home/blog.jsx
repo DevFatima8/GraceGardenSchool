@@ -1,11 +1,11 @@
 import blogData from '@/components/data/blog-data';
 import Link from 'next/link';
 
-const Blog = () => {
+const Blog = ({ data }) => {
     const blogItem = blogData.slice(0, 3);
     const blogContent = {
-        subtitle: 'From The Blog',
-        title: 'Blog & Articles',
+        subtitle: data?.subtitle || 'From The Blog',
+        title: data?.title || 'Blog & Articles',
         btn_text: 'See more blog',
         btn_url: '/blog'
     }
@@ -24,13 +24,13 @@ const Blog = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {blogItem?.map((data, id) => (
+                    {blogItem?.map((dataItem, id) => (
                         <div className="col-xl-4 col-lg-6 mt-25" key={id}>
                             <div className="blog__one-item">
                                 <div className="blog__one-item-image">
-                                    <Link href={`/blog/${data.id}`}><img src={data.image.src} alt="blog" /></Link>
+                                    <Link href={`/blog/${dataItem.id}`}><img src={dataItem.image.src} alt="blog" /></Link>
                                     <div className="blog__one-item-image-date">
-                                        <span className="text-three">{data.date}</span>
+                                        <span className="text-three">{dataItem.date}</span>
                                         <span className="text-five">Apr</span>
                                     </div>
                                 </div>
@@ -38,11 +38,11 @@ const Blog = () => {
                                     <div className="blog__one-item-content-meta">
                                         <ul>
                                             <li><Link href="#"><i className="far fa-user"></i>By-Admin</Link></li>
-                                            <li><Link href="#"><i className="far fa-comment-dots"></i>Comments ({data.comment})</Link></li>
+                                            <li><Link href="#"><i className="far fa-comment-dots"></i>Comments ({dataItem.comment})</Link></li>
                                         </ul>
                                     </div>
-                                    <h4><Link href={`/blog/${data.id}`}>{data.title}</Link></h4>
-                                    <p>{data.des}</p>
+                                    <h4><Link href={`/blog/${dataItem.id}`}>{dataItem.title}</Link></h4>
+                                    <p>{dataItem.des}</p>
                                 </div>
                             </div>
                         </div>

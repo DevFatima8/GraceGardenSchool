@@ -2,12 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import servicesData from '@/components/data/services-data';
 
-const Services = () => {
+const Services = ({ data }) => {
     const servicesItem = servicesData.slice(0, 4);
     const servicesContent = {
-        subtitle: 'OUR SOLUTIONS',
-        title: 'Consulting Services',
-        btn_text: 'ALL SERVICES',
+        subtitle: data?.subtitle || 'OUR SOLUTIONS',
+        title: data?.title || 'Consulting Services',
+        btn_text: 'ALL PROGRAMS',
         btn_link: '/services'
     }
     return (

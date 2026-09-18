@@ -6,8 +6,8 @@ import Search from './search';
 import { useEffect, useState } from 'react';
 import SideBar from './offcanvas';
 import MobileMenuOne from './menu_sidebar/menu-one';
-import logo1 from "../../../public/assets/img/logo-1.png";
-import logo2 from "../../../public/assets/img/logo-2.png";
+import logo1 from "../../../public/assets/img/logo-1.jpg";
+import logo2 from "../../../public/assets/img/logo-2.jpg";
 
 const HeaderOne = ({variant}) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -50,8 +50,8 @@ const HeaderOne = ({variant}) => {
                         <div className="header__area-menubar-left">
                             <div className="header__area-menubar-left-logo">
                                 <Link href='/'>
-                                    <img className='dark-n' src={logo1.src} alt='logo' />
-                                    <img className="light-n" src={logo2.src} alt="logo" />
+                                    <img className='dark-n' src={logo1.src} alt='logo' style={{ maxHeight: '80px', width: 'auto' }} />
+                                    <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
                                 </Link>
                             </div>
                         </div>

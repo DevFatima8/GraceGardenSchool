@@ -1,51 +1,44 @@
-import image1 from "../../public/assets/img/portfolio/portfolio-1.jpg";
-import image2 from "../../public/assets/img/portfolio/portfolio-2.jpg";
-import image3 from "../../public/assets/img/portfolio/portfolio-3.jpg";
-import image4 from "../../public/assets/img/portfolio/portfolio-4.jpg";
-import image5 from "../../public/assets/img/portfolio/portfolio-5.jpg";
-import image6 from "../../public/assets/img/portfolio/portfolio-6.jpg";
-
 const portfolioData = [
     {        
-        id: 'revenue-growth',
-        title: 'Revenue Growth',
-        subtitle: 'Design',
-        image: image1,
+        id: 'primary-education',
+        title: 'Primary Education',
+        subtitle: 'Academics',
+        image: { src: '/uploads/academics.jpg' },
         category: "marketing",
     },
     {        
-        id: 'digital-consulting',
-        title: 'Digital Consulting',
-        subtitle: 'Consulting',
-        image: image2,
+        id: 'campus-facilities',
+        title: 'Modern Classrooms',
+        subtitle: 'Facilities',
+        image: { src: '/uploads/facilities.jpg' },
         category: "corporate",
     },
     {        
-        id: 'business-strategy',
-        title: 'Business Strategy',
-        subtitle: 'Finance',
-        image: image3,
+        id: 'sports-festival',
+        title: 'Sports Festival',
+        subtitle: 'Extracurricular',
+        image: { src: '/uploads/extracurricular.jpg' },
         category: "business",
     },
     {        
-        id: 'audit-marketing',
-        title: 'Audit Marketing',
-        subtitle: 'Marketing',
-        image: image4,
+        id: 'community-service',
+        title: 'Community Service',
+        subtitle: 'Achievements',
+        image: { src: '/uploads/achievements.jpg' },
         category: "marketing",
     },
     {        
-        id: 'business-analytics',
-        title: 'Business Analytics',
-        subtitle: 'Corporate',
-        image: image5,
+        id: 'future-expansion',
+        title: 'Campus Expansion',
+        subtitle: 'Future Plans',
+        image: { src: '/uploads/future.jpg' },
         category: "corporate",
     },
     {        
-        id: 'digital-business',
-        title: 'Digital Business',
-        subtitle: 'Finance',
-        image: image6,
+        id: 'admissions-open',
+        title: 'Admissions Open',
+        subtitle: 'Join Us',
+        image: { src: '/uploads/admissions.jpg' },
         category: "business",
     },
 ];

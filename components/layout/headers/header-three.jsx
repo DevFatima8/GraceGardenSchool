@@ -39,8 +39,8 @@ const HeaderThree = () => {
                         <div className="header__area-menubar-left">
                             <div className="header__area-menubar-left-logo">
                                 <Link href='/'>
-                                    <img className='dark-n' src={logo1.src} alt='logo' />
-                                    <img className="light-n" src={logo2.src} alt="logo" />
+                                    <img className='dark-n' src={logo1.src} alt='logo' style={{ maxHeight: '80px', width: 'auto' }} />
+                                    <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
                                 </Link>
                             </div>
                         </div>

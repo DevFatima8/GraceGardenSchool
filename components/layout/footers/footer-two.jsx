@@ -2,7 +2,7 @@
 import Social from "@/components/data/social";
 import Link from "next/link";
 import logo1 from "../../../public/assets/img/logo-4.png";
-import logo2 from "../../../public/assets/img/logo-2.png";
+import logo2 from "../../../public/assets/img/logo-2.jpg";
 import blogData from "@/components/data/blog-data";
 import footerBg from "../../../public/assets/img/pages/subscribe.jpg";
 
@@ -42,8 +42,8 @@ const FooterTwo = () => {
                             <div className="footer__two-widget">
                                 <div className="footer__two-widget-about">
                                     <Link href="/">
-                                        <img className="f_logo" src={logo1.src} alt="logo" />
-                                        <img className="all_f_logo" src={logo2.src} alt="logo" />
+                                        <img className="f_logo" src={logo1.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
+                                        <img className="all_f_logo" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
                                     </Link>
                                     <p>Proin pretium sem libero, nec aliquet augue lobortis in. Phasellus nibh quam, molestie id est sit amet, luctus pulvinar</p>
                                     <div className="footer__two-widget-about-social">

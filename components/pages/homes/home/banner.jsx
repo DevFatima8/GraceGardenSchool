@@ -21,7 +21,7 @@ const slideControl = {
     },
 };
 
-const BannerOne = () => {
+const BannerOne = ({ data }) => {
     const [openVideo, setOpenVideo] = useState(false);
     const openVideoModal = () => {
       setOpenVideo(true);
@@ -31,13 +31,14 @@ const BannerOne = () => {
             <div className="banner__one">
                 <Swiper modules={[EffectFade, Autoplay, Pagination]} {...slideControl} >
                     <SwiperSlide>
-                    <div className="banner__one-image" style={{backgroundImage: `url(${bannerBg1.src})`}}>
+                    <div className="banner__one-image" style={{backgroundImage: `url(${data?.image_url || bannerBg1.src})`}}>
                         <div className="container">
                             <div className="row">
                                 <div className="col-xl-12">
                                     <div className="banner__one-content"> 
-                                        <span>Welcome to Conbix</span>
-                                        <h1>Business consulting advice</h1>
+                                        <span>{data?.subtitle || "Welcome to Grace Garden School"}</span>
+                                        <h1>{data?.title || "Grace Garden School"}</h1>
+                                        <p className="text-white mb-4" style={{ fontSize: '18px', maxWidth: '600px' }}>{data?.description}</p>
                                         <div className="banner__one-content-button">
                                             <div className="banner__one-content-button-item">
                                                 <Link className="btn-one" href="/about">Read More<i className="far fa-chevron-double-right"></i></Link>
@@ -52,28 +53,6 @@ const BannerOne = () => {
                         </div>
                     </div>
                     </SwiperSlide>                    
-                    <SwiperSlide>
-                    <div className="banner__one-image" style={{backgroundImage: `url(${bannerBg2.src})`}}>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-xl-12">
-                                    <div className="banner__one-content"> 
-                                        <span>Welcome to Conbix</span>
-                                        <h1>Inspire experience program</h1>
-                                        <div className="banner__one-content-button">
-                                            <div className="banner__one-content-button-item">
-                                                <Link className="btn-one" href="/about">Read More<i className="far fa-chevron-double-right"></i></Link>
-                                            </div> 
-                                            <div className="banner__one-content-video-icon">
-                                                <span onClick={openVideoModal}><i className="fas fa-play"></i></span>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </SwiperSlide>
                 </Swiper>
                 <div className="banner__one-pagination">
                     <div className="container">

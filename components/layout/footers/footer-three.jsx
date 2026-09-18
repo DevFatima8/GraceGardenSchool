@@ -34,8 +34,8 @@ const FooterThree = () => {
                             <div className="footer__three-widget">
                                 <div className="footer__three-widget-about">
                                     <Link href="/">
-                                        <img className="dark-n" src={logo1.src} alt="logo" />
-                                        <img className="light-n" src={logo2.src} alt="logo" />
+                                        <img className="dark-n" src={logo1.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
+                                        <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
                                     </Link>
                                     <p>Proin pretium sem libero, nec aliquet augue lobortis in. Phasellus nibh quam, molestie id est sit amet, luctus pulvinar </p>							
                                 </div>
