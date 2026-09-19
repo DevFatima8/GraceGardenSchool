@@ -5,67 +5,177 @@ const MainMenu = () => {
     return (
         <>    
             <ul>
-                <li className='menu-item-has-children'><Link href='#'>Home</Link>
+                <li><Link href='/'>Home</Link></li>
+                
+                <li className='menu-item-has-children'><Link href='/about-us'>About Us</Link>
                     <ul className='sub-menu'>
-                        <li><Link href='/'>Main Business</Link></li>
-                        <li><Link href='/home-two'>Consulting Business</Link></li>
-                        <li><Link href='/home-three'>Business Solutions</Link></li>
-                    </ul>
-                </li>  
-                <li className='menu-item-has-children'><Link href='#'>Pages</Link>
-                    <ul className='sub-menu'>
-                        <li><Link href='/about-us'>About Us</Link></li>
-                        <li className='menu-item-has-children'><Link href='#'>Services</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/services'>Services 01</Link></li>
-                                <li><Link href='/services-two'>Services 02</Link></li>
-                                <li><Link href='/services/business-model'>Services Details</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link href='/pricing-plans'>Price Plans</Link></li>
-                        <li><Link href='/faq'>FAQ's</Link></li>
-                        <li><Link href='/testimonial'>Testimonials</Link></li>
-                        <li className='menu-item-has-children'><Link href='#'>Teams</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/team-filter'>Team Filter</Link></li>
-                                <li><Link href='/team'>Team 01</Link></li>
-                                <li><Link href='/team-two'>Team 02</Link></li>
-                                <li><Link href='/team-three'>Team 03</Link></li>
-                                <li><Link href='/team/grace-elizabeth'>Team Details</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link href='/request-quote'>Request Quote</Link></li>
-                        <li><Link href='/404-error'>404 Page</Link></li>
+                        <li><Link href='/about-us#history'>Our History</Link></li>
+                        <li><Link href='/about-us#motto'>School Motto</Link></li>
+                        <li><Link href='/about-us#vision'>Vision Statement</Link></li>
+                        <li><Link href='/about-us#governors'>Board of Governors</Link></li>
+                        <li><Link href='/about-us#core-values'>Core Values</Link></li>
                     </ul>
                 </li>
-                <li className='menu-item-has-children'><Link href='#'>Project</Link>
+
+                <li className='menu-item-has-children'><Link href='#'>Our School</Link>
                     <ul className='sub-menu'>
-                        <li><Link href='/portfolio-filter'>Project Filter</Link></li>
-                        <li className='menu-item-has-children'><Link href='#'>Project Grid</Link>
+                        <li><Link href='/virtual-tour'>Virtual Tour</Link></li>
+                        <li><Link href='/gallery'>Gallery</Link></li>
+                        <li><Link href='/curriculum'>Curriculum</Link></li>
+                        <li><Link href='/commitment-to-character-and-conduct'>Commitment to Character and Conduct</Link></li>
+                        
+                        <li className='menu-item-has-children'><Link href='#'>Beyond the Classroom</Link>
                             <ul className='sub-menu'>
-                                <li><Link href='/portfolio/2-columns'>2 Columns</Link></li>
-                                <li><Link href='/portfolio/3-columns'>3 Columns</Link></li>
-                                <li><Link href='/portfolio/4-columns'>4 Columns</Link></li>
+                                <li><Link href='/morning-assembly'>Morning Assembly</Link></li>
+                                <li><Link href='/outreach-programs'>Outreach Programs</Link></li>
+                                <li><Link href='/service-learning'>Service Learning</Link></li>
+                                <li><Link href='/mun'>MUN</Link></li>
+                                <li><Link href='/annual-drama'>Annual Drama</Link></li>
+                                <li><Link href='/science-art-exhibition'>Science & Art Exhibition</Link></li>
                             </ul>
                         </li>
-                        <li><Link href='/portfolio/business-analytics'>Project Details</Link></li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Yearly Competitions</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/annual-sports-meet'>Annual Sports Meet</Link></li>
+                                <li><Link href='/brain-competition'>Brain of Grace Garden</Link></li>
+                                <li><Link href='/literary-competition'>Literary Competition</Link></li>
+                            </ul>
+                        </li>
+
+                        <li><Link href='/school-uniform'>School Uniform</Link></li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Facilities</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/computer-lab'>Computer Lab</Link></li>
+                                <li><Link href='/science-lab'>Science Lab</Link></li>
+                                <li><Link href='/club-activity'>Club Activity</Link></li>
+                                <li><Link href='/extra-courses'>Extra Courses (Chinese, AI, Robotics)</Link></li>
+                            </ul>
+                        </li>
+
+                        <li><Link href='/academics'>Academics</Link></li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Grace Journals</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/how-to-prepare-your-child-for-school'>How to Prepare Your Child for School</Link></li>
+                                <li><Link href='/dress-code-uniform-rules'>Dress Code (Uniform Rules)</Link></li>
+                                <li><Link href='/why-early-year-education'>Why GGS is best for Early Year Education</Link></li>
+                                <li><Link href='/result-day-a-parent-reset-plan'>Result Day: A Parent Reset Plan</Link></li>
+                                <li><Link href='/guide-for-choosing-best-school'>Guide for Choosing Best School</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Events</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/school-day'>School Day</Link></li>
+                                <li><Link href='/celebrations'>Celebrations</Link></li>
+                                <li><Link href='/science-art-exhibition'>Science & Art Exhibition</Link></li>
+                                <li><Link href='/annual-drama'>Annual Drama</Link></li>
+                            </ul>
+                        </li>
+
+                        <li><Link href='/activities'>Activities</Link></li>
                     </ul>
                 </li>
-                <li className='menu-item-has-children'><Link href='#'>Blog</Link>
+
+                <li className='menu-item-has-children'><Link href='/admissions'>Admissions</Link>
                     <ul className='sub-menu'>
-                        <li><Link href='/blog'>Blog Grid</Link></li>
-                        <li><Link href='/blog-standard'>Blog Standard</Link></li>
-                        <li><Link href='/blog/revamp-your-business-with-expert-consulting'>Blog Details</Link></li>
+                        <li><Link href='/admissions#why-ggs'>Why Grace Garden</Link></li>
+                        <li><Link href='/admissions#overview'>Overview</Link></li>
+                        <li><Link href='/admissions#process'>Admission Process</Link></li>
+                        <li><Link href='/registrations'>Register Now</Link></li>
+                        <li><Link href='/fee-structure'>Fee Structure</Link></li>
+                        <li><Link href='/books-lists'>Books Lists</Link></li>
                     </ul>
                 </li>
-                <li className='menu-item-has-children'><Link href='#'>Contact</Link>
+
+                <li className='menu-item-has-children'><Link href='#'>Classes</Link>
                     <ul className='sub-menu'>
-                        <li><Link href='/contact'>Contact Style 01</Link></li>
-                        <li><Link href='/contact-two'>Contact Style 02</Link></li>
-                        <li><Link href='/contact-three'>Contact Style 03</Link></li>
-                        <li><Link href='/contact-four'>Contact Style 04</Link></li>
+                        <li className='menu-item-has-children'><Link href='#'>Pre School</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/pre-nursery'>Pre Nursery</Link></li>
+                                <li><Link href='/nursery-a'>Nursery A</Link></li>
+                                <li><Link href='/nursery-b'>Nursery B</Link></li>
+                                <li><Link href='/prep-a'>Prep A</Link></li>
+                                <li><Link href='/prep-b'>Prep B</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Primary Section</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/1-a'>1 A</Link></li>
+                                <li><Link href='/1-b'>1 B</Link></li>
+                                <li><Link href='/2-a'>2 A</Link></li>
+                                <li><Link href='/2-b'>2 B</Link></li>
+                                <li><Link href='/3-a'>3 A</Link></li>
+                                <li><Link href='/3-b'>3 B</Link></li>
+                                <li><Link href='/4-a'>4 A</Link></li>
+                                <li><Link href='/4-b'>4 B</Link></li>
+                                <li><Link href='/5-a'>5 A</Link></li>
+                                <li><Link href='/5-b'>5 B</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Middle Section</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/6-a'>6 A</Link></li>
+                                <li><Link href='/7-a'>7 A</Link></li>
+                                <li><Link href='/8-a'>8 A</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Matric Section</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/9-a'>9 A</Link></li>
+                                <li><Link href='/10-a'>10 A</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>Cambridge Section</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/6-c'>6 C</Link></li>
+                                <li><Link href='/7-c'>7 C</Link></li>
+                                <li><Link href='/8-c'>8 C</Link></li>
+                                <li><Link href='/9-c'>9 C</Link></li>
+                                <li><Link href='/10-c'>10 C</Link></li>
+                            </ul>
+                        </li>
+
+                        <li className='menu-item-has-children'><Link href='#'>2nd Shift</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/nursery-e'>Nursery E</Link></li>
+                                <li><Link href='/prep-e'>Prep E</Link></li>
+                                <li><Link href='/1-e'>1 E</Link></li>
+                                <li><Link href='/2-e'>2 E</Link></li>
+                                <li><Link href='/3-e'>3 E</Link></li>
+                                <li><Link href='/4-e'>4 E</Link></li>
+                                <li><Link href='/5-e'>5 E</Link></li>
+                                <li><Link href='/6-e'>6 E</Link></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>      
+                </li>
+
+                <li className='menu-item-has-children'><Link href='#'>Departments</Link>
+                    <ul className='sub-menu'>
+                        <li><Link href='/ace'>ACE</Link></li>
+                        <li><Link href='/set'>SET</Link></li>
+                        <li className='menu-item-has-children'><Link href='#'>Coordinators</Link>
+                            <ul className='sub-menu'>
+                                <li><Link href='/pre-school'>Pre-School</Link></li>
+                                <li><Link href='/lower-primary'>Lower Primary</Link></li>
+                                <li><Link href='/upper-primary'>Upper Primary</Link></li>
+                                <li><Link href='/middle'>Middle</Link></li>
+                                <li><Link href='/matric'>Matric</Link></li>
+                                <li><Link href='/cambridge'>Cambridge</Link></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><Link href='/careers'>Careers</Link></li>
+                <li><Link href='/contact'>Contact Us</Link></li>
             </ul>  
         </>
     );

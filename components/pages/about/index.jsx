@@ -4,7 +4,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../common/breadcrumb";
 import AboutMain from "./about";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../common/scroll/scroll-to-top";
 import WhoWeAre from "./who-we-are";
 import History from "./history";
@@ -19,7 +19,7 @@ const AboutUs = () => {
             <WhoWeAre />
             <History />
         <div className='all-footer'>
-            <FooterTwo />
+            <FooterOne />
         </div>
             <ScrollToTop />
       </>

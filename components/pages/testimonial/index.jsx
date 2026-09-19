@@ -2,7 +2,7 @@
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../common/breadcrumb";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import TestimonialMain from "./testimonial";
 import ScrollToTop from "../common/scroll/scroll-to-top";
 
@@ -16,7 +16,7 @@ const Testimonial = () => {
                 <TestimonialMain />
             </div>
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>   
             <ScrollToTop />         
         </>

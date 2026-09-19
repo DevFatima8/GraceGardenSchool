@@ -1,17 +1,15 @@
 import Link from "next/link";
 import image1 from "../../../../public/assets/img/pages/experience-1.jpg";
-import image2 from "../../../../public/assets/img/pages/experience-2.jpg";
-import SkillBar from "../../common/skill-bar";
 import SkillBarItem from "../../common/skill-bar";
 
 const Experience = ({ data }) => {
     const experienceContent = {
-        subtitle: data?.subtitle || 'Brand Success',
-        title: data?.title || 'Empowering Brand Growth Together',
-        des: data?.description || 'Phasellus vel sollicitudin velit. Fusce consequat pretium ligula vel aliquam...',
+        subtitle: data?.subtitle || 'Faculty and Staff',
+        title: data?.title || 'Dedicated to Academic Excellence & Mentorship',
+        des: data?.description || 'The quality of our teaching staff directly impacts the learning experience. Our faculty is dedicated to fostering academic excellence, continuous professional development, and student-centered growth.',
         btn_text: 'Join Our Team',
-        btn_link: '/contact',
-        progress1: '95',
+        btn_link: '/careers',
+        progress1: '98',
         progress2: '100',
     }
     return (
@@ -23,10 +21,10 @@ const Experience = ({ data }) => {
                             <div className="experience__area-image">
                                 <img className="experience__area-image-shape left-right-animate" src="assets/img/shape/dots.png" alt="" />
                                 <div className="experience__area-image-item">
-                                    <img src={data?.image_url || image1.src} alt="image" />
+                                    <img className="rounded-4 shadow" src={data?.image_url || image1.src} alt="Faculty and Learning" />
                                 </div>
                                 <div className="experience__area-image-item mt-65">
-                                    <img src="/uploads/academics.jpg" alt="image" />
+                                    <img className="rounded-4 shadow" src="/assets/img/team/ceo-administrator.jpg" alt="School Leadership" />
                                 </div>
                             </div>
                         </div>
@@ -40,7 +38,7 @@ const Experience = ({ data }) => {
                                 <div className="skill__area mt-30">
                                     <div className="skill__area-item">
                                         <div className="skill__area-item-content">
-                                            <span className="text-two">Highly Qualified Teachers</span>
+                                            <span className="text-two">Highly Qualified & Certified Teachers</span>
                                         </div>
                                         <div className="skill__area-item-inner">
                                             <SkillBarItem countUp={experienceContent?.progress1} />
@@ -48,7 +46,7 @@ const Experience = ({ data }) => {
                                     </div>
                                     <div className="skill__area-item">
                                         <div className="skill__area-item-content">
-                                            <span className="text-two">Professional Development</span>
+                                            <span className="text-two">Continuous Professional Development</span>
                                         </div>
                                         <div className="skill__area-item-inner">
                                             <SkillBarItem countUp={experienceContent?.progress2} />

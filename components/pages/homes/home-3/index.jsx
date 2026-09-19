@@ -2,7 +2,7 @@
 import SEO from "@/components/data/seo";
 import HeaderThree from "@/components/layout/headers/header-three";
 import SwitchTab from "../../common/dark-light";
-import FooterThree from "@/components/layout/footers/footer-three";
+import FooterOne from "@/components/layout/footers/footer-one";
 import About from "./about";
 import Services from "./services";
 import ChooseUs from "./choose-us";
@@ -27,7 +27,7 @@ const HomeThree = ({addClass}) => {
             <Pricing />
             <Quote />
             <Blog />
-            <FooterThree />
+            <FooterOne />
             <ScrollToTop addClass={addClass} />
         </>
     );

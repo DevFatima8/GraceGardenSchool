@@ -1,9 +1,9 @@
 "use client";
 import Social from '@/components/data/social';
 import Link from 'next/link';
-import logo1 from "../../../public/assets/img/logo-3.png";
-import logo2 from "../../../public/assets/img/logo-5.png";
-import logo3 from "../../../public/assets/img/logo-4.png";
+import logo1 from "../../../public/assets/img/logo-1.jpg";
+import logo2 from "../../../public/assets/img/logo-2.jpg";
+import logo3 from "../../../public/assets/img/logo-1.jpg";
 import MainMenu from './header-menu';
 import Search from './search';
 import { useState } from 'react';
@@ -15,7 +15,7 @@ const HeaderTwo = () => {
     return (
         <>
             <div className="header__two">
-                <div className="header__two-topbar">
+                <div className="header__two-topbar d-none d-lg-block">
                     <div className="container">
                         <div className="row align-items-center borders">
                             <div className="col-xl-6 col-sm-8">
@@ -36,9 +36,9 @@ const HeaderTwo = () => {
                         <div className="header__area-menubar-left">
                             <div className="header__area-menubar-left-logo">
                                 <Link href='/'>
-                                    <img className='one' src={logo1.src} alt='logo' style={{ maxHeight: '80px', width: 'auto' }} />
-                                    <img className="two" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
-                                    <img className="light" src={logo3.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
+                                    <img className='one' src={logo1.src} alt='logo' style={{ maxHeight: '60px', width: 'auto' }} />
+                                    <img className="two" src={logo2.src} alt="logo" style={{ maxHeight: '60px', width: 'auto' }} />
+                                    <img className="light" src={logo3.src} alt="logo" style={{ maxHeight: '60px', width: 'auto' }} />
                                 </Link>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../../common/breadcrumb";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import TwoColumns from "./two-columns";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
@@ -14,7 +14,7 @@ const PortfolioTowColumns = () => {
             <BreadCrumb title="02 Columns" innerTitle="Portfolio Grid" />
             <TwoColumns />        
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>    
             <ScrollToTop />      
         </>

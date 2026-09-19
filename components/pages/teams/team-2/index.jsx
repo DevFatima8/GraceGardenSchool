@@ -3,7 +3,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../../common/breadcrumb";
 import TeamMain from "./team";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
 const TeamPageTwo = () => {
@@ -14,7 +14,7 @@ const TeamPageTwo = () => {
             <BreadCrumb title='Team Two' innerTitle='Team Two'/>
             <TeamMain />
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>
             <ScrollToTop />
         </>

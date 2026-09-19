@@ -13,21 +13,24 @@ export async function GET(request) {
 
 export async function PUT(request) {
   try {
-    const { section_id, title, subtitle, description, image_url } = await request.json();
+    const { section_id, title, subtitle, description, image_url, json_data } = await request.json();
     
     if (!section_id) {
       return NextResponse.json({ success: false, error: 'section_id is required' }, { status: 400 });
     }
 
+    const jsonDataStr = json_data ? JSON.stringify(json_data) : null;
+
     const [result] = await pool.query(
-      `INSERT INTO home_content (section_id, title, subtitle, description, image_url)
-       VALUES (?, ?, ?, ?, ?)
+      `INSERT INTO home_content (section_id, title, subtitle, description, image_url, json_data)
+       VALUES (?, ?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE
        title = VALUES(title),
        subtitle = VALUES(subtitle),
        description = VALUES(description),
-       image_url = VALUES(image_url)`,
-      [section_id, title, subtitle, description, image_url]
+       image_url = VALUES(image_url),
+       json_data = VALUES(json_data)`,
+      [section_id, title, subtitle, description, image_url, jsonDataStr]
     );
 
     return NextResponse.json({ success: true, message: 'Content updated successfully' });

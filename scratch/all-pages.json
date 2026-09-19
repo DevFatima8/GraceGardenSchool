@@ -1,0 +1,382 @@
+[
+  {
+    "title": "About Us",
+    "slug": "about-us-2",
+    "parent": ""
+  },
+  {
+    "title": "Virtual Tour",
+    "slug": "virtual-tour",
+    "parent": "Our School"
+  },
+  {
+    "title": "Gallery",
+    "slug": "gallery-2-2",
+    "parent": "Our School"
+  },
+  {
+    "title": "Curriculum",
+    "slug": "curriculum",
+    "parent": "Our School"
+  },
+  {
+    "title": "Commitment to Character and Conduct",
+    "slug": "commitment-to-character-and-conduct",
+    "parent": "Our School"
+  },
+  {
+    "title": "Morning Assembly",
+    "slug": "morning-assembly",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "Outreach Programs",
+    "slug": "outreach-programs",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "Service learning",
+    "slug": "service-learning",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "MUN",
+    "slug": "mun-2",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "Annual Drama",
+    "slug": "annual-drama-2",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "Science & Art Exhibition",
+    "slug": "science-art-exhibition-2",
+    "parent": "Beyond the Classroom"
+  },
+  {
+    "title": "Annual Sports Meet",
+    "slug": "annual-sports-meet",
+    "parent": "Yearly Competitions"
+  },
+  {
+    "title": "Brain of St. Anthony’s",
+    "slug": "brain-of-st-anthonys-2",
+    "parent": "Yearly Competitions"
+  },
+  {
+    "title": "Literary Competition",
+    "slug": "literary-competition",
+    "parent": "Yearly Competitions"
+  },
+  {
+    "title": "School Uniform",
+    "slug": "school-uniform",
+    "parent": "Our School"
+  },
+  {
+    "title": "Computer Lab",
+    "slug": "computer-lab",
+    "parent": "Facilities"
+  },
+  {
+    "title": "Science Lab",
+    "slug": "science-lab",
+    "parent": "Facilities"
+  },
+  {
+    "title": "Club Activity",
+    "slug": "club-activity",
+    "parent": "Facilities"
+  },
+  {
+    "title": "Extra Courses (Chinese, AI, Robotics)",
+    "slug": "extra-courses-chinese-ai-robotics",
+    "parent": "Facilities"
+  },
+  {
+    "title": "Academics",
+    "slug": "academics",
+    "parent": "Our School"
+  },
+  {
+    "title": "How to Prepare Your Child for School",
+    "slug": "how-to-prepare-your-child-for-school",
+    "parent": "SAAP Journals"
+  },
+  {
+    "title": "Dress Code (Uniform Rules)",
+    "slug": "dress-code-uniform-rules",
+    "parent": "SAAP Journals"
+  },
+  {
+    "title": "Why SAFT is best for early Year Education",
+    "slug": "why-saft-is-best-for-early-year-education",
+    "parent": "SAAP Journals"
+  },
+  {
+    "title": "Result Day: A Parent Reset Plan",
+    "slug": "result-day-a-parent-reset-plan",
+    "parent": "SAAP Journals"
+  },
+  {
+    "title": "Guide for Choosing Best School",
+    "slug": "guide-for-choosing-best-school",
+    "parent": "SAAP Journals"
+  },
+  {
+    "title": "School Day",
+    "slug": "school-day",
+    "parent": "Events"
+  },
+  {
+    "title": "Christmas",
+    "slug": "christmas",
+    "parent": "Events"
+  },
+  {
+    "title": "Science & Art Exhibition",
+    "slug": "science-art-exhibition",
+    "parent": "Events"
+  },
+  {
+    "title": "Annual Drama",
+    "slug": "annual-drama",
+    "parent": "Events"
+  },
+  {
+    "title": "Activities",
+    "slug": "activities",
+    "parent": "Our School"
+  },
+  {
+    "title": "Admissions",
+    "slug": "admissions",
+    "parent": ""
+  },
+  {
+    "title": "Register Now",
+    "slug": "registrations",
+    "parent": "Admissions"
+  },
+  {
+    "title": "Fee Structure",
+    "slug": "fee-structure",
+    "parent": "Admissions"
+  },
+  {
+    "title": "Books Lists",
+    "slug": "books-lists",
+    "parent": "Admissions"
+  },
+  {
+    "title": "Pre Nursery",
+    "slug": "pre-nursery",
+    "parent": "Pre School"
+  },
+  {
+    "title": "Nursery A Home",
+    "slug": "nursery-a",
+    "parent": "Pre School"
+  },
+  {
+    "title": "Nursery B",
+    "slug": "nursery-b",
+    "parent": "Pre School"
+  },
+  {
+    "title": "Prep A",
+    "slug": "prep-a",
+    "parent": "Pre School"
+  },
+  {
+    "title": "Prep B",
+    "slug": "prep-b",
+    "parent": "Pre School"
+  },
+  {
+    "title": "1 A",
+    "slug": "1-a",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "1 B",
+    "slug": "1-b",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "2 A",
+    "slug": "2-a",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "2 B",
+    "slug": "2-b",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "3 A",
+    "slug": "3-a",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "3 B",
+    "slug": "3-b",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "4 A",
+    "slug": "4-a",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "4 B",
+    "slug": "4-b",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "5 A",
+    "slug": "5-a",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "5 B",
+    "slug": "5-b",
+    "parent": "Primary Section"
+  },
+  {
+    "title": "6 A",
+    "slug": "6-a",
+    "parent": "Middle Section"
+  },
+  {
+    "title": "7 A",
+    "slug": "7-a",
+    "parent": "Middle Section"
+  },
+  {
+    "title": "8 A",
+    "slug": "8-a",
+    "parent": "Middle Section"
+  },
+  {
+    "title": "9 A",
+    "slug": "9-a",
+    "parent": "Matric Section"
+  },
+  {
+    "title": "10 A",
+    "slug": "10-a",
+    "parent": "Matric Section"
+  },
+  {
+    "title": "6 C",
+    "slug": "6-c",
+    "parent": "Cambridge Section"
+  },
+  {
+    "title": "7 C",
+    "slug": "7-c",
+    "parent": "Cambridge Section"
+  },
+  {
+    "title": "8 C",
+    "slug": "8-c",
+    "parent": "Cambridge Section"
+  },
+  {
+    "title": "9 C",
+    "slug": "9-c",
+    "parent": "Cambridge Section"
+  },
+  {
+    "title": "10 C",
+    "slug": "10-c",
+    "parent": "Cambridge Section"
+  },
+  {
+    "title": "Nursery E",
+    "slug": "nursery-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "Prep E",
+    "slug": "prep-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "1 E",
+    "slug": "1-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "2 E",
+    "slug": "2-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "3 E",
+    "slug": "3-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "4 E",
+    "slug": "4-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "5 E",
+    "slug": "5-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "6 E",
+    "slug": "6-e",
+    "parent": "2nd Shift"
+  },
+  {
+    "title": "ACE",
+    "slug": "ace",
+    "parent": "Departments"
+  },
+  {
+    "title": "SET",
+    "slug": "set",
+    "parent": "Departments"
+  },
+  {
+    "title": "Pre-School",
+    "slug": "pre-school",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Lower Primary",
+    "slug": "lower-primary",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Upper Primary",
+    "slug": "upper-primary",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Middle",
+    "slug": "middle",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Matric",
+    "slug": "matric",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Cambridge",
+    "slug": "cambridge",
+    "parent": "Coordinators"
+  },
+  {
+    "title": "Careers",
+    "slug": "careers",
+    "parent": ""
+  }
+]

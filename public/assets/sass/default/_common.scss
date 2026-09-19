@@ -329,7 +329,7 @@ Conbix Button And Title Styles CSS
 .subtitle-two,
 .subtitle-three {
 	position: relative;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: var(--heading-font);
 	color: var(--primary-color-1);	
 	font-weight: 700;
@@ -397,7 +397,7 @@ Conbix Button And Title Styles CSS
 	z-index: 3;
 	position: relative;
 	transition: 0.4s;
-	text-transform: uppercase;
+	text-transform: none;
 	overflow: hidden;
 	border-radius: 6px;
 	i {
@@ -544,7 +544,7 @@ Conbix Button And Title Styles CSS
 	font-weight: 700;
 	font-family: var(--heading-font);
 	transition: 0.4s;
-	text-transform: uppercase;
+	text-transform: none;
 	i {
 		position: relative;
 		top: 0;

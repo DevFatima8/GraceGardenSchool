@@ -1,13 +1,14 @@
+import React from 'react';
 import blogData from '@/components/data/blog-data';
 import Link from 'next/link';
 
 const Blog = ({ data }) => {
-    const blogItem = blogData.slice(0, 3);
+    const blogItem = (data?.json_data && data.json_data.length > 0) ? data.json_data : blogData.slice(0, 3);
     const blogContent = {
-        subtitle: data?.subtitle || 'From The Blog',
-        title: data?.title || 'Blog & Articles',
-        btn_text: 'See more blog',
-        btn_url: '/blog'
+        subtitle: data?.subtitle || 'Future Plans & Vision',
+        title: data?.title || 'Continuous Innovation & Growth',
+        btn_text: 'School News & Events',
+        btn_url: '/events'
     }
     return (
         <div className="blog__one dark__image section-padding">
@@ -24,29 +25,34 @@ const Blog = ({ data }) => {
                     </div>
                 </div>
                 <div className="row">
-                    {blogItem?.map((dataItem, id) => (
+                    {blogItem?.map((dataItem, id) => {
+                        const imgSrc = dataItem.image_url || (dataItem.image && dataItem.image.src);
+                        return (
                         <div className="col-xl-4 col-lg-6 mt-25" key={id}>
-                            <div className="blog__one-item">
+                            <div className="blog__one-item h-100 d-flex flex-column">
                                 <div className="blog__one-item-image">
-                                    <Link href={`/blog/${dataItem.id}`}><img src={dataItem.image.src} alt="blog" /></Link>
+                                    <Link href={dataItem.link || "/events"}>
+                                        <img src={imgSrc} alt={dataItem.title} style={{height: '250px', width: '100%', objectFit: 'cover'}} />
+                                    </Link>
                                     <div className="blog__one-item-image-date">
-                                        <span className="text-three">{dataItem.date}</span>
-                                        <span className="text-five">Apr</span>
+                                        <span className="text-three">{dataItem.date || "Now"}</span>
+                                        <span className="text-five">{dataItem.subtitle || "Vision"}</span>
                                     </div>
                                 </div>
-                                <div className="blog__one-item-content">
+                                <div className="blog__one-item-content flex-grow-1 d-flex flex-column">
                                     <div className="blog__one-item-content-meta">
                                         <ul>
-                                            <li><Link href="#"><i className="far fa-user"></i>By-Admin</Link></li>
-                                            <li><Link href="#"><i className="far fa-comment-dots"></i>Comments ({dataItem.comment})</Link></li>
+                                            <li><Link href="#"><i className="far fa-user"></i>By Admin</Link></li>
+                                            <li><Link href={dataItem.link || "/events"}><i className="far fa-calendar"></i>Grace Garden</Link></li>
                                         </ul>
                                     </div>
-                                    <h4><Link href={`/blog/${dataItem.id}`}>{dataItem.title}</Link></h4>
-                                    <p>{dataItem.des}</p>
+                                    <h4><Link href={dataItem.link || "/events"}>{dataItem.title}</Link></h4>
+                                    <p className="flex-grow-1">{dataItem.description || dataItem.des}</p>
                                 </div>
                             </div>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>

@@ -1,0 +1,519 @@
+[
+  {
+    "title": "Home",
+    "href": "/",
+    "children": []
+  },
+  {
+    "title": "About Us",
+    "href": "https://stanthonysft.edu.pk/about-us-2/",
+    "children": [
+      {
+        "title": "Our History",
+        "href": "https://stanthonysft.edu.pk/about-us-2/#Our-History",
+        "children": []
+      },
+      {
+        "title": "School Motto",
+        "href": "https://stanthonysft.edu.pk/about-us-2/#School-Motto",
+        "children": []
+      },
+      {
+        "title": "Vision Statement",
+        "href": "https://stanthonysft.edu.pk/about-us-2/#vision-statement",
+        "children": []
+      },
+      {
+        "title": "Board of Governors",
+        "href": "https://stanthonysft.edu.pk/about-us-2/#core",
+        "children": []
+      },
+      {
+        "title": "Core Value of SAFT",
+        "href": "https://stanthonysft.edu.pk/about-us-2/#core",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Our School",
+    "href": "#",
+    "children": [
+      {
+        "title": "Virtual Tour",
+        "href": "https://stanthonysft.edu.pk/virtual-tour/",
+        "children": []
+      },
+      {
+        "title": "Gallery",
+        "href": "https://stanthonysft.edu.pk/gallery-2-2/",
+        "children": []
+      },
+      {
+        "title": "Curriculum",
+        "href": "https://stanthonysft.edu.pk/curriculum/",
+        "children": []
+      },
+      {
+        "title": "Commitment to Character and Conduct",
+        "href": "https://stanthonysft.edu.pk/commitment-to-character-and-conduct/",
+        "children": []
+      },
+      {
+        "title": "Beyond the Classroom",
+        "href": "#",
+        "children": [
+          {
+            "title": "Morning Assembly",
+            "href": "https://stanthonysft.edu.pk/morning-assembly/",
+            "children": []
+          },
+          {
+            "title": "Outreach Programs",
+            "href": "https://stanthonysft.edu.pk/outreach-programs/",
+            "children": []
+          },
+          {
+            "title": "Service learning",
+            "href": "https://stanthonysft.edu.pk/service-learning/",
+            "children": []
+          },
+          {
+            "title": "MUN",
+            "href": "https://stanthonysft.edu.pk/mun-2/",
+            "children": []
+          },
+          {
+            "title": "Annual Drama",
+            "href": "https://stanthonysft.edu.pk/annual-drama-2/",
+            "children": []
+          },
+          {
+            "title": "Science & Art Exhibition",
+            "href": "https://stanthonysft.edu.pk/science-art-exhibition-2/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Yearly Competitions",
+        "href": "#",
+        "children": [
+          {
+            "title": "Annual Sports Meet",
+            "href": "https://stanthonysft.edu.pk/annual-sports-meet/",
+            "children": []
+          },
+          {
+            "title": "Brain of St. Anthony’s",
+            "href": "https://stanthonysft.edu.pk/brain-of-st-anthonys-2/",
+            "children": []
+          },
+          {
+            "title": "Literary Competition",
+            "href": "https://stanthonysft.edu.pk/literary-competition/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "School Uniform",
+        "href": "https://stanthonysft.edu.pk/school-uniform/",
+        "children": []
+      },
+      {
+        "title": "Facilities",
+        "href": "#",
+        "children": [
+          {
+            "title": "Computer Lab",
+            "href": "https://stanthonysft.edu.pk/computer-lab/",
+            "children": []
+          },
+          {
+            "title": "Science Lab",
+            "href": "https://stanthonysft.edu.pk/science-lab/",
+            "children": []
+          },
+          {
+            "title": "Club Activity",
+            "href": "https://stanthonysft.edu.pk/club-activity/",
+            "children": []
+          },
+          {
+            "title": "Extra Courses (Chinese, AI, Robotics)",
+            "href": "https://stanthonysft.edu.pk/extra-courses-chinese-ai-robotics/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Academics",
+        "href": "https://stanthonysft.edu.pk/academics/",
+        "children": []
+      },
+      {
+        "title": "SAAP Journals",
+        "href": "#",
+        "children": [
+          {
+            "title": "How to Prepare Your Child for School",
+            "href": "https://stanthonysft.edu.pk/how-to-prepare-your-child-for-school/",
+            "children": []
+          },
+          {
+            "title": "Dress Code (Uniform Rules)",
+            "href": "https://stanthonysft.edu.pk/dress-code-uniform-rules/",
+            "children": []
+          },
+          {
+            "title": "Why SAFT is best for early Year Education",
+            "href": "https://stanthonysft.edu.pk/why-saft-is-best-for-early-year-education/",
+            "children": []
+          },
+          {
+            "title": "Result Day: A Parent Reset Plan",
+            "href": "https://stanthonysft.edu.pk/result-day-a-parent-reset-plan/",
+            "children": []
+          },
+          {
+            "title": "Guide for Choosing Best School",
+            "href": "https://stanthonysft.edu.pk/guide-for-choosing-best-school/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Events",
+        "href": "#",
+        "children": [
+          {
+            "title": "School Day",
+            "href": "https://stanthonysft.edu.pk/school-day/",
+            "children": []
+          },
+          {
+            "title": "Christmas",
+            "href": "https://stanthonysft.edu.pk/christmas/",
+            "children": []
+          },
+          {
+            "title": "Science & Art Exhibition",
+            "href": "https://stanthonysft.edu.pk/science-art-exhibition/",
+            "children": []
+          },
+          {
+            "title": "Annual Drama",
+            "href": "https://stanthonysft.edu.pk/annual-drama/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Activities",
+        "href": "https://stanthonysft.edu.pk/activities/",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Admissions",
+    "href": "https://stanthonysft.edu.pk/admissions/",
+    "children": [
+      {
+        "title": "Why SAFT",
+        "href": "https://stanthonysft.edu.pk/admissions/#why-saft",
+        "children": []
+      },
+      {
+        "title": "Overview",
+        "href": "https://stanthonysft.edu.pk/admissions/#overview",
+        "children": []
+      },
+      {
+        "title": "Admission Process",
+        "href": "https://stanthonysft.edu.pk/admissions/#admission-process",
+        "children": []
+      },
+      {
+        "title": "Register Now",
+        "href": "https://stanthonysft.edu.pk/registrations/",
+        "children": []
+      },
+      {
+        "title": "Fee Structure",
+        "href": "https://stanthonysft.edu.pk/fee-structure/",
+        "children": []
+      },
+      {
+        "title": "Books Lists",
+        "href": "https://stanthonysft.edu.pk/books-lists/",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "Classes",
+    "href": "#",
+    "children": [
+      {
+        "title": "Pre School",
+        "href": "#",
+        "children": [
+          {
+            "title": "Pre Nursery",
+            "href": "https://stanthonysft.edu.pk/pre-nursery/",
+            "children": []
+          },
+          {
+            "title": "Nursery A Home",
+            "href": "https://stanthonysft.edu.pk/nursery-a/",
+            "children": []
+          },
+          {
+            "title": "Nursery B",
+            "href": "https://stanthonysft.edu.pk/nursery-b/",
+            "children": []
+          },
+          {
+            "title": "Prep A",
+            "href": "https://stanthonysft.edu.pk/prep-a/",
+            "children": []
+          },
+          {
+            "title": "Prep B",
+            "href": "https://stanthonysft.edu.pk/prep-b/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Primary Section",
+        "href": "#",
+        "children": [
+          {
+            "title": "1 A",
+            "href": "https://stanthonysft.edu.pk/1-a/",
+            "children": []
+          },
+          {
+            "title": "1 B",
+            "href": "https://stanthonysft.edu.pk/1-b/",
+            "children": []
+          },
+          {
+            "title": "2 A",
+            "href": "https://stanthonysft.edu.pk/2-a/",
+            "children": []
+          },
+          {
+            "title": "2 B",
+            "href": "https://stanthonysft.edu.pk/2-b/",
+            "children": []
+          },
+          {
+            "title": "3 A",
+            "href": "https://stanthonysft.edu.pk/3-a/",
+            "children": []
+          },
+          {
+            "title": "3 B",
+            "href": "https://stanthonysft.edu.pk/3-b/",
+            "children": []
+          },
+          {
+            "title": "4 A",
+            "href": "https://stanthonysft.edu.pk/4-a/",
+            "children": []
+          },
+          {
+            "title": "4 B",
+            "href": "https://stanthonysft.edu.pk/4-b/",
+            "children": []
+          },
+          {
+            "title": "5 A",
+            "href": "https://stanthonysft.edu.pk/5-a/",
+            "children": []
+          },
+          {
+            "title": "5 B",
+            "href": "https://stanthonysft.edu.pk/5-b/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Middle Section",
+        "href": "#",
+        "children": [
+          {
+            "title": "6 A",
+            "href": "https://stanthonysft.edu.pk/6-a/",
+            "children": []
+          },
+          {
+            "title": "7 A",
+            "href": "https://stanthonysft.edu.pk/7-a/",
+            "children": []
+          },
+          {
+            "title": "8 A",
+            "href": "https://stanthonysft.edu.pk/8-a/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Matric Section",
+        "href": "#",
+        "children": [
+          {
+            "title": "9 A",
+            "href": "https://stanthonysft.edu.pk/9-a/",
+            "children": []
+          },
+          {
+            "title": "10 A",
+            "href": "https://stanthonysft.edu.pk/10-a/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Cambridge Section",
+        "href": "#",
+        "children": [
+          {
+            "title": "6 C",
+            "href": "https://stanthonysft.edu.pk/6-c/",
+            "children": []
+          },
+          {
+            "title": "7 C",
+            "href": "https://stanthonysft.edu.pk/7-c/",
+            "children": []
+          },
+          {
+            "title": "8 C",
+            "href": "https://stanthonysft.edu.pk/8-c/",
+            "children": []
+          },
+          {
+            "title": "9 C",
+            "href": "https://stanthonysft.edu.pk/9-c/",
+            "children": []
+          },
+          {
+            "title": "10 C",
+            "href": "https://stanthonysft.edu.pk/10-c/",
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "2nd Shift",
+        "href": "#",
+        "children": [
+          {
+            "title": "Nursery E",
+            "href": "https://stanthonysft.edu.pk/nursery-e/",
+            "children": []
+          },
+          {
+            "title": "Prep E",
+            "href": "https://stanthonysft.edu.pk/prep-e/",
+            "children": []
+          },
+          {
+            "title": "1 E",
+            "href": "https://stanthonysft.edu.pk/1-e/",
+            "children": []
+          },
+          {
+            "title": "2 E",
+            "href": "https://stanthonysft.edu.pk/2-e/",
+            "children": []
+          },
+          {
+            "title": "3 E",
+            "href": "https://stanthonysft.edu.pk/3-e/",
+            "children": []
+          },
+          {
+            "title": "4 E",
+            "href": "https://stanthonysft.edu.pk/4-e/",
+            "children": []
+          },
+          {
+            "title": "5 E",
+            "href": "https://stanthonysft.edu.pk/5-e/",
+            "children": []
+          },
+          {
+            "title": "6 E",
+            "href": "https://stanthonysft.edu.pk/6-e/",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Departments",
+    "href": "#",
+    "children": [
+      {
+        "title": "ACE",
+        "href": "https://stanthonysft.edu.pk/ace/",
+        "children": []
+      },
+      {
+        "title": "SET",
+        "href": "https://stanthonysft.edu.pk/set/",
+        "children": []
+      },
+      {
+        "title": "Coordinators",
+        "href": "#",
+        "children": [
+          {
+            "title": "Pre-School",
+            "href": "https://stanthonysft.edu.pk/pre-school/",
+            "children": []
+          },
+          {
+            "title": "Lower Primary",
+            "href": "https://stanthonysft.edu.pk/lower-primary/",
+            "children": []
+          },
+          {
+            "title": "Upper Primary",
+            "href": "https://stanthonysft.edu.pk/upper-primary/",
+            "children": []
+          },
+          {
+            "title": "Middle",
+            "href": "https://stanthonysft.edu.pk/middle/",
+            "children": []
+          },
+          {
+            "title": "Matric",
+            "href": "https://stanthonysft.edu.pk/matric/",
+            "children": []
+          },
+          {
+            "title": "Cambridge",
+            "href": "https://stanthonysft.edu.pk/cambridge/",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Careers",
+    "href": "https://stanthonysft.edu.pk/careers/",
+    "children": []
+  }
+]

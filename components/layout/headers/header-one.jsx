@@ -25,17 +25,18 @@ const HeaderOne = ({variant}) => {
     }, []);
     return (
         <>
-            <div className="top__bar">
+            <div className="top__bar d-none d-lg-block">
                 <div className="container custom__container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-xl-5 col-md-6">
                             <div className="top__bar-left">
-                                <Link href="https://www.google.com/maps"><i className="far fa-map-marker-alt"></i>8502 Preston Rd. Inglewood, Maine 98380</Link>
+                                <Link href="https://www.google.com/maps"><i className="far fa-map-marker-alt"></i>Sector C-2, Block 5, Green Town, Lahore</Link>
                             </div>
                         </div>
                         <div className="col-xl-7 col-md-6">
                             <div className="top__bar-right">
-                                <Link href="mailto:conbix@gmail.com"><i className="fas fa-envelope"></i>conbix@gmail.com</Link>
+                                <Link href="tel:+923004066340" style={{ marginRight: '15px' }}><i className="fas fa-phone-alt"></i>+92 300 406 6340</Link>
+                                <Link href="mailto:Gracegarden042@gmail.com"><i className="fas fa-envelope"></i>Gracegarden042@gmail.com</Link>
                                 <div className="top__bar-right-social">
                                     <Social />
                                 </div>
@@ -50,8 +51,8 @@ const HeaderOne = ({variant}) => {
                         <div className="header__area-menubar-left">
                             <div className="header__area-menubar-left-logo">
                                 <Link href='/'>
-                                    <img className='dark-n' src={logo1.src} alt='logo' style={{ maxHeight: '80px', width: 'auto' }} />
-                                    <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
+                                    <img className='dark-n' src={logo1.src} alt='Grace Garden School' style={{ maxHeight: '60px', width: 'auto' }} />
+                                    <img className="light-n" src={logo2.src} alt="Grace Garden School" style={{ maxHeight: '60px', width: 'auto' }} />
                                 </Link>
                             </div>
                         </div>
@@ -76,7 +77,7 @@ const HeaderOne = ({variant}) => {
                                     </div>
                                 </div>
                                 <div className="header__area-menubar-right-box-btn">
-                                <Link className="btn-one" href="/request-quote">Request quote<i className="far fa-chevron-double-right"></i></Link>
+                                    <Link className="btn-one" href="/admissions">Admissions<i className="far fa-chevron-double-right"></i></Link>
                                 </div>
                                 <div className="header__area-menubar-right-responsive-menu menu__bar">
                                     <i className="flaticon-menu" onClick={() => setMenuSidebar(true)}></i>

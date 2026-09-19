@@ -4,7 +4,7 @@ import BlogSingleMain from "./blog-details";
 import BreadCrumb from "../../common/breadcrumb";
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
 const BlogDetails = ({singleData}) => {
@@ -16,7 +16,7 @@ const BlogDetails = ({singleData}) => {
             <BreadCrumb title={firstThreeWords} innerTitle={singleData?.title} />
             <BlogSingleMain singleData={singleData}/>
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>
             <ScrollToTop />
         </>

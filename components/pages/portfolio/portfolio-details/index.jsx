@@ -3,7 +3,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../../common/breadcrumb";
 import PortfolioDetailsMain from "./portfolio-details";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
 const PortfolioDetails = ({singleData}) => {
@@ -14,7 +14,7 @@ const PortfolioDetails = ({singleData}) => {
             <BreadCrumb title={singleData?.title} innerTitle={singleData?.title} />
             <PortfolioDetailsMain singleData={singleData} />
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>
             <ScrollToTop />
         </>

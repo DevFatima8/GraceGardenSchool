@@ -3,12 +3,12 @@ import Link from 'next/link';
 import servicesData from '@/components/data/services-data';
 
 const Services = ({ data }) => {
-    const servicesItem = servicesData.slice(0, 4);
+    const servicesItem = (data?.json_data && data.json_data.length > 0) ? data.json_data : servicesData.slice(0, 4);
     const servicesContent = {
-        subtitle: data?.subtitle || 'OUR SOLUTIONS',
-        title: data?.title || 'Consulting Services',
-        btn_text: 'ALL PROGRAMS',
-        btn_link: '/services'
+        subtitle: data?.subtitle || 'Academic Programs',
+        title: data?.title || 'Academic Wings & Curriculum',
+        btn_text: 'Explore Curriculum',
+        btn_link: '/curriculum'
     }
     return (
         <div className="services__one section-padding pt-0">
@@ -25,15 +25,15 @@ const Services = ({ data }) => {
                     </div>
                 </div>
                 <div className="row">
-                    {servicesItem?.map((data, id) => (
+                    {servicesItem?.map((dataItem, id) => (
                         <div className="col-xl-3 col-lg-4 col-md-6 mt-25" key={id}>
-                            <div className="services__one-item">
+                            <div className="services__one-item h-100 d-flex flex-column">
                                 <div className="services__one-item-icon">
-                                    {data.icon}
+                                    {dataItem.image_url ? <img src={dataItem.image_url} alt={dataItem.title} style={{width: '50px', height: '50px', objectFit: 'contain'}} /> : dataItem.icon}
                                 </div>
-                                <h4><Link href={`/services/${data.id}`}>{data.title}</Link></h4>
-                                <p>{data.description}</p>
-                                <Link className="simple-btn-2" href={`/services/${data.id}`}>Read More<i className="far fa-chevron-double-right"></i></Link>
+                                <h4><Link href={dataItem.link || "/academics"}>{dataItem.title}</Link></h4>
+                                <p className="flex-grow-1">{dataItem.description}</p>
+                                <Link className="simple-btn-2 mt-auto align-self-start" href={dataItem.link || "/academics"}>Learn More<i className="far fa-chevron-double-right"></i></Link>
                             </div>
                         </div>
                     ))}

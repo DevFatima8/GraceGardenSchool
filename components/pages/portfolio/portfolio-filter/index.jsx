@@ -4,7 +4,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../../common/breadcrumb";
 import PortfolioFilter from "./portfolio-filter";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 
 const PortfolioFilterPage = () => {
@@ -15,7 +15,7 @@ const PortfolioFilterPage = () => {
             <BreadCrumb title="Portfolio Filter" innerTitle="Portfolio Filter" />
             <PortfolioFilter />
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>
             <ScrollToTop />
         </>

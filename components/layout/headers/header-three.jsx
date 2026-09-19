@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
-import logo1 from "../../../public/assets/img/logo-6.png";
-import logo2 from "../../../public/assets/img/logo-7.png";
+import logo1 from "../../../public/assets/img/logo-1.jpg";
+import logo2 from "../../../public/assets/img/logo-2.jpg";
 import MainMenu from './header-menu';
 import Search from './search';
 import { useState } from 'react';
@@ -13,7 +13,7 @@ const HeaderThree = () => {
     return (
         <>
         <div className="header__three">
-            <div className="topbar__three">
+            <div className="topbar__three d-none d-lg-block">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-5 col-lg-6">
@@ -39,8 +39,8 @@ const HeaderThree = () => {
                         <div className="header__area-menubar-left">
                             <div className="header__area-menubar-left-logo">
                                 <Link href='/'>
-                                    <img className='dark-n' src={logo1.src} alt='logo' style={{ maxHeight: '80px', width: 'auto' }} />
-                                    <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
+                                    <img className='dark-n' src={logo1.src} alt='logo' style={{ maxHeight: '60px', width: 'auto' }} />
+                                    <img className="light-n" src={logo2.src} alt="logo" style={{ maxHeight: '60px', width: 'auto' }} />
                                 </Link>
                             </div>
                         </div>

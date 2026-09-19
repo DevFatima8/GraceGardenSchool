@@ -3,7 +3,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../common/breadcrumb";
 import FaqArea from "./faq";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../common/scroll/scroll-to-top";
 
 const Faq = () => {
@@ -16,7 +16,7 @@ const Faq = () => {
                 <FaqArea />
             </div>
             <div className='all-footer'>
-                <FooterTwo />
+                <FooterOne />
             </div>
             <ScrollToTop />
         </>

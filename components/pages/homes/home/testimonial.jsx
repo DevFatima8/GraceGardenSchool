@@ -29,6 +29,7 @@ const slideControl = {
 };
 
 const Testimonial = ({ data }) => {
+    const testimonialItem = (data?.json_data && data.json_data.length > 0) ? data.json_data : testimonialData.slice(0, 4);
 
     return (
         <div className="testimonial__area section-padding">
@@ -51,24 +52,26 @@ const Testimonial = ({ data }) => {
                 </div>
                 <div className="row">
                     <div className="col-xl-12">
-                        <Swiper modules={[EffectFade, Autoplay, Navigation]} {...slideControl} >
-                            {testimonialItem?.map((dataItem, id) => (
-                                <SwiperSlide key={id}>
-                                    <div className="testimonial__area-item swiper-slide">
+                        <Swiper modules={[EffectFade, Autoplay, Navigation]} {...slideControl} className="h-100">
+                            {testimonialItem?.map((dataItem, id) => {
+                                const avatarSrc = dataItem.image_url || (dataItem.avatar && dataItem.avatar.src) || '/assets/img/avatar/default.png';
+                                return (
+                                <SwiperSlide key={id} className="h-auto d-flex">
+                                    <div className="testimonial__area-item h-100 w-100 d-flex flex-column justify-content-between">
                                         <div className="testimonial__area-item-client">
                                             <div className="testimonial__area-item-icon">
                                                 <i className="fal fa-quote-right"></i>
                                             </div>
                                             <div className="testimonial__area-item-client-image">
-                                                <img src={dataItem.avatar.src} alt="avatar" />
+                                                <img src={avatarSrc} alt="avatar" style={{width: '60px', height:'60px', objectFit:'cover'}} />
                                             </div>
                                             <div className="testimonial__area-item-client-title">
-                                                <h5>{dataItem.name}</h5>
-                                                <span className="text-eight">{dataItem.position}</span>
+                                                <h5>{dataItem.title || dataItem.name}</h5>
+                                                <span className="text-eight">{dataItem.subtitle || dataItem.position}</span>
                                             </div>
                                         </div>
-                                        <p>{dataItem.des}</p>
-                                        <div className="testimonial__area-item-reviews">
+                                        <p className="flex-grow-1">{dataItem.description || dataItem.des}</p>
+                                        <div className="testimonial__area-item-reviews mt-auto">
                                             <i className="fas fa-star"></i>
                                             <i className="fas fa-star"></i>
                                             <i className="fas fa-star"></i>
@@ -77,7 +80,8 @@ const Testimonial = ({ data }) => {
                                         </div>
                                     </div>
                                 </SwiperSlide>
-                            ))}
+                                );
+                            })}
                         </Swiper>
                     </div>
                 </div>

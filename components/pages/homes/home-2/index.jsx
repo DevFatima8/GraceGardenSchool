@@ -1,7 +1,7 @@
 "use client"
 import SEO from "@/components/data/seo";
 import HeaderTwo from "@/components/layout/headers/header-two";
-import FooterTwo from "@/components/layout/footers/footer-two";
+import FooterOne from "@/components/layout/footers/footer-one";
 import BannerTwo from "./banner";
 import SwitchTab from "../../common/dark-light";
 import Services from "./services";
@@ -29,7 +29,7 @@ const HomeTwo = ({addClass}) => {
             <Portfolio />
             <Team />
             <Blog />
-            <FooterTwo />
+            <FooterOne />
             <ScrollToTop addClass={addClass} />
         </>
     );

@@ -8,11 +8,11 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             <div className={`header__area-menubar-right-sidebar-popup ${isOpen ? 'active' : ''}`}>
                 <div className="sidebar-close-btn" onClick={() => setIsOpen(false)}><i className="fal fa-times"></i></div>
                 <div className="header__area-menubar-right-sidebar-popup-logo">
-                <Link href='/'>
-                    <img src={logo2.src} alt="logo" style={{ maxHeight: '80px', width: 'auto' }} />
-                </Link>
+                    <Link href='/'>
+                        <img src={logo2.src} alt="Grace Garden School" style={{ maxHeight: '60px', width: 'auto' }} />
+                    </Link>
                 </div>
-                <p>Morbi et tellus imperdiet, aliquam nulla sed, dapibus erat. Aenean dapibus sem non purus venenatis vulputate. Donec accumsan eleifend blandit. Nullam auctor ligula</p>
+                <p>Grace Garden School is a forward-thinking educational institution dedicated to fostering a learning environment where students are encouraged to explore their full potential. Established in 2023 in Green Town, Lahore.</p>
                 <div className="header__area-menubar-right-box-sidebar-popup-contact">
                     <h4 className="mb-30">Get In Touch</h4>
                     <div className="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -20,8 +20,9 @@ const SideBar = ({ isOpen, setIsOpen }) => {
                             <i className="fal fa-phone-alt icon-animation"></i>
                         </div>
                         <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                            <span>Call Now</span>
-                            <h6><a href="tel:+125(895)658568">+125 (895) 658 568</a></h6>
+                            <span>Call / WhatsApp</span>
+                            <h6><a href="tel:+923004066340">+92 300 406 6340</a></h6>
+                            <h6><a href="tel:+923164408633">+92 316 440 8633</a></h6>
                         </div>
                     </div>
                     <div className="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -29,8 +30,8 @@ const SideBar = ({ isOpen, setIsOpen }) => {
                             <i className="fal fa-envelope"></i>
                         </div>
                         <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                            <span>Quick Email</span>
-                            <h6><a href="mailto:info.help@gmail.com">info.help@gmail.com</a></h6>
+                            <span>Email Address</span>
+                            <h6><a href="mailto:Gracegarden042@gmail.com">Gracegarden042@gmail.com</a></h6>
                         </div>
                     </div>
                     <div className="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -38,8 +39,8 @@ const SideBar = ({ isOpen, setIsOpen }) => {
                             <i className="fal fa-map-marker-alt"></i>
                         </div>
                         <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                            <span>Office Address</span>
-                            <h6><a href="#">PV3M+X68 Welshpool United Kingdom</a></h6>
+                            <span>Campus Address</span>
+                            <h6>Sector C-2, Block 5, Green Town, Lahore</h6>
                         </div>
                     </div>
                 </div>
