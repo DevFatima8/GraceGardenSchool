@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Pagination} from 'swiper/modules';
 import bannerBg1 from "../../../../public/assets/img/banner/banner-1.jpg";
 import bannerBg2 from "../../../../public/assets/img/banner/banner-2.jpg";
-import ModalVideo from "react-modal-video";
 import Link from "next/link";
 
 const slideControl = {
@@ -22,10 +20,6 @@ const slideControl = {
 };
 
 const BannerOne = ({ data }) => {
-    const [openVideo, setOpenVideo] = useState(false);
-    const openVideoModal = () => {
-      setOpenVideo(true);
-    }; 
     return (
             <>
             <div className="banner__one">
@@ -44,7 +38,9 @@ const BannerOne = ({ data }) => {
                                                 <Link className="btn-one" href="/about">Read More<i className="far fa-chevron-double-right"></i></Link>
                                             </div>
                                             <div className="banner__one-content-video-icon">
-                                                <span onClick={openVideoModal}><i className="fas fa-play"></i></span>
+                                                <a href="https://www.youtube.com/@Gracegarden-d8j" target="_blank" rel="noopener noreferrer">
+                                                    <i className="fas fa-play"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +58,6 @@ const BannerOne = ({ data }) => {
                     </div>
                 </div>
             </div>
-            <ModalVideo className='video-modal' channel="youtube" autoplay isOpen={openVideo} videoId="SZEflIVnhH8" onClose={() => setOpenVideo(false)} />
         </>
 
     );

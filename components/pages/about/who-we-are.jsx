@@ -63,7 +63,7 @@ const WhoWeAre = () => {
                             <div className="col-md-4" key={idx}>
                                 <div className="card h-100 border-0 shadow-sm p-4 rounded-4 bg-white">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="me-3 p-3 rounded-circle bg-primary bg-opacity-10 text-primary fs-4">
+                                        <div className="me-3 p-3 rounded-circle fs-4" style={{ backgroundColor: 'rgba(249, 76, 48, 0.1)', color: 'var(--primary-color-1)' }}>
                                             <i className={val.icon}></i>
                                         </div>
                                         <h5 className="fw-bold mb-0 text-dark">{val.title}</h5>
@@ -77,7 +77,7 @@ const WhoWeAre = () => {
                     {/* Board of Governors */}
                     <div className="row mt-5 pt-4" id="board-of-governors">
                         <div className="col-12" id="governors">
-                            <div className="p-4 p-md-5 rounded-4 text-white" style={{ backgroundColor: "#004389" }}>
+                            <div className="p-4 p-md-5 rounded-4 text-white" style={{ backgroundColor: "var(--primary-color-1)" }}>
                                 <div className="row align-items-center">
                                     <div className="col-lg-8">
                                         <span className="text-warning fw-bold fs-6 mb-2 d-inline-block">Governance & Leadership</span>
@@ -85,7 +85,7 @@ const WhoWeAre = () => {
                                         <p className="text-white-50 mb-0">The Board of Governors at Grace Garden School comprises distinguished educationists, community leaders, and academic advisors. The board provides visionary strategic direction, ensures institutional accountability, and guarantees the highest standard of education for all students.</p>
                                     </div>
                                     <div className="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                                        <Link href="/contact" className="btn btn-warning px-4 py-3 rounded-pill fw-bold text-dark">
+                                        <Link href="/contact" className="btn bg-white px-4 py-3 rounded-pill fw-bold" style={{ color: "var(--primary-color-1)" }}>
                                             Contact Leadership
                                         </Link>
                                     </div>

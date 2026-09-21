@@ -80,7 +80,8 @@ export default function AdminLogin() {
               </div>
             </div>
             <div className="text-center mt-4">
-              <span className="text-muted" style={{ fontSize: '13px' }}>&copy; {new Date().getFullYear()} Admin Portal. All rights reserved.</span>
+              <div className="text-muted" style={{ fontSize: '13px' }}>&copy; {new Date().getFullYear()} Admin Portal. All rights reserved.</div>
+              <div className="text-muted mt-2" style={{ fontSize: '13px' }}>Support / Contact: <a href="mailto:admin@gracegardenschool.com" className="text-decoration-none">admin@gracegardenschool.com</a></div>
             </div>
           </div>
         </div>

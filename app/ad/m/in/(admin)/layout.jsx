@@ -8,7 +8,7 @@ import { logoutAdmin } from '../actions';
 export default function AdminLayout({ children }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(pathname.includes('/pages/about'));
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
 
   const handleLogout = async () => {
     await logoutAdmin();
@@ -45,45 +45,9 @@ export default function AdminLayout({ children }) {
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <button 
-                onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)} 
-                className={`nav-link text-start w-100 py-2 ${pathname.startsWith('/ad/m/in/pages/about') ? 'text-white fw-bold' : 'text-white-50'}`} 
-                style={pathname.startsWith('/ad/m/in/pages/about') ? { backgroundColor: 'var(--primary-color-1)' } : {}}
-              >
-                <div className="d-flex justify-content-between align-items-center">
-                  <div><i className="far fa-info-circle me-2"></i> About Us</div>
-                  <i className={`far fa-chevron-${isAboutDropdownOpen ? 'up' : 'down'} small`}></i>
-                </div>
-              </button>
-              {isAboutDropdownOpen && (
-                <ul className="nav flex-column ms-3 mt-1 border-start border-secondary ps-2">
-                  <li className="nav-item">
-                    <Link href="/ad/m/in/pages/about/history" className={`nav-link text-start w-100 py-1 ${isActive('/ad/m/in/pages/about/history') ? 'text-white fw-bold' : 'text-white-50'}`} style={{fontSize: '0.85rem'}}>
-                      Our History
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link href="/ad/m/in/pages/about/motto" className={`nav-link text-start w-100 py-1 ${isActive('/ad/m/in/pages/about/motto') ? 'text-white fw-bold' : 'text-white-50'}`} style={{fontSize: '0.85rem'}}>
-                      School Motto
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link href="/ad/m/in/pages/about/vision" className={`nav-link text-start w-100 py-1 ${isActive('/ad/m/in/pages/about/vision') ? 'text-white fw-bold' : 'text-white-50'}`} style={{fontSize: '0.85rem'}}>
-                      Vision Statement
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link href="/ad/m/in/pages/about/board" className={`nav-link text-start w-100 py-1 ${isActive('/ad/m/in/pages/about/board') ? 'text-white fw-bold' : 'text-white-50'}`} style={{fontSize: '0.85rem'}}>
-                      Board Of Governors
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link href="/ad/m/in/pages/about/values" className={`nav-link text-start w-100 py-1 ${isActive('/ad/m/in/pages/about/values') ? 'text-white fw-bold' : 'text-white-50'}`} style={{fontSize: '0.85rem'}}>
-                      Core Values
-                    </Link>
-                  </li>
-                </ul>
-              )}
+              <Link href="/ad/m/in/pages/about" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/about') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/about') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-info-circle me-2"></i> About Us
+              </Link>
             </li>
             <li className="nav-item mb-2">
               <Link href="/ad/m/in/pages/school" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/school') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/school') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>

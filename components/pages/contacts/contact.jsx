@@ -56,14 +56,13 @@ const ContactUs = () => {
                                 <div className="contact__page-info-item">
                                     <h6>Email Address <span>:</span></h6>
                                     <span>
-                                        <a href="mailto:Gracegarden042@gmail.com">Gracegarden042@gmail.com</a>
+                                        <a href="mailto:admin@gracegardenschool.com">admin@gracegardenschool.com</a>
                                     </span>
                                 </div>
                                 <div className="contact__page-info-item">
                                     <h6>Phone / WhatsApp Numbers<span>:</span></h6>
                                     <span>
                                         <a href="tel:+923004066340" style={{ display: 'block' }}>+92 300 406 6340</a>
-                                        <a href="tel:+923164408633" style={{ display: 'block' }}>+92 316 440 8633</a>
                                     </span>
                                 </div>
                             </div>

@@ -36,7 +36,7 @@ const HeaderOne = ({variant}) => {
                         <div className="col-xl-7 col-md-6">
                             <div className="top__bar-right">
                                 <Link href="tel:+923004066340" style={{ marginRight: '15px' }}><i className="fas fa-phone-alt"></i>+92 300 406 6340</Link>
-                                <Link href="mailto:Gracegarden042@gmail.com"><i className="fas fa-envelope"></i>Gracegarden042@gmail.com</Link>
+                                <Link href="mailto:admin@gracegardenschool.com"><i className="fas fa-envelope"></i>admin@gracegardenschool.com</Link>
                                 <div className="top__bar-right-social">
                                     <Social />
                                 </div>

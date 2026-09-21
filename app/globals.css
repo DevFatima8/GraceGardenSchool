@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import 'react-modal-video/css/modal-video.min.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "swiper/css/bundle";

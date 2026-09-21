@@ -41,7 +41,7 @@ const CareersPage = () => {
                                     <h4 className="fw-bold text-dark mt-2 mb-2">{job.title}</h4>
                                     <p className="text-muted small mb-4">{job.req}</p>
                                     <div className="mt-auto pt-3 border-top">
-                                        <Link href="mailto:Gracegarden042@gmail.com" className="btn btn-outline-primary rounded-pill px-4">
+                                        <Link href="mailto:admin@gracegardenschool.com" className="btn btn-outline-primary rounded-pill px-4">
                                             Apply via Email
                                         </Link>
                                     </div>
@@ -54,7 +54,7 @@ const CareersPage = () => {
                         <div className="col-12">
                             <div className="p-4 p-md-5 rounded-4 text-white text-center" style={{ backgroundColor: "#004389" }}>
                                 <h4 className="fw-bold text-white mb-2">How to Apply</h4>
-                                <p className="text-white-50 mb-4">Please email your updated CV/Resume mentioning the position in the subject line to <strong>Gracegarden042@gmail.com</strong> or drop your CV at our campus in Sector C-2, Block 5, Green Town, Lahore.</p>
+                                <p className="text-white-50 mb-4">Please email your updated CV/Resume mentioning the position in the subject line to <strong>admin@gracegardenschool.com</strong> or drop your CV at our campus in Sector C-2, Block 5, Green Town, Lahore.</p>
                                 <Link href="/contact" className="btn btn-warning px-4 py-2 rounded-pill fw-bold text-dark">
                                     Contact HR Desk
                                 </Link>

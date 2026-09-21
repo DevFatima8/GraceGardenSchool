@@ -76,7 +76,7 @@ const Page = () => {
                                 </div>
                                 <div className="mb-3">
                                     <p className="mb-1 text-white-50 small">Email Address:</p>
-                                    <p className="fw-bold mb-0 text-white">Gracegarden042@gmail.com</p>
+                                    <p className="fw-bold mb-0 text-white">admin@gracegardenschool.com</p>
                                 </div>
                                 <div className="mb-4">
                                     <p className="mb-1 text-white-50 small">Campus Address:</p>

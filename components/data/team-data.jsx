@@ -10,7 +10,7 @@ const teamData = [
         image: { src: '/assets/img/team/ceo-administrator.jpg' },
         position: 'CEO & Administrator',
         name: 'Leadership & Administration',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 300 406 6340',
         category: 'founder',
         social_link: [
@@ -24,7 +24,7 @@ const teamData = [
         image: team2,
         position: 'Academic Director / Principal',
         name: 'Principal & Faculty Head',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 316 440 8633',
         category: 'manager',
         social_link: [
@@ -37,7 +37,7 @@ const teamData = [
         image: team3,
         position: 'Pre-School Coordinator',
         name: 'Early Years Wing',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 300 406 6340',
         category: 'founder',
         social_link: [
@@ -50,7 +50,7 @@ const teamData = [
         image: team4,
         position: 'Primary Wing Coordinator',
         name: 'Primary Academic Team',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 300 406 6340',
         category: 'manager',
         social_link: [
@@ -63,7 +63,7 @@ const teamData = [
         image: team5,
         position: 'Matric & Middle Coordinator',
         name: 'Secondary Wing Team',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 316 440 8633',
         category: 'manager',
         social_link: [
@@ -76,7 +76,7 @@ const teamData = [
         image: team6,
         position: 'Cambridge Section Coordinator',
         name: 'O-Level Academic Team',
-        mail: 'Gracegarden042@gmail.com',
+        mail: 'admin@gracegardenschool.com',
         phone: '+92 300 406 6340',
         category: 'manager',
         social_link: [

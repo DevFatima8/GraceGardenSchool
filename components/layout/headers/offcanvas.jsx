@@ -22,7 +22,6 @@ const SideBar = ({ isOpen, setIsOpen }) => {
                         <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
                             <span>Call / WhatsApp</span>
                             <h6><a href="tel:+923004066340">+92 300 406 6340</a></h6>
-                            <h6><a href="tel:+923164408633">+92 316 440 8633</a></h6>
                         </div>
                     </div>
                     <div className="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -31,7 +30,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
                         </div>
                         <div className="header__area-menubar-right-box-sidebar-popup-contact-item-content">
                             <span>Email Address</span>
-                            <h6><a href="mailto:Gracegarden042@gmail.com">Gracegarden042@gmail.com</a></h6>
+                            <h6><a href="mailto:admin@gracegardenschool.com">admin@gracegardenschool.com</a></h6>
                         </div>
                     </div>
                     <div className="header__area-menubar-right-box-sidebar-popup-contact-item">

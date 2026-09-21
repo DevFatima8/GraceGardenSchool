@@ -486,9 +486,11 @@ Conbix Button And Title Styles CSS
   color: var(--text-white);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 16px;
   line-height: 26px;
-  padding: 17px 43px;
+  padding: 15px 30px;
   text-align: center;
   font-weight: 700;
   font-family: var(--heading-font);
@@ -498,6 +500,7 @@ Conbix Button And Title Styles CSS
   text-transform: none;
   overflow: hidden;
   border-radius: 6px;
+  white-space: nowrap;
 }
 
 .btn-one i,

@@ -4,6 +4,8 @@ import "./globals.css";
 import SwitchTab from '@/components/pages/common/dark-light';
 import { usePathname } from 'next/navigation';
 
+import WhatsAppFloat from '@/components/pages/common/whatsapp';
+
 export default function RootLayout({ children }) {
     const pathname = usePathname();
     const isAdmin = pathname.startsWith('/ad/');
@@ -24,6 +26,7 @@ export default function RootLayout({ children }) {
             </head>
             <body>
                 {!isAdmin && <SwitchTab />}
+                {!isAdmin && <WhatsAppFloat />}
                 {children}
             </body>
         </html>

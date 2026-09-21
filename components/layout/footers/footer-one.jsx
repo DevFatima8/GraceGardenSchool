@@ -80,15 +80,17 @@ const FooterOne = () => {
                                         </div>
                                         <div className="footer__one-widget-location-item-info" style={{ whiteSpace: 'nowrap', lineHeight: '1.2' }}>
                                             <Link href="tel:+923004066340" className="text-white d-block">+92 300 406 6340</Link>
-                                            <Link href="tel:+923164408633" className="text-white d-block">+92 316 440 8633</Link>
                                         </div>
                                     </div>
                                     <div className="footer__one-widget-location-item">
                                         <div className="footer__one-widget-location-item-icon">
                                             <i className="far fa-envelope"></i>
                                         </div>
-                                        <div className="footer__one-widget-location-item-info" style={{ whiteSpace: 'nowrap' }}>
-                                            <Link href="mailto:Gracegarden042@gmail.com" className="text-white">Gracegarden042@gmail.com</Link>
+                                        <div className="footer__one-widget-location-item-info" style={{ whiteSpace: 'nowrap', lineHeight: '1.5' }}>
+                                            <Link href="mailto:admin@gracegardenschool.com" className="text-white d-block">admin@gracegardenschool.com</Link>
+                                            <Link href="mailto:info@gracegardenschool.com" className="text-white d-block">info@gracegardenschool.com</Link>
+                                            <Link href="mailto:principal@gracegardenschool.com" className="text-white d-block">principal@gracegardenschool.com</Link>
+                                            <Link href="mailto:accounts@gracegardenschool.com" className="text-white d-block">accounts@gracegardenschool.com</Link>
                                         </div>
                                     </div>
                                 </div>

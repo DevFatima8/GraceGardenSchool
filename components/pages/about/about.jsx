@@ -37,8 +37,8 @@ const AboutMain = () => {
                                     <h2>{aboutContent.title}</h2>
                                     <p>{aboutContent.description}</p>
                                     
-                                    <div className="mt-4 mb-4 p-3 rounded bg-light" id="motto" style={{ borderLeft: "4px solid #004389" }}>
-                                        <h5 className="fw-bold mb-1" style={{ color: "#004389" }}>School Motto</h5>
+                                    <div className="mt-4 mb-4 p-3 rounded bg-light" id="motto" style={{ borderLeft: "4px solid var(--primary-color-1)" }}>
+                                        <h5 className="fw-bold mb-1" style={{ color: "var(--primary-color-1)" }}>School Motto</h5>
                                         <p className="mb-0 text-muted fst-italic">"Cultivating Minds, Nurturing Hearts, Building Future Leaders"</p>
                                     </div>
 
