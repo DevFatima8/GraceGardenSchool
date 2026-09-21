@@ -152,15 +152,15 @@ export default function AboutPageManager() {
   if (loading) return <div>Loading content...</div>;
 
   return (
-    <div className="tw-p-6 tw-bg-white tw-rounded-xl tw-shadow-sm">
-      <h3 className="tw-text-2xl tw-font-bold tw-mb-2">Manage About Us Content</h3>
-      <p className="tw-text-gray-500 tw-mb-6">Select a section to update its text, images, and list items.</p>
+    <div>
+      <h3 className="fw-bold mb-4">Manage About Us Content</h3>
+      <p className="text-muted mb-4">Select a section to update its text, images, and list items.</p>
 
-      {message && <div className="tw-bg-green-50 tw-text-green-700 tw-p-4 tw-rounded-lg tw-mb-6">{message}</div>}
-      {error && <div className="tw-bg-red-50 tw-text-red-700 tw-p-4 tw-rounded-lg tw-mb-6">{error}</div>}
+      {message && <div className="alert alert-success">{message}</div>}
+      {error && <div className="alert alert-danger">{error}</div>}
 
-      <div className="tw-border tw-border-gray-200 tw-rounded-lg tw-overflow-hidden">
-        <div className="tw-flex tw-flex-col">
+      <div className="card shadow-sm border-0">
+        <div className="list-group list-group-flush">
           {Object.entries(sectionConfig).map(([sectionId, config]) => {
             const existingContent = content.find(c => c.section_id === sectionId);
             let listCount = 0;
@@ -175,31 +175,31 @@ export default function AboutPageManager() {
             return (
               <button 
                 key={sectionId} 
-                className="tw-w-full tw-flex tw-justify-between tw-items-center tw-p-5 tw-border-b tw-border-gray-100 last:tw-border-0 hover:tw-bg-gray-50 tw-transition"
+                className="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-4"
                 onClick={() => handleEdit(sectionId)}
               >
-                <div className="tw-flex tw-items-center">
+                <div className="d-flex align-items-center">
                   {existingContent?.image_url ? (
-                    <img src={existingContent.image_url} alt="thumb" className="tw-w-16 tw-h-16 tw-object-cover tw-rounded-md tw-shadow-sm tw-mr-4" />
+                    <img src={existingContent.image_url} alt="thumb" className="rounded shadow-sm me-3" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
                   ) : (
-                    <div className="tw-w-16 tw-h-16 tw-bg-gray-100 tw-rounded-md tw-flex tw-items-center tw-justify-center tw-mr-4">
-                      <i className="fal fa-image tw-text-gray-400"></i>
+                    <div className="bg-light rounded shadow-sm me-3 d-flex align-items-center justify-content-center" style={{width: '60px', height: '60px'}}>
+                      <i className="fal fa-image text-muted"></i>
                     </div>
                   )}
-                  <div className="tw-text-left">
-                    <h6 className="tw-text-lg tw-font-bold tw-text-gray-800 tw-mb-1">{config.title}</h6>
-                    <div className="tw-flex tw-items-center tw-gap-2">
-                      <small className="tw-text-gray-500">{existingContent?.title || 'Not Configured Yet'}</small>
+                  <div className="text-start">
+                    <h6 className="fw-bold mb-1">{config.title}</h6>
+                    <div className="d-flex align-items-center">
+                      <small className="text-muted">{existingContent?.title || 'Not Configured Yet'}</small>
                       {listCount > 0 && (
-                        <span className="tw-bg-gray-100 tw-text-gray-700 tw-text-xs tw-px-2 tw-py-1 tw-rounded-md tw-border tw-border-gray-200">
+                        <span className="badge bg-light text-dark border ms-2">
                           {listCount} List Items
                         </span>
                       )}
                     </div>
                   </div>
                 </div>
-                <div className="tw-flex tw-items-center tw-text-blue-600">
-                  <span className="tw-text-sm tw-font-bold tw-mr-2">Edit Section</span>
+                <div className="d-flex align-items-center" style={{ color: 'var(--primary-color-1)' }}>
+                  <span className="small fw-bold me-2">Edit Section</span>
                   <i className="far fa-chevron-right"></i>
                 </div>
               </button>
