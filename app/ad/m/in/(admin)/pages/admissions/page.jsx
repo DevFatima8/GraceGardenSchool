@@ -1,8 +1,5 @@
-'use client';
+import AdmissionsPageManager from "@/components/admin/AdmissionsPageManager";
 
-import React from 'react';
-import PageManager from '@/components/admin/PageManager';
-
-export default function AdmissionsPageManager() {
-  return <PageManager page="pages-admissions" />;
+export default function AdminAdmissionsRoute() {
+  return <AdmissionsPageManager />;
 }

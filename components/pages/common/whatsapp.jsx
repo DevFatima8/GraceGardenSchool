@@ -12,15 +12,15 @@ const WhatsAppFloat = () => {
             <style jsx>{`
                 .whatsapp-float {
                     position: fixed;
-                    width: 60px;
-                    height: 60px;
-                    bottom: 90px;
-                    right: 40px;
+                    width: 50px;
+                    height: 50px;
+                    bottom: 80px;
+                    right: 20px;
                     background-color: #25d366;
                     color: #FFF;
                     border-radius: 50px;
                     text-align: center;
-                    font-size: 30px;
+                    font-size: 25px;
                     box-shadow: 2px 2px 3px #999;
                     z-index: 100;
                     display: flex;
@@ -35,11 +35,8 @@ const WhatsAppFloat = () => {
                 }
                 @media screen and (max-width: 767px) {
                     .whatsapp-float {
-                        width: 50px;
-                        height: 50px;
                         bottom: 80px;
                         right: 20px;
-                        font-size: 25px;
                     }
                 }
             `}</style>

@@ -1,7 +1,29 @@
+"use client"
 import Link from "next/link";
+import React, { useRef } from 'react';
 import SkillBarItem from "../../common/skill-bar";
 
 const TeamSingleMain = ({teamDetails}) => {
+    const formRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(formRef.current);
+        const name = formData.get('name') || 'N/A';
+        const email = formData.get('email') || 'N/A';
+        const number = formData.get('number') || 'N/A';
+        const messageText = formData.get('message') || 'N/A';
+        
+        const message = `*Message for ${teamDetails?.name || 'Teacher'}*\n\n` +
+            `*Name:* ${name}\n` +
+            `*Email:* ${email}\n` +
+            `*Phone:* ${number}\n` +
+            `*Message:* ${messageText}`;
+            
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/923004066340?text=${encodedMessage}`, '_blank');
+        formRef.current.reset();
+    };
     
     return (
         <div className="team__single section-padding">
@@ -87,7 +109,7 @@ const TeamSingleMain = ({teamDetails}) => {
                                 </div>
                             </div>
                             <div className="team__single-right-form">
-                                <form action="#">
+                                <form ref={formRef} onSubmit={handleSubmit}>
                                     <div className="row">
                                         <div className="col-md-6 mb-30">
                                             <div className="contact__two-right-form-item contact-item">

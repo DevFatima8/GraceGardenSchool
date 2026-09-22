@@ -28,8 +28,6 @@ const FooterOne = () => {
                                         <li><Link href="/pre-school"><i className="far fa-chevron-double-right"></i>Pre-School</Link></li>
                                         <li><Link href="/lower-primary"><i className="far fa-chevron-double-right"></i>Primary</Link></li>
                                         <li><Link href="/middle"><i className="far fa-chevron-double-right"></i>Middle</Link></li>
-                                        <li><Link href="/matric"><i className="far fa-chevron-double-right"></i>Matric</Link></li>
-                                        <li><Link href="/cambridge"><i className="far fa-chevron-double-right"></i>Cambridge</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -100,7 +98,7 @@ const FooterOne = () => {
                             <div className="footer__one-widget border-one tow">
                                 <h4>Admissions</h4>
                                 <div className="footer__one-widget-subscribe">
-                                    <p>Admissions Open from Pre-School to Matric & Cambridge.</p>
+                                    <p>Admissions Open from Pre-School to 6th Class.</p>
                                     <Link href="/admissions" className="btn btn-warning w-100 py-2 rounded-pill fw-bold text-dark text-center mt-2 d-block">
                                         Apply
                                     </Link>

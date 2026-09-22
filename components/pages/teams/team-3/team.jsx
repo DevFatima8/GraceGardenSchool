@@ -1,8 +1,11 @@
+'use client';
 import Link from "next/link";
-import teamData from "@/components/data/team-data";
+import { useTeamData } from "@/components/data/team-data";
 import FaqArea from "../../faq/faq";
 
 const TeamMain = () => {
+    const { teamData, isLoading } = useTeamData();
+    if (isLoading) return null;
     return (
         <>
             <div className="team__area section-padding-two pb-0 dark__image">

@@ -1,5 +1,5 @@
-
-import teamData from '@/components/data/team-data';
+'use client';
+import { useTeamData } from '@/components/data/team-data';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -11,11 +11,14 @@ const filters = [
     { id: 5, name: "Writer", filterData: "writer", },
 ];
 
-const getFilteredProjects = (filterData) => filterData === "all" ? teamData : teamData.filter((project) => project.category === filterData);
-
 const TeamFilter = () => {
+    const { teamData, isLoading } = useTeamData();
     const [filter, setFilter] = useState("all");
+    
+    const getFilteredProjects = (filterData) => filterData === "all" ? teamData : teamData.filter((project) => project.category === filterData);
     const filteredProjects = getFilteredProjects(filter);
+
+    if (isLoading) return null;
 
     return (
         <>

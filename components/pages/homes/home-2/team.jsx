@@ -1,8 +1,11 @@
-import teamData from "@/components/data/team-data";
+'use client';
 import Link from "next/link";
-
+import { useTeamData } from "@/components/data/team-data";
 
 const Team = () => {
+    const { teamData, isLoading } = useTeamData();
+    if (isLoading) return null;
+
     const teamsItem = teamData.slice(0, 4);
     const teamContent = {
         subtitle: 'Our Team Member',
