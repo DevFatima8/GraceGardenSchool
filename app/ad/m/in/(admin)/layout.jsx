@@ -24,13 +24,22 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="d-flex vh-100 bg-light">
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
       {/* Sidebar */}
       <div className="text-white d-flex flex-column" style={{ width: '280px', flexShrink: 0, backgroundColor: 'var(--dark-one)' }}>
         <div className="p-4 border-bottom border-secondary">
           <h5 className="fw-bold mb-0 text-white">Admin Portal</h5>
         </div>
         
-        <div className="flex-grow-1 p-3">
+        <div className="flex-grow-1 p-3 hide-scrollbar" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
           <ul className="nav nav-pills flex-column mb-auto">
             <li className="nav-item mb-2">
               <Link href="/ad/m/in/dashboard" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/dashboard') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/dashboard') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
@@ -50,13 +59,38 @@ export default function AdminLayout({ children }) {
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <Link href="/ad/m/in/pages/school" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/school') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/school') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+              <Link href="/ad/m/in/pages/our-school" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/our-school') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/our-school') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
                 <i className="far fa-school me-2"></i> Our School
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
+              <Link href="/ad/m/in/pages/classes" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/classes') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/classes') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-chalkboard-teacher me-2"></i> Classes
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
+              <Link href="/ad/m/in/pages/departments" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/departments') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/departments') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-building me-2"></i> Departments
               </Link>
             </li>
             <li className="nav-item mb-2">
               <Link href="/ad/m/in/pages/admissions" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/admissions') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/admissions') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
                 <i className="far fa-graduation-cap me-2"></i> Admissions
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
+              <Link href="/ad/m/in/pages/misc" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/misc') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/misc') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-layer-group me-2"></i> Other Pages
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
+              <Link href="/ad/m/in/pages/team" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/team') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/team') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-users me-2"></i> Teachers / Team
+              </Link>
+            </li>
+            <li className="nav-item mb-2">
+              <Link href="/ad/m/in/registrations" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/registrations') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/registrations') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-clipboard-list me-2"></i> Registrations
               </Link>
             </li>
             <li className="nav-item mb-2 mt-4">

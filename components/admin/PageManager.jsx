@@ -214,18 +214,19 @@ export default function PageManager({ page }) {
                   {/* Configuration Logic */}
                   {(() => {
                     const sectionId = formData.section_id;
-                    const config = {
-                      hasTitle: false,
-                      hasSubtitle: false,
-                      hasDesc: ['hero', 'about', 'faculty', 'extracurricular', 'admissions', 'academics'].includes(sectionId),
-                      hasImage: ['hero', 'about', 'faculty', 'extracurricular'].includes(sectionId)
-                    };
+                      const config = {
+                        hasTitle: false,
+                        hasSubtitle: false,
+                        hasDesc: ['about', 'faculty', 'extracurricular', 'admissions', 'academics'].includes(sectionId),
+                        hasImage: ['about', 'faculty', 'extracurricular'].includes(sectionId)
+                      };
                     const getListLabels = () => {
                       switch (sectionId) {
                         case 'academics': return { title: 'Card Title', sub: 'Category', desc: 'Description', link: 'Link URL', img: 'Icon / Image' };
                         case 'facilities': return { title: 'Facility Name', sub: 'Category', desc: 'Details', link: 'Link URL', img: 'Facility Image' };
                         case 'achievements': return { title: 'Person Name', sub: 'Role / Position', desc: 'Testimonial / Review', link: 'Profile Link', img: 'Avatar Image' };
                         case 'future': return { title: 'News / Event Title', sub: 'Date / Category', desc: 'Excerpt / Summary', link: 'Read More Link', img: 'Blog Cover Image' };
+                        case 'hero': return { title: 'Slide Title', sub: 'Slide Subtitle', desc: 'Slide Description', link: 'Button Link', img: 'Background Image' };
                         default: return { title: 'Card Title', sub: 'Subtitle', desc: 'Description', link: 'Link', img: 'Image' };
                       }
                     };
@@ -267,16 +268,18 @@ export default function PageManager({ page }) {
                         </div>
 
                         {/* Dynamic Array Editor - ONLY for sections that support cards */}
-                        {['academics', 'facilities', 'achievements', 'future'].includes(formData.section_id) && (
+                        {['academics', 'facilities', 'achievements', 'future', 'hero'].includes(formData.section_id) && (
                           <>
                             <div className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3 mt-5">
                               <h6 className="fw-bold mb-0">List Items (Cards / Sliders)</h6>
-                              <button type="button" className="btn btn-sm btn-outline-success" onClick={() => {
-                                  handleAddJsonItem();
-                                  setActiveListIndex(formData.json_data ? formData.json_data.length : 0);
-                              }}>
-                                <i className="far fa-plus me-1"></i> Add Card
-                              </button>
+                              {(!formData.json_data || formData.json_data.length < (formData.section_id === 'hero' ? 10 : 99)) && (
+                                <button type="button" className="btn btn-sm btn-outline-success" onClick={() => {
+                                    handleAddJsonItem();
+                                    setActiveListIndex(formData.json_data ? formData.json_data.length : 0);
+                                }}>
+                                  <i className="far fa-plus me-1"></i> Add Card
+                                </button>
+                              )}
                             </div>
                             
                             {formData.json_data && formData.json_data.length > 0 && (
@@ -308,16 +311,18 @@ export default function PageManager({ page }) {
                                 {formData.json_data[activeListIndex] && (
                                   <div className="card shadow-sm border-primary">
                                     <div className="card-body bg-light rounded position-relative">
-                                      <button 
-                                        type="button" 
-                                        className="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
-                                        onClick={() => {
-                                          handleRemoveJsonItem(activeListIndex);
-                                          setActiveListIndex(Math.max(0, activeListIndex - 1));
-                                        }}
-                                      >
-                                        <i className="far fa-trash me-1"></i> Delete This Card
-                                      </button>
+                                      {(formData.section_id !== 'hero' || formData.json_data.length > 3) && (
+                                        <button 
+                                          type="button" 
+                                          className="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
+                                          onClick={() => {
+                                            handleRemoveJsonItem(activeListIndex);
+                                            setActiveListIndex(Math.max(0, activeListIndex - 1));
+                                          }}
+                                        >
+                                          <i className="far fa-trash me-1"></i> Delete This Card
+                                        </button>
+                                      )}
                                       <h6 className="fw-bold mb-3" style={{ color: 'var(--primary-color-1)' }}>Editing Item #{activeListIndex + 1}</h6>
                                       
                                       <div className="row g-3">

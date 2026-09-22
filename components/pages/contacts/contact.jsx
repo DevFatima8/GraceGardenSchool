@@ -1,16 +1,50 @@
 "use client"
+import React, { useState, useEffect } from 'react';
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../common/breadcrumb";
 import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../common/scroll/scroll-to-top";
 
+const defaultContent = {
+    hero: {
+        image_url: "/uploads/community.jpg"
+    },
+    contact_info: {
+        title: "Sector C-2, Block 5, Green Town, Lahore",
+        subtitle: "admin@gracegardenschool.com",
+        description: "+92 300 406 6340"
+    }
+};
+
 const ContactUs = () => {
+    const [content, setContent] = useState(defaultContent);
+
+    useEffect(() => {
+        fetch('/api/our-school-content?page_slug=contact')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.data.length > 0) {
+                    const merged = { ...defaultContent };
+                    data.data.forEach(section => {
+                        if (merged[section.section_id]) {
+                            merged[section.section_id] = {
+                                ...merged[section.section_id],
+                                ...section
+                            };
+                        }
+                    });
+                    setContent(merged);
+                }
+            })
+            .catch(err => console.error(err));
+    }, []);
+
     return (
         <>
             <SEO pageTitle="Contact Us - Grace Garden School" />
             <HeaderOne />
-            <BreadCrumb title="Contact Us" innerTitle="Contact Campus" />
+            <BreadCrumb title="Contact Us" innerTitle="Contact Campus" bgImage={content.hero?.image_url} />
             <div className="contact__page section-padding pb-0">
                 <div className="container">
                     <div className="row">
@@ -51,18 +85,18 @@ const ContactUs = () => {
                                 <h2 className="mb-60 lg-mb-30">Get In Touch</h2>
                                 <div className="contact__page-info-item">
                                     <h6>Campus Address<span>:</span></h6>
-                                    <span>Sector C-2, Block 5, Green Town, Lahore</span>
+                                    <span>{content.contact_info.title}</span>
                                 </div>
                                 <div className="contact__page-info-item">
                                     <h6>Email Address <span>:</span></h6>
                                     <span>
-                                        <a href="mailto:admin@gracegardenschool.com">admin@gracegardenschool.com</a>
+                                        <a href={`mailto:${content.contact_info.subtitle}`}>{content.contact_info.subtitle}</a>
                                     </span>
                                 </div>
                                 <div className="contact__page-info-item">
                                     <h6>Phone / WhatsApp Numbers<span>:</span></h6>
                                     <span>
-                                        <a href="tel:+923004066340" style={{ display: 'block' }}>+92 300 406 6340</a>
+                                        <a href={`tel:${content.contact_info.description.replace(/\s/g, '')}`} style={{ display: 'block' }}>{content.contact_info.description}</a>
                                     </span>
                                 </div>
                             </div>

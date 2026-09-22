@@ -39,7 +39,7 @@ const History = () => {
                                             <span>2024</span>
                                             <h5>Expansion of Academic Wings</h5>
                                         </div>
-                                        <p>Introduced state-of-the-art computer and science laboratories, enriched Cambridge Lower Secondary pathways, and enhanced STEM learning clubs.</p>
+                                        <p>Introduced state-of-the-art computer and science laboratories, enriched academic pathways, and enhanced STEM learning clubs.</p>
                                     </div>
                                 </div>
                                 <div className="company__history-area-items-right">

@@ -9,6 +9,9 @@ import ScrollToTop from "../common/scroll/scroll-to-top";
 
 // Default content for fallback
 const defaultAboutContent = {
+  hero: {
+    image_url: "/uploads/about-hero.jpg"
+  },
   history: {
     title: "Our History",
     subtitle: "A Legacy of Excellence",
@@ -138,6 +141,7 @@ const AboutUs = () => {
             });
             // Merge DB content with fallback if any section is completely missing
             setContent(prev => ({
+              hero: dbContent.hero || prev.hero,
               history: dbContent.history || prev.history,
               motto: dbContent.motto || prev.motto,
               vision: dbContent.vision || prev.vision,
@@ -161,7 +165,7 @@ const AboutUs = () => {
       <>
         <SEO pageTitle="About Us" />
         <HeaderOne />
-        <BreadCrumb title="About Us" innerTitle="Company About" />
+        <BreadCrumb title="About Us" innerTitle="Company About" bgImage={content.hero?.image_url} />
         
         {/* Dynamic Sections using Tailwind CSS */}
         <div className="about-dynamic-wrap">

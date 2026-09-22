@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
 @import 'react-modal-video/css/modal-video.min.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "swiper/css/bundle";
@@ -11,5 +9,7 @@
 @import "../public/assets/sass/style.css";
 @import "../public/assets/font/flaticon_conbix.css";
 @import "../public/assets/css/responsive-fix.css";
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

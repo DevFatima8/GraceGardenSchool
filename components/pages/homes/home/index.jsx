@@ -17,10 +17,26 @@ import Preloader from "@/components/pages/common/preloader";
 
 const defaultContent = {
     hero: {
-        subtitle: "Cultivating Minds, Nurturing Hearts, Building Future Leaders",
-        title: "Grace Garden School",
-        description: "A forward-thinking educational institution in Green Town, Lahore, dedicated to academic excellence, character development, and extracurricular enrichment.",
-        image_url: "/assets/img/banner/banner-1.jpg"
+        json_data: [
+            {
+                title: "Grace Garden School",
+                subtitle: "Cultivating Minds, Nurturing Hearts, Building Future Leaders",
+                description: "A forward-thinking educational institution in Green Town, Lahore, dedicated to academic excellence, character development, and extracurricular enrichment.",
+                image_url: "/uploads/hero-1.jpg"
+            },
+            {
+                title: "Inspiring Academic Excellence",
+                subtitle: "Discover Your Child's True Potential",
+                description: "Our modern curriculum, state-of-the-art facilities, and dedicated faculty provide an unmatched learning environment.",
+                image_url: "/uploads/hero-2.jpg"
+            },
+            {
+                title: "A Vibrant School Community",
+                subtitle: "Fostering Friendships & Social Skills",
+                description: "From engaging extracurricular activities to interactive learning sessions, students thrive in our supportive community.",
+                image_url: "/uploads/hero-3.jpg"
+            }
+        ]
     },
     about: {
         subtitle: "School Profile",
@@ -31,7 +47,7 @@ const defaultContent = {
     academics: {
         subtitle: "Academic Programs",
         title: "Foundations for Lifelong Achievement",
-        description: "High-quality academic programs designed to foster literacy, numeracy, critical inquiry, and creative exploration from Pre-School to Matric & Cambridge levels."
+        description: "High-quality academic programs designed to foster literacy, numeracy, critical inquiry, and creative exploration from Pre-School to 6th Class."
     },
     faculty: {
         subtitle: "Faculty and Staff",

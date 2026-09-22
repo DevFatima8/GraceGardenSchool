@@ -15,6 +15,7 @@ export default function AboutPageManager() {
 
   // Define the sections for the About Us page
   const sectionConfig = {
+    hero: { title: 'Page Banner Image', hasDesc: false, hasImage: true, hasList: false },
     history: { title: 'Our History', hasDesc: true, hasImage: true, hasList: false },
     motto: { title: 'School Motto', hasDesc: true, hasImage: true, hasList: false },
     vision: { title: 'Vision Statement', hasDesc: true, hasImage: true, hasList: false },

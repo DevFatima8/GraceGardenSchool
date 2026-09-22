@@ -156,31 +156,8 @@ const ResponsiveMenu = () => {
                             <Link href='#'>Middle Section</Link>
                             <ul className='sub-menu' style={getSubMenuStyle("middle-sec")}>
                                 <li><Link href='/6-a'>6 A</Link></li>
-                                <li><Link href='/7-a'>7 A</Link></li>
-                                <li><Link href='/8-a'>8 A</Link></li>
                             </ul>
                             <a className={getExpandClass("middle-sec")} onClick={() => toggleMenu("middle-sec")}></a>
-                        </li>
-
-                        <li className='menu-item-has-children'>
-                            <Link href='#'>Matric Section</Link>
-                            <ul className='sub-menu' style={getSubMenuStyle("matric-sec")}>
-                                <li><Link href='/9-a'>9 A</Link></li>
-                                <li><Link href='/10-a'>10 A</Link></li>
-                            </ul>
-                            <a className={getExpandClass("matric-sec")} onClick={() => toggleMenu("matric-sec")}></a>
-                        </li>
-
-                        <li className='menu-item-has-children'>
-                            <Link href='#'>Cambridge Section</Link>
-                            <ul className='sub-menu' style={getSubMenuStyle("cambridge-sec")}>
-                                <li><Link href='/6-c'>6 C</Link></li>
-                                <li><Link href='/7-c'>7 C</Link></li>
-                                <li><Link href='/8-c'>8 C</Link></li>
-                                <li><Link href='/9-c'>9 C</Link></li>
-                                <li><Link href='/10-c'>10 C</Link></li>
-                            </ul>
-                            <a className={getExpandClass("cambridge-sec")} onClick={() => toggleMenu("cambridge-sec")}></a>
                         </li>
 
                         <li className='menu-item-has-children'>
@@ -213,8 +190,6 @@ const ResponsiveMenu = () => {
                                 <li><Link href='/lower-primary'>Lower Primary</Link></li>
                                 <li><Link href='/upper-primary'>Upper Primary</Link></li>
                                 <li><Link href='/middle'>Middle</Link></li>
-                                <li><Link href='/matric'>Matric</Link></li>
-                                <li><Link href='/cambridge'>Cambridge</Link></li>
                             </ul>
                             <a className={getExpandClass("coordinators")} onClick={() => toggleMenu("coordinators")}></a>
                         </li>

@@ -1,7 +1,28 @@
+"use client"
 import Link from "next/link";
+import React, { useRef } from 'react';
 import bgImage from "../../../../public/assets/img/pages/getInTouch.jpg";
 
 const GetInTouch = ({ data }) => {
+    const formRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(formRef.current);
+        const name = formData.get('name') || 'N/A';
+        const email = formData.get('email') || 'N/A';
+        const subject = formData.get('subject') || 'N/A';
+        
+        const message = `*New Inquiry*\n\n` +
+            `*Name:* ${name}\n` +
+            `*Email:* ${email}\n` +
+            `*Grade Applying For:* ${subject}`;
+            
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/923004066340?text=${encodedMessage}`, '_blank');
+        formRef.current.reset();
+    };
+
     const touchContent = {
         subtitle: data?.subtitle || 'Extracurricular Activities',
         title: data?.title || 'Developing Well-Rounded Students',
@@ -21,7 +42,7 @@ const GetInTouch = ({ data }) => {
                                     <h2>{touchContent.title}</h2>
                                 </div>
                                 <div className="getIn__touch-left-form">
-                                    <form action="#">
+                                    <form ref={formRef} onSubmit={handleSubmit}>
                                         <div className="mt-25">
                                             <input type="text" name="name" placeholder="Student / Parent Full Name" required="required" />
                                         </div>
@@ -53,10 +74,10 @@ const GetInTouch = ({ data }) => {
                                     </div>
                                     <div className="getIn__touch-right-bottom-image">
                                         <ul>
-                                            <li><img src="/assets/img/team/ceo-administrator.jpg" alt="CEO" /></li>
-                                            <li><img src="assets/img/avatar/avatar-2.jpg" alt="Faculty" /></li>
-                                            <li><img src="assets/img/avatar/avatar-3.jpg" alt="Faculty" /></li>
-                                            <li><img src="assets/img/avatar/avatar-4.jpg" alt="Student" /></li>
+                                            <li><img src="/assets/img/team/ceo-administrator.jpg" alt="CEO" title="CEO" /></li>
+                                            <li><img src="/assets/img/avatar/avatar-2.jpg" alt="Sports" title="Sports" /></li>
+                                            <li><img src="/assets/img/avatar/avatar-3.jpg" alt="Clubs" title="Clubs" /></li>
+                                            <li><img src="/assets/img/avatar/avatar-4.jpg" alt="Community Service" title="Community Service" /></li>
                                         </ul>
                                     </div>
                                 </div>

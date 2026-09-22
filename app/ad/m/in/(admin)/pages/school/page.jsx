@@ -1,8 +1,5 @@
-'use client';
-
-import React from 'react';
-import PageManager from '@/components/admin/PageManager';
+import OurSchoolPageManager from "@/components/admin/OurSchoolPageManager";
 
 export default function SchoolPageManager() {
-  return <PageManager page="pages-school" />;
+  return <OurSchoolPageManager />;
 }

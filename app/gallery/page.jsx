@@ -1,4 +1,5 @@
 "use client"
+import React, { useState, useEffect } from 'react';
 import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "@/components/pages/common/breadcrumb";
@@ -7,98 +8,72 @@ import ScrollToTop from "@/components/pages/common/scroll/scroll-to-top";
 import Link from "next/link";
 
 const Page = () => {
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/gallery')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    setImages(data.images);
+                }
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
+    }, []);
+
     return (
         <>
             <SEO pageTitle="Photo Gallery" />
             <HeaderOne />
-            <BreadCrumb title="Photo Gallery" innerTitle="Photo Gallery" />
+            <BreadCrumb title="Photo Gallery" innerTitle="Gallery" bgImage="/uploads/activities.jpg" />
             
-            <div className="section-padding py-5">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8">
-                            <div className="card border-0 shadow-sm p-4 p-md-5 rounded-4 mb-4">
-                                <span className="text-primary fw-bold fs-6 mb-2 d-inline-block">Memories & Celebrations</span>
-                                <h2 className="mb-4 text-dark fw-bold">Photo Gallery</h2>
-                                <p className="lead text-muted mb-4" style={{ lineHeight: "1.8" }}>
-                                    Explore moments of joy, academic achievements, sports galas, cultural days, and co-curricular activities at Grace Garden School.
-                                </p>
-                                
-                                <div className="p-4 rounded-3 mb-4" style={{ backgroundColor: "#f8fafc", borderLeft: "4px solid #004389" }}>
-                                    <h4 className="fw-bold mb-3" style={{ color: "#004389" }}>Grace Garden School Profile</h4>
-                                    <p className="mb-2"><strong>Location:</strong> Sector C-2, Block 5, Green Town, Lahore</p>
-                                    <p className="mb-2"><strong>Established:</strong> 2023</p>
-                                    <p className="mb-0"><strong>Focus:</strong> Academic Excellence, Character Development & Co-Curricular Enrichment</p>
-                                </div>
-
-                                <h4 className="fw-bold mb-3 text-dark">Key Highlights & Objectives</h4>
-                                <ul className="list-unstyled mb-4">
-                                    <li className="mb-2 d-flex align-items-center">
-                                        <i className="fas fa-check-circle text-success me-2"></i>
-                                        <span>Student-centered learning environment with experienced, certified faculty.</span>
-                                    </li>
-                                    <li className="mb-2 d-flex align-items-center">
-                                        <i className="fas fa-check-circle text-success me-2"></i>
-                                        <span>Well-equipped modern classrooms, laboratories, and multimedia facilities.</span>
-                                    </li>
-                                    <li className="mb-2 d-flex align-items-center">
-                                        <i className="fas fa-check-circle text-success me-2"></i>
-                                        <span>Holistic character building, ethical values, and leadership training.</span>
-                                    </li>
-                                    <li className="mb-2 d-flex align-items-center">
-                                        <i className="fas fa-check-circle text-success me-2"></i>
-                                        <span>Regular parent-teacher engagement and continuous progress tracking.</span>
-                                    </li>
-                                </ul>
-
-                                <div className="d-flex flex-wrap gap-3 pt-2">
-                                    <Link href="/admissions" className="btn btn-primary px-4 py-2 rounded-pill fw-semibold">
-                                        Admissions Info
-                                    </Link>
-                                    <Link href="/contact" className="btn btn-outline-secondary px-4 py-2 rounded-pill fw-semibold">
-                                        Contact Office
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4">
-                            <div className="card border-0 shadow-sm p-4 rounded-4 mb-4" style={{ backgroundColor: "#004389", color: "#fff" }}>
-                                <h4 className="fw-bold mb-3 text-white">Need Assistance?</h4>
-                                <p className="text-white-50 mb-4">Feel free to contact our administration for admissions, campus tours, or academic inquiries.</p>
-                                <div className="mb-3">
-                                    <p className="mb-1 text-white-50 small">Phone Numbers:</p>
-                                    <p className="fw-bold mb-0 text-white">+92 300 406 6340 | +92 316 440 8633</p>
-                                </div>
-                                <div className="mb-3">
-                                    <p className="mb-1 text-white-50 small">Landline:</p>
-                                    <p className="fw-bold mb-0 text-white">+92 300 406 6340</p>
-                                </div>
-                                <div className="mb-3">
-                                    <p className="mb-1 text-white-50 small">Email Address:</p>
-                                    <p className="fw-bold mb-0 text-white">admin@gracegardenschool.com</p>
-                                </div>
-                                <div className="mb-4">
-                                    <p className="mb-1 text-white-50 small">Campus Address:</p>
-                                    <p className="fw-bold mb-0 text-white">Sector C-2, Block 5, Green Town, Lahore</p>
-                                </div>
-                                <Link href="/contact" className="btn btn-warning w-100 py-2 rounded-pill fw-bold text-dark">
-                                    Get In Touch
-                                </Link>
-                            </div>
-
-                            <div className="card border-0 shadow-sm p-4 rounded-4 bg-white">
-                                <h5 className="fw-bold mb-3 text-dark">Quick Navigation</h5>
-                                <ul className="list-unstyled mb-0">
-                                    <li className="py-2 border-bottom"><Link href="/about-us" className="text-decoration-none text-muted">About Grace Garden</Link></li>
-                                    <li className="py-2 border-bottom"><Link href="/admissions" className="text-decoration-none text-muted">Admission Procedures</Link></li>
-                                    <li className="py-2 border-bottom"><Link href="/fee-structure" className="text-decoration-none text-muted">Fee Structure</Link></li>
-                                    <li className="py-2 border-bottom"><Link href="/curriculum" className="text-decoration-none text-muted">Academic Curriculum</Link></li>
-                                    <li className="py-2"><Link href="/contact" className="text-decoration-none text-muted">Contact Campus</Link></li>
-                                </ul>
-                            </div>
-                        </div>
+            <div className="section-padding py-5 bg-light">
+                <div className="container py-4">
+                    <div className="text-center mb-5">
+                        <span className="fw-bold text-uppercase d-block mb-2" style={{ letterSpacing: '2px', color: 'var(--primary-color-1, #0d6efd)' }}>Memories & Celebrations</span>
+                        <h2 className="display-5 fw-bolder mb-3 text-dark">Our Complete Gallery</h2>
+                        <div className="mx-auto mt-3 mb-4" style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary-color-1, #0d6efd)', borderRadius: '2px' }}></div>
+                        <p className="lead text-muted mx-auto" style={{ maxWidth: "700px" }}>
+                            Explore moments of joy, academic achievements, sports galas, cultural days, and co-curricular activities at Grace Garden School.
+                        </p>
                     </div>
+                    
+                    {loading ? (
+                        <div className="text-center py-5">
+                            <div className="spinner-border text-primary" role="status"></div>
+                        </div>
+                    ) : images.length > 0 ? (
+                        <div className="row g-4">
+                            {images.map((src, idx) => (
+                                <div key={idx} className="col-lg-4 col-md-6 col-sm-12">
+                                    <div className="card border-0 rounded-4 overflow-hidden shadow-sm h-100" style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease', cursor: 'pointer' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.classList.add('shadow-lg'); }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.classList.remove('shadow-lg'); }}>
+                                        <div className="position-relative" style={{ paddingBottom: '75%' }}>
+                                            <img 
+                                                src={src} 
+                                                alt={`Gallery image ${idx + 1}`} 
+                                                className="position-absolute top-0 start-0 w-100 h-100" 
+                                                style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
+                                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                                            />
+                                            {/* Hover effect container that prevents mouse event issues by placing pointer-events: none */}
+                                            <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ background: 'rgba(0,0,0,0.1)', pointerEvents: 'none' }}>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-5">
+                            <p className="text-muted">No images found in the gallery.</p>
+                        </div>
+                    )}
                 </div>
             </div>
 

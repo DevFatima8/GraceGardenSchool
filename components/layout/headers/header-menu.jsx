@@ -24,16 +24,7 @@ const MainMenu = () => {
                         <li><Link href='/curriculum'>Curriculum</Link></li>
                         <li><Link href='/commitment-to-character-and-conduct'>Commitment to Character and Conduct</Link></li>
                         
-                        <li className='menu-item-has-children'><Link href='#'>Beyond the Classroom</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/morning-assembly'>Morning Assembly</Link></li>
-                                <li><Link href='/outreach-programs'>Outreach Programs</Link></li>
-                                <li><Link href='/service-learning'>Service Learning</Link></li>
-                                <li><Link href='/mun'>MUN</Link></li>
-                                <li><Link href='/annual-drama'>Annual Drama</Link></li>
-                                <li><Link href='/science-art-exhibition'>Science & Art Exhibition</Link></li>
-                            </ul>
-                        </li>
+
 
                         <li className='menu-item-has-children'><Link href='#'>Yearly Competitions</Link>
                             <ul className='sub-menu'>
@@ -56,15 +47,7 @@ const MainMenu = () => {
 
                         <li><Link href='/academics'>Academics</Link></li>
 
-                        <li className='menu-item-has-children'><Link href='#'>Grace Journals</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/how-to-prepare-your-child-for-school'>How to Prepare Your Child for School</Link></li>
-                                <li><Link href='/dress-code-uniform-rules'>Dress Code (Uniform Rules)</Link></li>
-                                <li><Link href='/why-early-year-education'>Why GGS is best for Early Year Education</Link></li>
-                                <li><Link href='/result-day-a-parent-reset-plan'>Result Day: A Parent Reset Plan</Link></li>
-                                <li><Link href='/guide-for-choosing-best-school'>Guide for Choosing Best School</Link></li>
-                            </ul>
-                        </li>
+
 
                         <li className='menu-item-has-children'><Link href='#'>Events</Link>
                             <ul className='sub-menu'>
@@ -120,25 +103,6 @@ const MainMenu = () => {
                         <li className='menu-item-has-children'><Link href='#'>Middle Section</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/6-a'>6 A</Link></li>
-                                <li><Link href='/7-a'>7 A</Link></li>
-                                <li><Link href='/8-a'>8 A</Link></li>
-                            </ul>
-                        </li>
-
-                        <li className='menu-item-has-children'><Link href='#'>Matric Section</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/9-a'>9 A</Link></li>
-                                <li><Link href='/10-a'>10 A</Link></li>
-                            </ul>
-                        </li>
-
-                        <li className='menu-item-has-children'><Link href='#'>Cambridge Section</Link>
-                            <ul className='sub-menu'>
-                                <li><Link href='/6-c'>6 C</Link></li>
-                                <li><Link href='/7-c'>7 C</Link></li>
-                                <li><Link href='/8-c'>8 C</Link></li>
-                                <li><Link href='/9-c'>9 C</Link></li>
-                                <li><Link href='/10-c'>10 C</Link></li>
                             </ul>
                         </li>
 
@@ -167,8 +131,6 @@ const MainMenu = () => {
                                 <li><Link href='/lower-primary'>Lower Primary</Link></li>
                                 <li><Link href='/upper-primary'>Upper Primary</Link></li>
                                 <li><Link href='/middle'>Middle</Link></li>
-                                <li><Link href='/matric'>Matric</Link></li>
-                                <li><Link href='/cambridge'>Cambridge</Link></li>
                             </ul>
                         </li>
                     </ul>

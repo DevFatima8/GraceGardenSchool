@@ -1,7 +1,12 @@
-import teamData from "@/components/data/team-data";
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
+import { useTeamData } from '../../../data/team-data';
+import ctaBg from '../../../../public/assets/img/bg/cta-bg.jpg';
 
 const TeamMain = () => {
+    const { teamData, isLoading } = useTeamData();
+    if (isLoading) return null;
+
     return (
         <>
             <div className="team__two section-padding">
