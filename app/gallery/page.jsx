@@ -7,23 +7,28 @@ import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "@/components/pages/common/scroll/scroll-to-top";
 import Link from "next/link";
 
+import { fetchWithCache } from "@/lib/client-cache";
+
 const Page = () => {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/gallery')
-            .then(res => res.json())
+        let isMounted = true;
+        fetchWithCache('/api/gallery')
             .then(data => {
-                if (data.success) {
+                if (!isMounted) return;
+                if (data && data.success) {
                     setImages(data.images);
                 }
                 setLoading(false);
             })
             .catch(err => {
                 console.error(err);
-                setLoading(false);
+                if (isMounted) setLoading(false);
             });
+
+        return () => { isMounted = false; };
     }, []);
 
     return (

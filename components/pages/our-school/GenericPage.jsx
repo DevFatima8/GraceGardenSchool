@@ -33,7 +33,7 @@ const ContactSection = ({ data }) => {
                                 <div className="col-sm-12"> 
                                     <div className="contact__page-form-item contact-item position-relative">
                                         <span className="far fa-comments position-absolute mt-3 ms-3 text-muted"></span>
-                                        <textarea name="message" placeholder="Type your message / admission inquiry..." className="form-control rounded-4 ps-5 pt-3 pb-3" rows="4"></textarea>
+                                        <textarea name="message" placeholder="Type your message..." className="form-control rounded-4 ps-5 pt-3 pb-3" rows="4"></textarea>
                                     </div>										
                                 </div>
                                 <div className="col-lg-12 mt-4">										
@@ -170,15 +170,17 @@ const CardsSection = ({ data }) => {
   );
 };
 
+import { fetchWithCache } from '@/lib/client-cache';
+
 export default function GenericPage({ pageSlug, pageTitle, defaultContent }) {
     const [content, setContent] = useState(defaultContent);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      fetch(`/api/our-school-content?page_slug=${pageSlug}`)
-        .then(res => res.json())
+      let isMounted = true;
+      fetchWithCache(`/api/our-school-content?page_slug=${pageSlug}`)
         .then(data => {
-          if (data.success && data.data && data.data.length > 0) {
+          if (!isMounted) return;
+          if (data && data.success && data.data && data.data.length > 0) {
             const dbContent = {};
             data.data.forEach(item => {
               dbContent[item.section_id] = item;
@@ -192,17 +194,13 @@ export default function GenericPage({ pageSlug, pageTitle, defaultContent }) {
             });
             setContent(mergedContent);
           }
-          setLoading(false);
         })
         .catch(err => {
           console.error(err);
-          setLoading(false);
         });
-    }, [pageSlug, defaultContent]);
 
-    if (loading) {
-      return <div className="d-flex align-items-center justify-content-center min-vh-100 bg-white"><div className="spinner-border text-primary" role="status"></div></div>;
-    }
+      return () => { isMounted = false; };
+    }, [pageSlug, defaultContent]);
 
     return (
       <>

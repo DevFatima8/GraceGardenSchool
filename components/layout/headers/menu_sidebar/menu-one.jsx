@@ -17,7 +17,7 @@ const MobileMenuOne = ({ isOpen, setIsOpen }) => {
             <div className="responsive-menu mean-container">
                 <div className="mean-bar">
                     <div className="mean-nav">
-                        <ResponsiveMenu />
+                        <ResponsiveMenu onClose={() => setIsOpen(false)} />
                     </div>
                 </div>
             </div>

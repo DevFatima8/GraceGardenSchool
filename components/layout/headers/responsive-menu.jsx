@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-const ResponsiveMenu = () => {
+const ResponsiveMenu = ({ onClose }) => {
     const [openMenus, setOpenMenus] = useState({});
 
     const toggleMenu = (key) => {
@@ -16,9 +16,16 @@ const ResponsiveMenu = () => {
     const getSubMenuStyle = (key) => ({ display: isMenuOpen(key) ? "block" : "none" });
     const getExpandClass = (key) => `mean-expand ${isMenuOpen(key) ? "mean-clicked" : ""}`;
 
+    const handleMenuClick = (e) => {
+        const link = e.target.closest('a');
+        if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') {
+            if (onClose) onClose();
+        }
+    };
+
     return (
         <>    
-            <ul>
+            <ul onClick={handleMenuClick}>
                 <li><Link href='/'>Home</Link></li>
                 
                 <li className='menu-item-has-children'>
@@ -107,18 +114,6 @@ const ResponsiveMenu = () => {
                     <a className={getExpandClass("our-school")} onClick={() => toggleMenu("our-school")}></a>
                 </li>
 
-                <li className='menu-item-has-children'>
-                    <Link href='/admissions'>Admissions</Link>
-                    <ul className='sub-menu' style={getSubMenuStyle("admissions")}>
-                        <li><Link href='/admissions#why-ggs'>Why Grace Garden</Link></li>
-                        <li><Link href='/admissions#overview'>Overview</Link></li>
-                        <li><Link href='/admissions#process'>Admission Process</Link></li>
-                        <li><Link href='/registrations'>Register Now</Link></li>
-                        <li><Link href='/fee-structure'>Fee Structure</Link></li>
-                        <li><Link href='/books-lists'>Books Lists</Link></li>
-                    </ul>
-                    <a className={getExpandClass("admissions")} onClick={() => toggleMenu("admissions")}></a>
-                </li>
 
                 <li className='menu-item-has-children'>
                     <Link href='#'>Classes</Link>

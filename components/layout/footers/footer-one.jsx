@@ -39,7 +39,7 @@ const FooterOne = () => {
                                     <ul>
                                         <li><Link href="/about-us"><i className="far fa-chevron-double-right"></i>About Us</Link></li>
                                         <li><Link href="/academics"><i className="far fa-chevron-double-right"></i>Academics</Link></li>
-                                        <li><Link href="/admissions"><i className="far fa-chevron-double-right"></i>Admissions</Link></li>
+
                                         <li><Link href="/fee-structure"><i className="far fa-chevron-double-right"></i>Fee</Link></li>
                                         <li><Link href="/contact"><i className="far fa-chevron-double-right"></i>Contact</Link></li>
                                     </ul>
@@ -94,17 +94,7 @@ const FooterOne = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-2 col-lg-4 col-md-6 col-sm-6">
-                            <div className="footer__one-widget border-one tow">
-                                <h4>Admissions</h4>
-                                <div className="footer__one-widget-subscribe">
-                                    <p>Admissions Open from Pre-School to 6th Class.</p>
-                                    <Link href="/admissions" className="btn btn-warning w-100 py-2 rounded-pill fw-bold text-dark text-center mt-2 d-block">
-                                        Apply
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div className="copyright__one" style={{ paddingTop: '20px' }}>

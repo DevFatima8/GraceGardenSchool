@@ -76,8 +76,8 @@ const HeaderOne = ({variant}) => {
                                         <i className="flaticon-menu"></i>                          
                                     </div>
                                 </div>
-                                <div className="header__area-menubar-right-box-btn">
-                                    <Link className="btn-one" href="/admissions">Admissions<i className="far fa-chevron-double-right"></i></Link>
+                                <div className="header__area-menubar-right-box-btn d-none d-sm-block ms-4">
+                                    <Link className="btn-one" href="/contact">Contact Us<i className="far fa-chevron-double-right ms-2"></i></Link>
                                 </div>
                                 <div className="header__area-menubar-right-responsive-menu menu__bar">
                                     <i className="flaticon-menu" onClick={() => setMenuSidebar(true)}></i>

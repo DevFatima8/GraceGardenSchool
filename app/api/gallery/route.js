@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
@@ -26,7 +28,10 @@ export async function GET() {
       .sort((a, b) => b.time - a.time) // Descending order
       .map(img => img.url);
 
-    return NextResponse.json({ success: true, images });
+    return NextResponse.json(
+      { success: true, images },
+      { headers: { 'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=600' } }
+    );
   } catch (error) {
     console.error('Error fetching gallery images:', error);
     return NextResponse.json({ success: false, error: 'Failed to fetch images' }, { status: 500 });

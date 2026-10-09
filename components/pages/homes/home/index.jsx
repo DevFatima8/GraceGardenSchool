@@ -4,7 +4,7 @@ import SEO from "@/components/data/seo";
 import HeaderOne from "@/components/layout/headers/header-one";
 import About from "./about";
 import Services from "./services";
-import CtaArea from "./cta";
+
 import Experience from "./experience";
 import Portfolio from "./portfolio";
 import Testimonial from "./testimonial";
@@ -55,11 +55,7 @@ const defaultContent = {
         description: "Our educators hold advanced trainings and are committed to student-centered teaching, continuous professional development, and supportive administration.",
         image_url: "/assets/img/pages/experience-1.jpg"
     },
-    admissions: {
-        subtitle: "Admissions Open - Join Grace Garden",
-        title: "Nurturing Your Child's Bright Future",
-        description: "Tour our school, meet our faculty, and apply for admission today. Scholarships and financial aid options available."
-    },
+
     facilities: {
         subtitle: "Facilities & Resources",
         title: "State-of-the-Art Learning Environment",
@@ -82,15 +78,17 @@ const defaultContent = {
     }
 };
 
+import { fetchWithCache } from '@/lib/client-cache';
+
 const HomeOne = () => {
     const [content, setContent] = useState(defaultContent);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/home-content')
-            .then(res => res.json())
+        let isMounted = true;
+        fetchWithCache('/api/home-content')
             .then(data => {
-                if (data.success && data.data && data.data.length > 0) {
+                if (!isMounted) return;
+                if (data && data.success && data.data && data.data.length > 0) {
                     const contentMap = { ...defaultContent };
                     data.data.forEach(item => {
                         if (item.section_id) {
@@ -115,31 +113,25 @@ const HomeOne = () => {
                     });
                     setContent(contentMap);
                 }
-                setIsLoading(false);
             })
-            .catch(() => {
-                setIsLoading(false);
-            });
+            .catch(() => {});
+
+        return () => { isMounted = false; };
     }, []);
 
     return (
         <div>
             <SEO pageTitle='Grace Garden School - Green Town, Lahore' />
-            {isLoading && <Preloader />}
             <HeaderOne />
-            {!isLoading && (
-                <>
-                    <BannerOne data={content.hero} />
-                    <About data={content.about} />
-                    <Services data={content.academics} />
-                    <Experience data={content.faculty} />
-                    <CtaArea data={content.admissions} />
-                    <Portfolio data={content.facilities} />
-                    <Testimonial data={content.achievements} />
-                    <GetInTouch data={content.extracurricular} />
-                    <Blog data={content.future} />
-                </>
-            )}
+            <BannerOne data={content.hero} />
+            <About data={content.about} />
+            <Services data={content.academics} />
+            <Experience data={content.faculty} />
+
+            <Portfolio data={content.facilities} />
+            <Testimonial data={content.achievements} />
+            <GetInTouch data={content.extracurricular} />
+            <Blog data={content.future} />
             <FooterOne />
             <ScrollToTop />
         </div>

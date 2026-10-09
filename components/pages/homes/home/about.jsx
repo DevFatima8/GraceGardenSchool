@@ -15,8 +15,8 @@ const About = ({ data }) => {
         description: data?.description || 'Grace Garden School is a forward-thinking educational institution dedicated to fostering a learning environment where students are encouraged to explore their full potential. Established in 2023 in Sector C-2, Block 5, Green Town, Lahore, the school has quickly become a hub for academic excellence, character development, and extracurricular enrichment.',
         author_name: 'School Administration',
         author_sub: 'CEO & Principal Office',
-        btn_title: 'Admissions Info',
-        btn_link: '/admissions',
+        btn_title: 'Contact Us',
+        btn_link: '/contact',
         avatar_img: '/assets/img/team/ceo-administrator.jpg'
     }
     return (

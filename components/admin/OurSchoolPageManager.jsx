@@ -163,7 +163,7 @@ export default function OurSchoolPageManager() {
   };
 
   return (
-    <div>
+    <div className="bg-white p-4 rounded shadow-sm">
       <h3 className="fw-bold mb-4">Manage Our School Pages</h3>
       
       <div className="mb-4">

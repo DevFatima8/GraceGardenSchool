@@ -126,15 +126,17 @@ const CardsSection = ({ data }) => {
   );
 };
 
+import { fetchWithCache } from '@/lib/client-cache';
+
 const AboutUs = () => {
     const [content, setContent] = useState(defaultAboutContent);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      fetch('/api/about-content')
-        .then(res => res.json())
+      let isMounted = true;
+      fetchWithCache('/api/about-content')
         .then(data => {
-          if (data.success && data.data && data.data.length > 0) {
+          if (!isMounted) return;
+          if (data && data.success && data.data && data.data.length > 0) {
             const dbContent = {};
             data.data.forEach(item => {
               dbContent[item.section_id] = item;
@@ -149,17 +151,13 @@ const AboutUs = () => {
               values: dbContent.values || prev.values,
             }));
           }
-          setLoading(false);
         })
         .catch(err => {
           console.error(err);
-          setLoading(false);
         });
-    }, []);
 
-    if (loading) {
-      return <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen tw-bg-white"><div className="tw-animate-spin tw-w-12 tw-h-12 tw-border-4 tw-border-blue-600 tw-border-t-transparent tw-rounded-full"></div></div>;
-    }
+      return () => { isMounted = false; };
+    }, []);
 
     return (
       <>

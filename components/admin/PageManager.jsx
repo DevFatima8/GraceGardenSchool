@@ -141,7 +141,7 @@ export default function PageManager({ page }) {
   if (loading) return <div>Loading content...</div>;
 
   return (
-    <div>
+    <div className="bg-white p-4 rounded shadow-sm">
       <h3 className="fw-bold mb-4">Manage Content</h3>
       <p className="text-muted mb-4">Select a section to update its text, images, and list items.</p>
 
@@ -151,7 +151,7 @@ export default function PageManager({ page }) {
       <div className="card shadow-sm border-0">
         <div className="list-group list-group-flush">
           {content.slice().sort((a, b) => {
-            const order = ['hero', 'about', 'academics', 'faculty', 'admissions', 'facilities', 'achievements', 'extracurricular', 'future'];
+            const order = ['hero', 'about', 'academics', 'faculty', 'facilities', 'achievements', 'extracurricular', 'future'];
             const indexA = order.indexOf(a.section_id);
             const indexB = order.indexOf(b.section_id);
             return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
@@ -217,7 +217,7 @@ export default function PageManager({ page }) {
                       const config = {
                         hasTitle: false,
                         hasSubtitle: false,
-                        hasDesc: ['about', 'faculty', 'extracurricular', 'admissions', 'academics'].includes(sectionId),
+                        hasDesc: ['about', 'faculty', 'extracurricular', 'academics'].includes(sectionId),
                         hasImage: ['about', 'faculty', 'extracurricular'].includes(sectionId)
                       };
                     const getListLabels = () => {

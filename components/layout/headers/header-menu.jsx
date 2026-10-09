@@ -62,16 +62,6 @@ const MainMenu = () => {
                     </ul>
                 </li>
 
-                <li className='menu-item-has-children'><Link href='/admissions'>Admissions</Link>
-                    <ul className='sub-menu'>
-                        <li><Link href='/admissions#why-ggs'>Why Grace Garden</Link></li>
-                        <li><Link href='/admissions#overview'>Overview</Link></li>
-                        <li><Link href='/admissions#process'>Admission Process</Link></li>
-                        <li><Link href='/registrations'>Register Now</Link></li>
-                        <li><Link href='/fee-structure'>Fee Structure</Link></li>
-                        <li><Link href='/books-lists'>Books Lists</Link></li>
-                    </ul>
-                </li>
 
                 <li className='menu-item-has-children'><Link href='#'>Classes</Link>
                     <ul className='sub-menu'>

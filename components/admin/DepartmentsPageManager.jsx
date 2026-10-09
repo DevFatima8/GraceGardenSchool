@@ -147,7 +147,7 @@ export default function DepartmentsPageManager() {
   };
 
   return (
-    <div>
+    <div className="bg-white p-4 rounded shadow-sm">
       <h3 className="fw-bold mb-4">Manage Department Pages</h3>
       
       <div className="mb-4">
@@ -228,7 +228,7 @@ export default function DepartmentsPageManager() {
 
                   <div className="row g-4">
                     <div className="col-md-6">
-                      <label className="form-label fw-bold">Title <small className="text-muted fw-normal">(Will not show on Admissions Overview)</small></label>
+                      <label className="form-label fw-bold">Title</label>
                       <input type="text" className="form-control" name="title" value={formData.title} onChange={handleChange} />
                     </div>
                     <div className="col-md-6">

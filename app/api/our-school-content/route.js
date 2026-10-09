@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -15,7 +17,10 @@ export async function GET(request) {
     }
 
     const [rows] = await pool.query(query, params);
-    return NextResponse.json({ success: true, data: rows });
+    return NextResponse.json(
+      { success: true, data: rows },
+      { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } }
+    );
   } catch (error) {
     console.error('Error fetching our school content:', error);
     return NextResponse.json({ success: false, error: 'Failed to fetch content' }, { status: 500 });

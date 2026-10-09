@@ -76,7 +76,7 @@ const BannerOne = ({ data }) => {
                                                 </p>
                                             )}
                                             <div className="d-flex justify-content-center align-items-center gap-4 mt-4">
-                                                <Link className="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow" style={{ backgroundColor: 'var(--primary-color-1)', border: 'none' }} href={slide.link || "/about"}>
+                                                <Link className="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow" style={{ backgroundColor: 'var(--primary-color-1)', border: 'none' }} href="/about-us">
                                                     Read More <i className="far fa-chevron-double-right ms-2"></i>
                                                 </Link>
                                                 <a href="https://www.youtube.com/@Gracegarden-d8j" target="_blank" rel="noopener noreferrer" className="d-inline-flex align-items-center justify-content-center bg-white text-dark rounded-circle shadow-lg" style={{ width: '60px', height: '60px', transition: 'all 0.3s ease' }}>

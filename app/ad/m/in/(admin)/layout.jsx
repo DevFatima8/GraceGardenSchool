@@ -32,11 +32,39 @@ export default function AdminLayout({ children }) {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
+        .btn-primary {
+          background-color: var(--primary-color-1) !important;
+          border-color: var(--primary-color-1) !important;
+        }
+        .text-primary {
+          color: var(--primary-color-1) !important;
+        }
+        .bg-primary {
+          background-color: var(--primary-color-1) !important;
+        }
+        .border-primary {
+          border-color: var(--primary-color-1) !important;
+        }
+        .btn-outline-primary {
+          color: var(--primary-color-1) !important;
+          border-color: var(--primary-color-1) !important;
+        }
+        .btn-outline-primary:hover {
+          background-color: var(--primary-color-1) !important;
+          color: white !important;
+        }
+        .form-select:focus, .form-control:focus {
+          border-color: var(--primary-color-1) !important;
+          box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.25) !important;
+        }
       `}</style>
       {/* Sidebar */}
       <div className="text-white d-flex flex-column" style={{ width: '280px', flexShrink: 0, backgroundColor: 'var(--dark-one)' }}>
-        <div className="p-4 border-bottom border-secondary">
-          <h5 className="fw-bold mb-0 text-white">Admin Portal</h5>
+        <div className="p-4 border-bottom border-secondary text-center">
+          <Link href="/">
+             <img src="/assets/img/logo-2.jpg" alt="Grace Garden School" style={{ maxHeight: '60px' }} />
+          </Link>
+          <h6 className="fw-bold mt-3 mb-0 text-white-50">Admin Portal</h6>
         </div>
         
         <div className="flex-grow-1 p-3 hide-scrollbar" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
@@ -73,11 +101,7 @@ export default function AdminLayout({ children }) {
                 <i className="far fa-building me-2"></i> Departments
               </Link>
             </li>
-            <li className="nav-item mb-2">
-              <Link href="/ad/m/in/pages/admissions" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/admissions') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/admissions') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
-                <i className="far fa-graduation-cap me-2"></i> Admissions
-              </Link>
-            </li>
+
             <li className="nav-item mb-2">
               <Link href="/ad/m/in/pages/misc" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/misc') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/misc') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
                 <i className="far fa-layer-group me-2"></i> Other Pages
@@ -88,11 +112,7 @@ export default function AdminLayout({ children }) {
                 <i className="far fa-users me-2"></i> Teachers / Team
               </Link>
             </li>
-            <li className="nav-item mb-2">
-              <Link href="/ad/m/in/registrations" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/registrations') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/registrations') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
-                <i className="far fa-clipboard-list me-2"></i> Registrations
-              </Link>
-            </li>
+
             <li className="nav-item mb-2 mt-4">
               <Link href="/ad/m/in/settings" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/settings') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/settings') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
                 <i className="far fa-cog me-2"></i> Settings
