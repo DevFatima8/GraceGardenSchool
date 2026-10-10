@@ -21,7 +21,7 @@ export default function AdminLogin() {
     
     const result = await loginAdmin(email, password);
     if (result.success) {
-      router.push('/ad/m/in/dashboard');
+      router.push('/ad/m/in/pages/home');
     } else {
       setError(result.error || 'Login failed.');
     }
@@ -73,7 +73,7 @@ export default function AdminLogin() {
                   
                   <div className="d-grid mt-5">                   
                     <button className="btn btn-lg fw-bold text-white" type="submit" style={{ borderRadius: '8px', padding: '12px', backgroundColor: 'var(--primary-color-1)', borderColor: 'var(--primary-color-1)' }}>
-                      Login to Dashboard
+                      Login to Admin Portal
                     </button>
                   </div>
                 </form>                        

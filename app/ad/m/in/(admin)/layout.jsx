@@ -18,7 +18,7 @@ export default function AdminLayout({ children }) {
   const isActive = (path) => pathname === path;
   const isPagesActive = pathname.startsWith('/ad/m/in/pages');
 
-  let pageTitle = 'Dashboard Overview';
+  let pageTitle = 'Admin Portal';
   if (pathname.includes('/pages')) pageTitle = 'Website Content Management';
   if (pathname.includes('/settings')) pageTitle = 'Admin Settings';
 
@@ -69,11 +69,6 @@ export default function AdminLayout({ children }) {
         
         <div className="flex-grow-1 p-3 hide-scrollbar" style={{ overflowY: 'auto', overflowX: 'hidden' }}>
           <ul className="nav nav-pills flex-column mb-auto">
-            <li className="nav-item mb-2">
-              <Link href="/ad/m/in/dashboard" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/dashboard') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/dashboard') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
-                <i className="far fa-chart-line me-2"></i> Dashboard
-              </Link>
-            </li>
             
             {/* Pages Section */}
             <li className="nav-item mb-2">
