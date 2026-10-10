@@ -26,7 +26,7 @@ const MainMenu = () => {
                         
 
 
-                        <li className='menu-item-has-children'><Link href='#'>Yearly Competitions</Link>
+                        <li className='menu-item-has-children'><Link href='/annual-sports-meet'>Yearly Competitions</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/annual-sports-meet'>Annual Sports Meet</Link></li>
                                 <li><Link href='/brain-competition'>Brain of Grace Garden</Link></li>
@@ -36,7 +36,7 @@ const MainMenu = () => {
 
                         <li><Link href='/school-uniform'>School Uniform</Link></li>
 
-                        <li className='menu-item-has-children'><Link href='#'>Facilities</Link>
+                        <li className='menu-item-has-children'><Link href='/computer-lab'>Facilities</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/computer-lab'>Computer Lab</Link></li>
                                 <li><Link href='/science-lab'>Science Lab</Link></li>
@@ -49,7 +49,7 @@ const MainMenu = () => {
 
 
 
-                        <li className='menu-item-has-children'><Link href='#'>Events</Link>
+                        <li className='menu-item-has-children'><Link href='/school-day'>Events</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/school-day'>School Day</Link></li>
                                 <li><Link href='/celebrations'>Celebrations</Link></li>
@@ -63,9 +63,9 @@ const MainMenu = () => {
                 </li>
 
 
-                <li className='menu-item-has-children'><Link href='#'>Classes</Link>
+                <li className='menu-item-has-children'><Link href='/pre-nursery'>Classes</Link>
                     <ul className='sub-menu'>
-                        <li className='menu-item-has-children'><Link href='#'>Pre School</Link>
+                        <li className='menu-item-has-children'><Link href='/pre-nursery'>Pre School</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/pre-nursery'>Pre Nursery</Link></li>
                                 <li><Link href='/nursery-a'>Nursery A</Link></li>
@@ -75,7 +75,7 @@ const MainMenu = () => {
                             </ul>
                         </li>
 
-                        <li className='menu-item-has-children'><Link href='#'>Primary Section</Link>
+                        <li className='menu-item-has-children'><Link href='/1-a'>Primary Section</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/1-a'>1 A</Link></li>
                                 <li><Link href='/1-b'>1 B</Link></li>
@@ -90,13 +90,13 @@ const MainMenu = () => {
                             </ul>
                         </li>
 
-                        <li className='menu-item-has-children'><Link href='#'>Middle Section</Link>
+                        <li className='menu-item-has-children'><Link href='/6-a'>Middle Section</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/6-a'>6 A</Link></li>
                             </ul>
                         </li>
 
-                        <li className='menu-item-has-children'><Link href='#'>2nd Shift</Link>
+                        <li className='menu-item-has-children'><Link href='/nursery-e'>2nd Shift</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/nursery-e'>Nursery E</Link></li>
                                 <li><Link href='/prep-e'>Prep E</Link></li>
@@ -111,11 +111,11 @@ const MainMenu = () => {
                     </ul>
                 </li>
 
-                <li className='menu-item-has-children'><Link href='#'>Departments</Link>
+                <li className='menu-item-has-children'><Link href='/ace'>Departments</Link>
                     <ul className='sub-menu'>
                         <li><Link href='/ace'>ACE</Link></li>
                         <li><Link href='/set'>SET</Link></li>
-                        <li className='menu-item-has-children'><Link href='#'>Coordinators</Link>
+                        <li className='menu-item-has-children'><Link href='/pre-school'>Coordinators</Link>
                             <ul className='sub-menu'>
                                 <li><Link href='/pre-school'>Pre-School</Link></li>
                                 <li><Link href='/lower-primary'>Lower Primary</Link></li>

@@ -6,6 +6,7 @@ import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../common/breadcrumb";
 import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../common/scroll/scroll-to-top";
+import { fetchWithCache } from '@/lib/client-cache';
 
 // Default content for fallback
 const defaultAboutContent = {
@@ -52,10 +53,13 @@ const defaultAboutContent = {
   }
 };
 
-const DynamicSection = ({ data, isRight }) => {
+const DynamicSection = ({ id, altIds = [], data, isRight }) => {
   if (!data) return null;
   return (
-    <div className={`py-5 ${isRight ? 'bg-light' : 'bg-white'}`}>
+    <div id={id} className={`py-5 ${isRight ? 'bg-light' : 'bg-white'}`} style={{ scrollMarginTop: '110px' }}>
+      {altIds.map(altId => (
+        <span key={altId} id={altId} style={{ position: 'relative', top: '-110px', display: 'block', visibility: 'hidden' }} />
+      ))}
       <div className="container py-4">
         <div className="row align-items-center gy-5">
           <div className={`col-lg-6 order-1 ${isRight ? 'order-lg-2' : 'order-lg-1'}`}>
@@ -79,7 +83,7 @@ const DynamicSection = ({ data, isRight }) => {
   );
 };
 
-const CardsSection = ({ data }) => {
+const CardsSection = ({ id, altIds = [], data, bgClass = 'bg-white' }) => {
   if (!data) return null;
   
   let cards = [];
@@ -90,7 +94,10 @@ const CardsSection = ({ data }) => {
   }
 
   return (
-    <div className="py-5 bg-white">
+    <div id={id} className={`py-5 ${bgClass}`} style={{ scrollMarginTop: '110px' }}>
+      {altIds.map(altId => (
+        <span key={altId} id={altId} style={{ position: 'relative', top: '-110px', display: 'block', visibility: 'hidden' }} />
+      ))}
       <div className="container py-5">
         <div className="row justify-content-center mb-5">
           <div className="col-lg-8 text-center">
@@ -126,8 +133,6 @@ const CardsSection = ({ data }) => {
   );
 };
 
-import { fetchWithCache } from '@/lib/client-cache';
-
 const AboutUs = () => {
     const [content, setContent] = useState(defaultAboutContent);
 
@@ -159,19 +164,65 @@ const AboutUs = () => {
       return () => { isMounted = false; };
     }, []);
 
+    // Smooth scroll to hash anchor on mount, content load, or hash change
+    useEffect(() => {
+      const scrollToHash = () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const target = document.querySelector(hash);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      };
+
+      const timer = setTimeout(scrollToHash, 200);
+      window.addEventListener('hashchange', scrollToHash);
+
+      // Handle anchor clicks on the page so clicking menu links works even if already on /about-us
+      const handleAnchorClick = (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        const hashIndex = href.indexOf('#');
+        if (hashIndex !== -1) {
+          const path = href.substring(0, hashIndex);
+          const hash = href.substring(hashIndex);
+          if (!path || path === '/about-us' || path === window.location.pathname) {
+            const target = document.querySelector(hash);
+            if (target) {
+              e.preventDefault();
+              window.history.pushState(null, '', href);
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+      };
+
+      document.addEventListener('click', handleAnchorClick);
+
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('hashchange', scrollToHash);
+        document.removeEventListener('click', handleAnchorClick);
+      };
+    }, [content]);
+
     return (
       <>
         <SEO pageTitle="About Us" />
         <HeaderOne />
         <BreadCrumb title="About Us" innerTitle="Company About" bgImage={content.hero?.image_url} />
         
-        {/* Dynamic Sections using Tailwind CSS */}
+        {/* Dynamic Sections with Anchor IDs */}
         <div className="about-dynamic-wrap">
-          <DynamicSection data={content.history} isRight={false} />
-          <DynamicSection data={content.motto} isRight={true} />
-          <DynamicSection data={content.vision} isRight={false} />
-          <CardsSection data={content.values} />
-          <CardsSection data={content.board} />
+          <DynamicSection id="history" altIds={["our-history"]} data={content.history} isRight={false} />
+          <DynamicSection id="motto" altIds={["school-motto"]} data={content.motto} isRight={true} />
+          <DynamicSection id="vision" altIds={["vision-statement"]} data={content.vision} isRight={false} />
+          <CardsSection id="governors" altIds={["board", "board-of-governors"]} data={content.board} bgClass="bg-light" />
+          <CardsSection id="core-values" altIds={["values"]} data={content.values} bgClass="bg-white" />
         </div>
 
         <div className='all-footer'>
