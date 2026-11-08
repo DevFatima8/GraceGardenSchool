@@ -111,7 +111,7 @@ const DynamicSection = ({ data, isRight }) => {
             )}
           </div>
           <div className={`col-lg-6 order-2 ${isRight ? 'order-lg-1' : 'order-lg-2'}`}>
-            <div className={`px-lg-4 ${isRight ? 'pe-lg-5 text-lg-end text-center' : 'ps-lg-5 text-center text-lg-start'}`}>
+            <div className={`px-lg-4 ${isRight ? 'pe-lg-5' : 'ps-lg-5'} text-center text-lg-start`} style={{ direction: 'ltr', textAlign: 'left' }}>
               {data.subtitle && <span className="fw-bold text-uppercase d-block mb-2" style={{ letterSpacing: '2px', color: 'var(--primary-color-1, #0d6efd)' }}>{data.subtitle}</span>}
               {data.title && <h2 className="display-5 fw-bolder mb-4 text-dark" style={{ lineHeight: '1.2' }}>{data.title}</h2>}
               {data.description && <div className="lead text-muted mb-0" style={{ lineHeight: '1.8', fontSize: '1.1rem', whiteSpace: 'pre-line' }}>{data.description}</div>}
