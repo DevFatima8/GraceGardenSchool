@@ -23,7 +23,7 @@ export default function AdminLayout({ children }) {
   if (pathname.includes('/settings')) pageTitle = 'Admin Settings';
 
   return (
-    <div className="d-flex vh-100 bg-light">
+    <div className="d-flex vh-100 bg-light" dir="ltr">
       <style>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
@@ -56,6 +56,10 @@ export default function AdminLayout({ children }) {
         .form-select:focus, .form-control:focus {
           border-color: var(--primary-color-1) !important;
           box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.25) !important;
+        }
+        input, textarea, select, .form-control {
+          direction: ltr !important;
+          text-align: left !important;
         }
       `}</style>
       {/* Sidebar */}

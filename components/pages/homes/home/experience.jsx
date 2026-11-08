@@ -7,8 +7,8 @@ const Experience = ({ data }) => {
         subtitle: data?.subtitle || 'Faculty and Staff',
         title: data?.title || 'Dedicated to Academic Excellence & Mentorship',
         des: data?.description || 'The quality of our teaching staff directly impacts the learning experience. Our faculty is dedicated to fostering academic excellence, continuous professional development, and student-centered growth.',
-        btn_text: 'Join Our Team',
-        btn_link: '/careers',
+        btn_text: 'Meet Our Faculty',
+        btn_link: '/faculty',
         progress1: '98',
         progress2: '100',
     }

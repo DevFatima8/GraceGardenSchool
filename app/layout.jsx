@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     }, [isAdmin]);
 
     return (
-        <html lang="en">
+        <html lang="en" dir="ltr">
             <head>
                 <link rel='icon' type='image/png' href='../favicon.ico' />
             </head>

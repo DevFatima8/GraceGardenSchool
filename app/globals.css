@@ -13,3 +13,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* English site: type and align from the left, including admin fields. */
+html {
+  direction: ltr;
+}
+
+input,
+textarea,
+select,
+.form-control {
+  direction: ltr !important;
+  text-align: left !important;
+}

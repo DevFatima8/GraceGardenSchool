@@ -10,7 +10,6 @@
 !.yarn/releases
 !.yarn/versions
 <<<<<<< HEAD
-.env*
 =======
 >>>>>>> 076e6772c1c37dfc63825954fb8b9172ee256dc9
 !.env.example

@@ -38,6 +38,7 @@ const FooterOne = () => {
                                 <div className="footer__one-widget-solution">
                                     <ul>
                                         <li><Link href="/about-us"><i className="far fa-chevron-double-right"></i>About Us</Link></li>
+                                        <li><Link href="/faculty"><i className="far fa-chevron-double-right"></i>Faculty</Link></li>
                                         <li><Link href="/academics"><i className="far fa-chevron-double-right"></i>Academics</Link></li>
 
                                         <li><Link href="/fee-structure"><i className="far fa-chevron-double-right"></i>Fee</Link></li>
