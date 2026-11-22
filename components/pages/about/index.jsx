@@ -144,16 +144,19 @@ const AboutUs = () => {
           if (data && data.success && data.data && data.data.length > 0) {
             const dbContent = {};
             data.data.forEach(item => {
-              dbContent[item.section_id] = item;
+              let json_data = item.json_data;
+              if (typeof json_data === 'string') {
+                try { json_data = JSON.parse(json_data); } catch (e) { json_data = []; }
+              }
+              dbContent[item.section_id] = { ...item, json_data };
             });
-            // Merge DB content with fallback if any section is completely missing
             setContent(prev => ({
-              hero: dbContent.hero || prev.hero,
-              history: dbContent.history || prev.history,
-              motto: dbContent.motto || prev.motto,
-              vision: dbContent.vision || prev.vision,
-              board: dbContent.board || prev.board,
-              values: dbContent.values || prev.values,
+              hero: dbContent.hero ? { ...prev.hero, ...dbContent.hero } : prev.hero,
+              history: dbContent.history ? { ...prev.history, ...dbContent.history } : prev.history,
+              motto: dbContent.motto ? { ...prev.motto, ...dbContent.motto } : prev.motto,
+              vision: dbContent.vision ? { ...prev.vision, ...dbContent.vision } : prev.vision,
+              board: dbContent.board ? { ...prev.board, ...dbContent.board } : prev.board,
+              values: dbContent.values ? { ...prev.values, ...dbContent.values } : prev.values,
             }));
           }
         })

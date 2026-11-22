@@ -1,11 +1,26 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import ImagePreview from '@/components/admin/ImagePreview';
+
+const HOME_SECTION_ORDER = ['hero', 'about', 'academics', 'faculty', 'facilities', 'achievements', 'extracurricular', 'future'];
+const HIDDEN_SECTIONS = new Set(['team_members']);
+
+function parseJsonData(value) {
+  if (Array.isArray(value) || (value && typeof value === 'object')) return value;
+  if (typeof value === 'string' && value.trim()) {
+    try {
+      return JSON.parse(value);
+    } catch (e) {
+      return [];
+    }
+  }
+  return [];
+}
 
 export default function PageManager({ page }) {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editingSection, setEditingSection] = useState(null);
   const [formData, setFormData] = useState({ json_data: [] });
   const [activeListIndex, setActiveListIndex] = useState(0);
   const [message, setMessage] = useState('');
@@ -15,16 +30,15 @@ export default function PageManager({ page }) {
 
   useEffect(() => {
     fetchContent();
-  }, [page]); // re-fetch if page changes
+  }, [page]);
 
   const fetchContent = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/home-content');
+      const res = await fetch('/api/home-content', { cache: 'no-store' });
       const data = await res.json();
       if (data.success) {
-        // filter by page if necessary. For now, assuming home page.
-        setContent(data.data);
+        setContent((data.data || []).filter((section) => !HIDDEN_SECTIONS.has(section.section_id)));
       }
     } catch (err) {
       console.error(err);
@@ -34,18 +48,23 @@ export default function PageManager({ page }) {
   };
 
   const handleEdit = (section) => {
-    setEditingSection(section.section_id);
     const data = { ...section };
-    // Ensure json_data is a parsed array
-    if (typeof data.json_data === 'string') {
-      try {
-        data.json_data = JSON.parse(data.json_data);
-      } catch (e) {
-        data.json_data = [];
-      }
-    }
-    if (!data.json_data || !Array.isArray(data.json_data)) {
+    data.json_data = parseJsonData(data.json_data);
+    if (!Array.isArray(data.json_data) && data.section_id !== 'about') {
       data.json_data = [];
+    }
+    if (data.section_id === 'about' && (!data.json_data || Array.isArray(data.json_data))) {
+      const fromArray = Array.isArray(data.json_data) ? data.json_data[0] : null;
+      data.json_data = {
+        author_name: fromArray?.author_name || data.author_name || 'School Administration',
+        author_sub: fromArray?.author_sub || data.author_sub || 'CEO & Principal Office',
+        avatar_img: fromArray?.avatar_img || fromArray?.image_url || '',
+        bullets: fromArray?.bullets || [
+          'Holistic student-centered learning.',
+          'Character & moral development.',
+          'Extracurricular & STEM enrichment.',
+        ],
+      };
     }
     setFormData(data);
     setMessage('');
@@ -56,6 +75,22 @@ export default function PageManager({ page }) {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleAboutMetaChange = (field, value) => {
+    setFormData({
+      ...formData,
+      json_data: {
+        ...(formData.json_data || {}),
+        [field]: value,
+      },
+    });
+  };
+
+  const handleAboutBulletChange = (index, value) => {
+    const bullets = [...(formData.json_data?.bullets || [])];
+    bullets[index] = value;
+    handleAboutMetaChange('bullets', bullets);
   };
 
   const handleImageUpload = async (e) => {
@@ -81,11 +116,11 @@ export default function PageManager({ page }) {
     }
   };
 
-  // --- Dynamic Array List Editor Functions ---
   const handleAddJsonItem = () => {
+    const list = Array.isArray(formData.json_data) ? formData.json_data : [];
     setFormData({
       ...formData,
-      json_data: [...formData.json_data, { title: '', description: '', subtitle: '', link: '', image_url: '' }]
+      json_data: [...list, { title: '', description: '', subtitle: '', link: '', image_url: '' }],
     });
   };
 
@@ -117,6 +152,22 @@ export default function PageManager({ page }) {
     }
   };
 
+  const handleAboutAvatarUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+    try {
+      const res = await fetch('/api/upload', { method: 'POST', body: uploadData });
+      const data = await res.json();
+      if (data.success) {
+        handleAboutMetaChange('avatar_img', data.imageUrl);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -140,40 +191,40 @@ export default function PageManager({ page }) {
 
   if (loading) return <div>Loading content...</div>;
 
+  const listSections = content.slice().sort((a, b) => {
+    const indexA = HOME_SECTION_ORDER.indexOf(a.section_id);
+    const indexB = HOME_SECTION_ORDER.indexOf(b.section_id);
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  });
+
   return (
     <div className="bg-white p-4 rounded shadow-sm">
       <h3 className="fw-bold mb-4">Manage Content</h3>
-      <p className="text-muted mb-4">Select a section to update its text, images, and list items.</p>
+      <p className="text-muted mb-4">Update titles, subtitles, descriptions, images, and list items for every home section.</p>
 
       {message && <div className="alert alert-success">{message}</div>}
       {error && <div className="alert alert-danger">{error}</div>}
 
       <div className="card shadow-sm border-0">
         <div className="list-group list-group-flush">
-          {content.slice().sort((a, b) => {
-            const order = ['hero', 'about', 'academics', 'faculty', 'facilities', 'achievements', 'extracurricular', 'future'];
-            const indexA = order.indexOf(a.section_id);
-            const indexB = order.indexOf(b.section_id);
-            return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-          }).map((section) => {
+          {listSections.map((section) => {
             let listCount = 0;
-            if (typeof section.json_data === 'string') {
-                try { listCount = JSON.parse(section.json_data).length; } catch(e) {}
-            } else if (section.json_data && typeof section.json_data === 'object') {
-                listCount = section.json_data.length;
-            }
+            const parsed = parseJsonData(section.json_data);
+            if (Array.isArray(parsed)) listCount = parsed.length;
 
             return (
-              <button 
-                key={section.section_id} 
+              <button
+                key={section.section_id}
                 className="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-4"
                 onClick={() => handleEdit(section)}
               >
                 <div className="d-flex align-items-center">
                   {section.image_url ? (
-                    <img src={section.image_url} alt="thumb" className="rounded shadow-sm me-3" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
+                    <div className="me-3" onClick={(e) => e.stopPropagation()}>
+                      <ImagePreview src={section.image_url} alt="thumb" width={60} height={60} showViewButton={false} />
+                    </div>
                   ) : (
-                    <div className="bg-light rounded shadow-sm me-3 d-flex align-items-center justify-content-center" style={{width: '60px', height: '60px'}}>
+                    <div className="bg-light rounded shadow-sm me-3 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px' }}>
                       <i className="fal fa-image text-muted"></i>
                     </div>
                   )}
@@ -199,7 +250,6 @@ export default function PageManager({ page }) {
         </div>
       </div>
 
-      {/* Bootstrap Modal */}
       {showModal && (
         <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)', overflowY: 'auto' }}>
           <div className="modal-dialog modal-lg modal-dialog-centered">
@@ -208,18 +258,11 @@ export default function PageManager({ page }) {
                 <h5 className="modal-title fw-bold">Edit {formData.section_id?.toUpperCase()}</h5>
                 <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
               </div>
-              
+
               <div className="modal-body">
                 <form onSubmit={handleSubmit}>
-                  {/* Configuration Logic */}
                   {(() => {
                     const sectionId = formData.section_id;
-                      const config = {
-                        hasTitle: false,
-                        hasSubtitle: false,
-                        hasDesc: ['about', 'faculty', 'extracurricular', 'academics'].includes(sectionId),
-                        hasImage: ['about', 'faculty', 'extracurricular'].includes(sectionId)
-                      };
                     const getListLabels = () => {
                       switch (sectionId) {
                         case 'academics': return { title: 'Card Title', sub: 'Category', desc: 'Description', link: 'Link URL', img: 'Icon / Image' };
@@ -231,73 +274,152 @@ export default function PageManager({ page }) {
                       }
                     };
                     const labels = getListLabels();
+                    const supportsCards = ['academics', 'facilities', 'achievements', 'future', 'hero'].includes(sectionId);
+                    const aboutMeta = formData.json_data && !Array.isArray(formData.json_data) ? formData.json_data : {};
 
                     return (
                       <>
-                        {/* Premium Main Fields */}
                         <div className="bg-light p-4 rounded mb-4 border border-light shadow-sm">
                           <h6 className="fw-bold mb-3 text-primary"><i className="fal fa-edit me-2"></i>Main Content</h6>
                           <div className="row g-3">
-                            {config.hasDesc && (
-                              <div className="col-12">
-                                <div className="form-floating">
-                                  <textarea name="description" className="form-control bg-white" id="descInput" placeholder="Description" style={{ height: '120px' }} value={formData.description || ''} onChange={handleChange}></textarea>
-                                  <label htmlFor="descInput">Section Description</label>
-                                </div>
+                            <div className="col-md-6">
+                              <div className="form-floating">
+                                <input type="text" name="title" className="form-control bg-white" id="titleInput" placeholder="Title" value={formData.title || ''} onChange={handleChange} />
+                                <label htmlFor="titleInput">Title</label>
                               </div>
-                            )}
-                            {config.hasImage && (
-                              <div className="col-12">
-                                <label className="form-label small fw-bold text-muted mb-2">Background / Main Image</label>
-                                <div className="d-flex align-items-center gap-3 bg-white p-3 rounded border">
-                                  {formData.image_url ? (
-                                    <img src={formData.image_url} alt="preview" className="rounded shadow-sm" style={{ width: '80px', height: '80px', objectFit: 'cover' }} />
-                                  ) : (
-                                    <div className="bg-light rounded d-flex align-items-center justify-content-center border" style={{ width: '80px', height: '80px' }}>
-                                        <i className="fal fa-image text-muted fs-4"></i>
-                                    </div>
-                                  )}
-                                  <div className="flex-grow-1">
-                                    <input type="file" className="form-control" onChange={handleImageUpload} ref={fileInputRef} accept="image/*" />
-                                    {formData.image_url && <button type="button" className="btn btn-link btn-sm text-danger mt-1 p-0 text-decoration-none" onClick={() => setFormData({...formData, image_url: ''})}><i className="far fa-times me-1"></i>Remove Image</button>}
+                            </div>
+                            <div className="col-md-6">
+                              <div className="form-floating">
+                                <input type="text" name="subtitle" className="form-control bg-white" id="subtitleInput" placeholder="Subtitle" value={formData.subtitle || ''} onChange={handleChange} />
+                                <label htmlFor="subtitleInput">Subtitle</label>
+                              </div>
+                            </div>
+                            <div className="col-12">
+                              <div className="form-floating">
+                                <textarea name="description" className="form-control bg-white" id="descInput" placeholder="Description" style={{ height: '120px' }} value={formData.description || ''} onChange={handleChange}></textarea>
+                                <label htmlFor="descInput">Section Description</label>
+                              </div>
+                            </div>
+                            <div className="col-12">
+                              <label className="form-label small fw-bold text-muted mb-2">Background / Main Image</label>
+                              <div className="d-flex align-items-center gap-3 bg-white p-3 rounded border">
+                                {formData.image_url ? (
+                                  <ImagePreview src={formData.image_url} alt="preview" width={80} height={80} />
+                                ) : (
+                                  <div className="bg-light rounded d-flex align-items-center justify-content-center border" style={{ width: '80px', height: '80px' }}>
+                                    <i className="fal fa-image text-muted fs-4"></i>
                                   </div>
+                                )}
+                                <div className="flex-grow-1">
+                                  <input type="file" className="form-control" onChange={handleImageUpload} ref={fileInputRef} accept="image/*" />
+                                  {formData.image_url && (
+                                    <button type="button" className="btn btn-link btn-sm text-danger mt-1 p-0 text-decoration-none" onClick={() => setFormData({ ...formData, image_url: '' })}>
+                                      <i className="far fa-times me-1"></i>Remove Image
+                                    </button>
+                                  )}
                                 </div>
                               </div>
-                            )}
+                            </div>
                           </div>
                         </div>
 
-                        {/* Dynamic Array Editor - ONLY for sections that support cards */}
-                        {['academics', 'facilities', 'achievements', 'future', 'hero'].includes(formData.section_id) && (
+                        {sectionId === 'faculty' && (
+                          <div className="bg-light p-4 rounded mb-4 border shadow-sm">
+                            <h6 className="fw-bold mb-3 text-primary">Secondary Faculty Image</h6>
+                            <p className="small text-muted">Shown beside the main faculty image on the home page.</p>
+                            <div className="d-flex align-items-center gap-3">
+                              {(Array.isArray(formData.json_data) && formData.json_data[0]?.image_url) ? (
+                                <ImagePreview src={formData.json_data[0].image_url} alt="Secondary" width={80} height={80} imgClassName="rounded" />
+                              ) : null}
+                              <input
+                                type="file"
+                                className="form-control"
+                                accept="image/*"
+                                onChange={async (e) => {
+                                  const file = e.target.files?.[0];
+                                  if (!file) return;
+                                  const uploadData = new FormData();
+                                  uploadData.append('file', file);
+                                  const res = await fetch('/api/upload', { method: 'POST', body: uploadData });
+                                  const data = await res.json();
+                                  if (data.success) {
+                                    setFormData({
+                                      ...formData,
+                                      json_data: [{ ...(Array.isArray(formData.json_data) ? formData.json_data[0] : {}), image_url: data.imageUrl }],
+                                    });
+                                  }
+                                }}
+                              />
+                            </div>
+                          </div>
+                        )}
+
+                        {sectionId === 'about' && (
+                          <div className="bg-light p-4 rounded mb-4 border shadow-sm">
+                            <h6 className="fw-bold mb-3 text-primary">Administration / Author Block</h6>
+                            <div className="row g-3">
+                              <div className="col-md-6">
+                                <label className="form-label fw-bold">Author Name</label>
+                                <input type="text" className="form-control" value={aboutMeta.author_name || ''} onChange={(e) => handleAboutMetaChange('author_name', e.target.value)} />
+                              </div>
+                              <div className="col-md-6">
+                                <label className="form-label fw-bold">Author Role</label>
+                                <input type="text" className="form-control" value={aboutMeta.author_sub || ''} onChange={(e) => handleAboutMetaChange('author_sub', e.target.value)} />
+                              </div>
+                              <div className="col-12">
+                                <label className="form-label fw-bold">Author Photo</label>
+                                <div className="d-flex align-items-center gap-3">
+                                  {aboutMeta.avatar_img ? (
+                                    <ImagePreview src={aboutMeta.avatar_img} alt="Author" width={60} height={60} imgClassName="rounded" />
+                                  ) : null}
+                                  <input type="file" className="form-control" accept="image/*" onChange={handleAboutAvatarUpload} />
+                                </div>
+                              </div>
+                              {(aboutMeta.bullets || []).map((bullet, idx) => (
+                                <div className="col-12" key={idx}>
+                                  <label className="form-label fw-bold">Highlight #{idx + 1}</label>
+                                  <input type="text" className="form-control" value={bullet || ''} onChange={(e) => handleAboutBulletChange(idx, e.target.value)} />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {supportsCards && (
                           <>
-                            <div className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3 mt-5">
+                            <div className="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3 mt-4">
                               <h6 className="fw-bold mb-0">List Items (Cards / Sliders)</h6>
-                              {(!formData.json_data || formData.json_data.length < (formData.section_id === 'hero' ? 10 : 99)) && (
-                                <button type="button" className="btn btn-sm btn-outline-success" onClick={() => {
+                              {(!formData.json_data || formData.json_data.length < (sectionId === 'hero' ? 10 : 99)) && (
+                                <button
+                                  type="button"
+                                  className="btn btn-sm btn-outline-success"
+                                  onClick={() => {
                                     handleAddJsonItem();
-                                    setActiveListIndex(formData.json_data ? formData.json_data.length : 0);
-                                }}>
+                                    setActiveListIndex(Array.isArray(formData.json_data) ? formData.json_data.length : 0);
+                                  }}
+                                >
                                   <i className="far fa-plus me-1"></i> Add Card
                                 </button>
                               )}
                             </div>
-                            
-                            {formData.json_data && formData.json_data.length > 0 && (
+
+                            {Array.isArray(formData.json_data) && formData.json_data.length > 0 && (
                               <div className="mb-4">
-                                {/* Horizontal List of Cards */}
                                 <div className="d-flex gap-2 overflow-auto pb-2 mb-3 px-1" style={{ whiteSpace: 'nowrap' }}>
                                   {formData.json_data.map((item, index) => (
-                                    <div 
+                                    <div
                                       key={index}
-                                      className={`card shadow-sm cursor-pointer flex-shrink-0 ${activeListIndex === index ? 'border-primary' : 'border-light'}`}
+                                      className={`card shadow-sm flex-shrink-0 ${activeListIndex === index ? 'border-primary' : 'border-light'}`}
                                       style={{ width: '150px', cursor: 'pointer', transition: '0.2s', opacity: activeListIndex === index ? 1 : 0.6 }}
                                       onClick={() => setActiveListIndex(index)}
                                     >
-                                      <div className="card-body p-2 text-center position-relative">
+                                      <div className="card-body p-2 text-center">
                                         {item.image_url ? (
-                                          <img src={item.image_url} alt="thumb" className="rounded mb-2" style={{width: '100%', height: '60px', objectFit: 'cover'}} />
+                                          <div className="mb-2" onClick={(e) => e.stopPropagation()}>
+                                            <ImagePreview src={item.image_url} alt="thumb" width="100%" height={60} imgClassName="rounded" showViewButton={false} />
+                                          </div>
                                         ) : (
-                                          <div className="bg-light rounded mb-2 d-flex align-items-center justify-content-center" style={{width: '100%', height: '60px'}}>
+                                          <div className="bg-light rounded mb-2 d-flex align-items-center justify-content-center" style={{ width: '100%', height: '60px' }}>
                                             <i className="fal fa-image text-muted"></i>
                                           </div>
                                         )}
@@ -307,13 +429,12 @@ export default function PageManager({ page }) {
                                   ))}
                                 </div>
 
-                                {/* Active Card Form */}
                                 {formData.json_data[activeListIndex] && (
                                   <div className="card shadow-sm border-primary">
                                     <div className="card-body bg-light rounded position-relative">
-                                      {(formData.section_id !== 'hero' || formData.json_data.length > 3) && (
-                                        <button 
-                                          type="button" 
+                                      {(sectionId !== 'hero' || formData.json_data.length > 1) && (
+                                        <button
+                                          type="button"
                                           className="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
                                           onClick={() => {
                                             handleRemoveJsonItem(activeListIndex);
@@ -324,7 +445,7 @@ export default function PageManager({ page }) {
                                         </button>
                                       )}
                                       <h6 className="fw-bold mb-3" style={{ color: 'var(--primary-color-1)' }}>Editing Item #{activeListIndex + 1}</h6>
-                                      
+
                                       <div className="row g-3">
                                         <div className="col-md-6">
                                           <div className="form-floating">
@@ -354,15 +475,19 @@ export default function PageManager({ page }) {
                                           <label className="form-label small fw-bold text-muted mb-2">{labels.img}</label>
                                           <div className="d-flex align-items-center gap-3 bg-white p-3 rounded border">
                                             {formData.json_data[activeListIndex].image_url ? (
-                                              <img src={formData.json_data[activeListIndex].image_url} alt="preview" className="rounded shadow-sm" style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
+                                              <ImagePreview src={formData.json_data[activeListIndex].image_url} alt="preview" width={60} height={60} />
                                             ) : (
                                               <div className="bg-light rounded d-flex align-items-center justify-content-center border" style={{ width: '60px', height: '60px' }}>
-                                                  <i className="fal fa-image text-muted fs-5"></i>
+                                                <i className="fal fa-image text-muted fs-5"></i>
                                               </div>
                                             )}
                                             <div className="flex-grow-1">
                                               <input type="file" className="form-control" onChange={(e) => handleJsonImageUpload(e, activeListIndex)} accept="image/*" />
-                                              {formData.json_data[activeListIndex].image_url && <button type="button" className="btn btn-link btn-sm text-danger mt-1 p-0 text-decoration-none" onClick={() => handleJsonChange(activeListIndex, 'image_url', '')}><i className="far fa-times me-1"></i>Remove</button>}
+                                              {formData.json_data[activeListIndex].image_url && (
+                                                <button type="button" className="btn btn-link btn-sm text-danger mt-1 p-0 text-decoration-none" onClick={() => handleJsonChange(activeListIndex, 'image_url', '')}>
+                                                  <i className="far fa-times me-1"></i>Remove
+                                                </button>
+                                              )}
                                             </div>
                                           </div>
                                         </div>

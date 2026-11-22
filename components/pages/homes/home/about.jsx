@@ -6,18 +6,37 @@ import image1 from "../../../../public/assets/img/about/about-1.jpg";
 import Count from "../../common/count";
 import Link from "next/link";
 
+function getAboutMeta(data) {
+    let meta = data?.json_data;
+    if (typeof meta === 'string') {
+        try { meta = JSON.parse(meta); } catch (e) { meta = null; }
+    }
+    if (Array.isArray(meta)) meta = meta[0] || {};
+    if (!meta || typeof meta !== 'object') meta = {};
+    return meta;
+}
+
 const About = ({ data }) => {
+    const meta = getAboutMeta(data);
+    const bullets = Array.isArray(meta.bullets) && meta.bullets.length > 0
+        ? meta.bullets
+        : [
+            'Holistic student-centered learning.',
+            'Character & moral development.',
+            'Extracurricular & STEM enrichment.',
+        ];
+
     const aboutData = {
         count: 100,
         exp: '% Dedicated Focus on Excellence',
         subtitle: data?.subtitle || 'School Profile',
         title: data?.title || 'Grace Garden School',
         description: data?.description || 'Grace Garden School is a forward-thinking educational institution dedicated to fostering a learning environment where students are encouraged to explore their full potential. Established in 2023 in Sector C-2, Block 5, Green Town, Lahore, the school has quickly become a hub for academic excellence, character development, and extracurricular enrichment.',
-        author_name: 'School Administration',
-        author_sub: 'CEO & Principal Office',
+        author_name: meta.author_name || 'School Administration',
+        author_sub: meta.author_sub || 'CEO & Principal Office',
         btn_title: 'Contact Us',
         btn_link: '/contact',
-        avatar_img: '/assets/img/team/ceo-administrator.jpg'
+        avatar_img: meta.avatar_img || '/assets/img/team/ceo-administrator.jpg'
     }
     return (
         <div className="about__one dark__image section-padding">
@@ -57,9 +76,9 @@ const About = ({ data }) => {
                             </div>
                             <div className="about__one-right-bottom">
                                 <div className="about__one-right-bottom-list">
-                                    <span><i className="far fa-check"></i>Holistic student-centered learning.</span>
-                                    <span><i className="far fa-check"></i>Character & moral development.</span>
-                                    <span><i className="far fa-check"></i>Extracurricular & STEM enrichment.</span>
+                                    {bullets.map((bullet, idx) => (
+                                        <span key={idx}><i className="far fa-check"></i>{bullet}</span>
+                                    ))}
                                 </div>
                                 <div className="about__one-right-bottom-experience">
                                     <h3><span className="counter">Est.</span></h3>

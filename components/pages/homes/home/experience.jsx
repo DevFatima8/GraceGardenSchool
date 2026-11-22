@@ -7,8 +7,8 @@ const Experience = ({ data }) => {
         subtitle: data?.subtitle || 'Faculty and Staff',
         title: data?.title || 'Dedicated to Academic Excellence & Mentorship',
         des: data?.description || 'The quality of our teaching staff directly impacts the learning experience. Our faculty is dedicated to fostering academic excellence, continuous professional development, and student-centered growth.',
-        btn_text: 'Meet Our Faculty',
-        btn_link: '/faculty',
+        btn_text: 'Join Our Team',
+        btn_link: '/careers',
         progress1: '98',
         progress2: '100',
     }
@@ -24,7 +24,11 @@ const Experience = ({ data }) => {
                                     <img className="rounded-4 shadow" src={data?.image_url || image1.src} alt="Faculty and Learning" />
                                 </div>
                                 <div className="experience__area-image-item mt-65">
-                                    <img className="rounded-4 shadow" src="/assets/img/team/ceo-administrator.jpg" alt="School Leadership" />
+                                    <img
+                                      className="rounded-4 shadow"
+                                      src={data?.secondary_image_url || data?.json_data?.[0]?.image_url || "/assets/img/team/ceo-administrator.jpg"}
+                                      alt="School Leadership"
+                                    />
                                 </div>
                             </div>
                         </div>

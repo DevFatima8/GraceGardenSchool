@@ -103,11 +103,13 @@ const HomeOne = () => {
                             }
                             contentMap[item.section_id] = {
                                 ...current,
-                                title: current.title, // Hardcoded, not editable by admin
-                                subtitle: current.subtitle, // Hardcoded, not editable by admin
+                                title: item.title || current.title,
+                                subtitle: item.subtitle || current.subtitle,
                                 description: item.description || current.description,
                                 image_url: item.image_url || current.image_url,
-                                json_data: parsedJson && parsedJson.length > 0 ? parsedJson : current.json_data
+                                json_data: parsedJson != null
+                                  ? parsedJson
+                                  : current.json_data
                             };
                         }
                     });

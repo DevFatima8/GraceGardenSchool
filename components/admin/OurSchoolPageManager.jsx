@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import ImagePreview from '@/components/admin/ImagePreview';
 
 const PAGES = [
   { slug: 'curriculum', name: 'Curriculum' },
@@ -259,7 +260,7 @@ export default function OurSchoolPageManager() {
                     <label className="form-label fw-bold d-block">Main Image</label>
                     <div className="d-flex align-items-center gap-3">
                       {formData.image_url && (
-                        <img src={formData.image_url} alt="Preview" className="rounded shadow-sm" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                        <ImagePreview src={formData.image_url} alt="Preview" width={100} height={100} />
                       )}
                       <div className="flex-grow-1">
                         <input type="text" className="form-control mb-2" placeholder="Image URL" name="image_url" value={formData.image_url} onChange={handleChange} />
@@ -328,7 +329,7 @@ export default function OurSchoolPageManager() {
                                   <label className="form-label small fw-bold d-block">Image / Icon</label>
                                   <div className="d-flex align-items-center gap-2">
                                     {formData.json_data[activeListIndex].image_url && (
-                                      <img src={formData.json_data[activeListIndex].image_url} alt="Img" className="rounded shadow-sm" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
+                                      <ImagePreview src={formData.json_data[activeListIndex].image_url} alt="Img" width={40} height={40} />
                                     )}
                                     <input type="text" className="form-control form-control-sm" placeholder="URL" value={formData.json_data[activeListIndex].image_url || ''} onChange={(e) => handleListChange(activeListIndex, 'image_url', e.target.value)} />
                                     <input type="file" className="form-control form-control-sm w-auto" accept="image/*" ref={fileInputListRef} onChange={(e) => handleImageUpload(e, true, activeListIndex)} />

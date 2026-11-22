@@ -8,7 +8,7 @@ export async function GET(request) {
     const [rows] = await pool.query('SELECT * FROM home_content');
     return NextResponse.json(
       { success: true, data: rows },
-      { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } }
+        { headers: { 'Cache-Control': 'no-store' } }
     );
   } catch (error) {
     console.error('Error fetching home content:', error);

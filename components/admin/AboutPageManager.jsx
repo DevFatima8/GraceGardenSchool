@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import ImagePreview from '@/components/admin/ImagePreview';
 
 export default function AboutPageManager() {
   const [content, setContent] = useState([]);
@@ -17,7 +18,7 @@ export default function AboutPageManager() {
   const sectionConfig = {
     hero: { title: 'Page Banner Image', hasDesc: false, hasImage: true, hasList: false },
     history: { title: 'Our History', hasDesc: true, hasImage: true, hasList: false },
-    motto: { title: 'School Motto', hasDesc: true, hasImage: true, hasList: false },
+    motto: { title: 'School Motto / Mission', hasDesc: true, hasImage: true, hasList: false },
     vision: { title: 'Vision Statement', hasDesc: true, hasImage: true, hasList: false },
     board: { title: 'Board Of Governors', hasDesc: true, hasImage: false, hasList: true, listLabels: { title: 'Member Name', sub: 'Position', desc: 'Bio', link: 'LinkedIn URL', img: 'Photo' } },
     values: { title: 'Core Values', hasDesc: true, hasImage: true, hasList: true, listLabels: { title: 'Value Title', sub: 'Subtitle', desc: 'Description', link: 'Read More', img: 'Icon/Image' } },
@@ -181,7 +182,9 @@ export default function AboutPageManager() {
               >
                 <div className="d-flex align-items-center">
                   {existingContent?.image_url ? (
-                    <img src={existingContent.image_url} alt="thumb" className="rounded shadow-sm me-3" style={{width: '60px', height: '60px', objectFit: 'cover'}} />
+                    <div className="me-3" onClick={(e) => e.stopPropagation()}>
+                      <ImagePreview src={existingContent.image_url} alt="thumb" width={60} height={60} showViewButton={false} />
+                    </div>
                   ) : (
                     <div className="bg-light rounded shadow-sm me-3 d-flex align-items-center justify-content-center" style={{width: '60px', height: '60px'}}>
                       <i className="fal fa-image text-muted"></i>
@@ -238,6 +241,11 @@ export default function AboutPageManager() {
                                 <input type="text" name="title" className="form-control" placeholder="Section Heading" value={formData.title || ''} onChange={handleChange} />
                             </div>
 
+                            <div>
+                                <label className="tw-block tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-1">Subtitle / Mission Line</label>
+                                <input type="text" name="subtitle" className="form-control" placeholder="Section Subtitle" value={formData.subtitle || ''} onChange={handleChange} />
+                            </div>
+
                             {config.hasDesc && (
                               <div>
                                 <label className="tw-block tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-1">Section Description</label>
@@ -250,7 +258,7 @@ export default function AboutPageManager() {
                                 <label className="tw-block tw-text-sm tw-font-medium tw-text-gray-700 tw-mb-1">Background / Main Image</label>
                                 <div className="tw-flex tw-items-center tw-gap-4 tw-bg-white tw-p-3 tw-rounded-lg tw-border">
                                   {formData.image_url ? (
-                                    <img src={formData.image_url} alt="preview" className="tw-w-20 tw-h-20 tw-object-cover tw-rounded-lg tw-shadow-sm" />
+                                    <ImagePreview src={formData.image_url} alt="preview" width={80} height={80} imgClassName="tw-rounded-lg tw-shadow-sm" />
                                   ) : (
                                     <div className="tw-w-20 tw-h-20 tw-bg-gray-100 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-border">
                                         <i className="fal fa-image tw-text-gray-400 tw-text-2xl"></i>
@@ -294,7 +302,9 @@ export default function AboutPageManager() {
                                     >
                                       <div className="tw-p-2 tw-text-center">
                                         {item.image_url ? (
-                                          <img src={item.image_url} alt="thumb" className="tw-w-full tw-h-16 tw-object-cover tw-rounded-md tw-mb-2" />
+                                          <div className="tw-mb-2" onClick={(e) => e.stopPropagation()}>
+                                            <ImagePreview src={item.image_url} alt="thumb" width="100%" height={64} imgClassName="tw-rounded-md" showViewButton={false} />
+                                          </div>
                                         ) : (
                                           <div className="tw-w-full tw-h-16 tw-bg-gray-100 tw-rounded-md tw-flex tw-items-center tw-justify-center tw-mb-2">
                                             <i className="fal fa-image tw-text-gray-400"></i>
@@ -343,7 +353,7 @@ export default function AboutPageManager() {
                                           <label className="tw-block tw-text-xs tw-font-medium tw-text-gray-600 tw-mb-1">{labels.img}</label>
                                           <div className="tw-flex tw-items-center tw-gap-3 tw-bg-white tw-p-3 tw-rounded-lg tw-border">
                                             {formData.json_data[activeListIndex].image_url ? (
-                                              <img src={formData.json_data[activeListIndex].image_url} alt="preview" className="tw-w-16 tw-h-16 tw-object-cover tw-rounded-md tw-shadow-sm" />
+                                              <ImagePreview src={formData.json_data[activeListIndex].image_url} alt="preview" width={64} height={64} imgClassName="tw-rounded-md tw-shadow-sm" />
                                             ) : (
                                               <div className="tw-w-16 tw-h-16 tw-bg-gray-100 tw-rounded-md tw-flex tw-items-center tw-justify-center tw-border">
                                                   <i className="fal fa-image tw-text-gray-400 tw-text-xl"></i>

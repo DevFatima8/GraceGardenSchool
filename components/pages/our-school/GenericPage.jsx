@@ -183,13 +183,16 @@ export default function GenericPage({ pageSlug, pageTitle, defaultContent }) {
           if (data && data.success && data.data && data.data.length > 0) {
             const dbContent = {};
             data.data.forEach(item => {
-              dbContent[item.section_id] = item;
+              let json_data = item.json_data;
+              if (typeof json_data === 'string') {
+                try { json_data = JSON.parse(json_data); } catch (e) { json_data = []; }
+              }
+              dbContent[item.section_id] = { ...item, json_data };
             });
-            // Merge DB content with fallback
             const mergedContent = { ...defaultContent };
-            Object.keys(defaultContent).forEach(key => {
+            Object.keys({ ...defaultContent, ...dbContent }).forEach(key => {
               if (dbContent[key]) {
-                mergedContent[key] = dbContent[key];
+                mergedContent[key] = { ...(defaultContent[key] || {}), ...dbContent[key] };
               }
             });
             setContent(mergedContent);

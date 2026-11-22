@@ -107,8 +107,8 @@ export default function AdminLayout({ children }) {
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <Link href="/ad/m/in/pages/team" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/team') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/team') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
-                <i className="far fa-users me-2"></i> Teachers / Team
+              <Link href="/ad/m/in/pages/gallery" className={`nav-link text-start w-100 py-2 ${isActive('/ad/m/in/pages/gallery') ? 'text-white fw-bold' : 'text-white-50'}`} style={isActive('/ad/m/in/pages/gallery') ? { backgroundColor: 'var(--primary-color-1)' } : {}}>
+                <i className="far fa-images me-2"></i> Gallery
               </Link>
             </li>
 

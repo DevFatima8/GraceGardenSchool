@@ -40,8 +40,6 @@ const ResponsiveMenu = ({ onClose }) => {
                     <a className={getExpandClass("about")} onClick={() => toggleMenu("about")}></a>
                 </li>
 
-                <li><Link href='/faculty'>Faculty</Link></li>
-
                 <li className='menu-item-has-children'>
                     <Link href='#'>Our School</Link>
                     <ul className='sub-menu' style={getSubMenuStyle("our-school")}>

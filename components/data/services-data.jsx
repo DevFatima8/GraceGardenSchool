@@ -1,26 +1,24 @@
 import image1 from "../../public/assets/img/service/service-1.jpg";
 import image2 from "../../public/assets/img/service/service-2.jpg";
 import image3 from "../../public/assets/img/service/service-3.jpg";
-import image4 from "../../public/assets/img/service/service-4.jpg";
-import image5 from "../../public/assets/img/service/service-5.jpg";
 import image6 from "../../public/assets/img/service/service-6.jpg";
 
 const servicesData = [
-    {
-        id: 'primary-education',
-        icon: <i className="flaticon-creative"></i>,
-        title: 'Primary Education (K-6)',
-        description: 'Building strong foundations in literacy, numeracy, and critical thinking with Mathematics, English, Science, and Social Studies.',
-        number: '1',
-        image: image1,
-    },
     {
         id: 'pre-school',
         icon: <i className="flaticon-resource"></i>,
         title: 'Pre-School Wing',
         description: 'Montessori-inspired early learning, phonics, sensory development, and social skills in a caring, vibrant atmosphere.',
-        number: '2',
+        number: '1',
         image: image2,
+    },
+    {
+        id: 'primary-education',
+        icon: <i className="flaticon-creative"></i>,
+        title: 'Primary Education (K-6)',
+        description: 'Building strong foundations in literacy, numeracy, and critical thinking with Mathematics, English, Science, and Social Studies.',
+        number: '2',
+        image: image1,
     },
     {
         id: 'middle-school',
